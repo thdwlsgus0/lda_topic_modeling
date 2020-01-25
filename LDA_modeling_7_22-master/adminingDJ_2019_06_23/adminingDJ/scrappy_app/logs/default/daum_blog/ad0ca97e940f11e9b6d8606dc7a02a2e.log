@@ -1,0 +1,375 @@
+2019-06-21 19:31:22 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: scrappy_app)
+2019-06-21 19:31:22 [scrapy.utils.log] INFO: Versions: lxml 4.2.5.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 18.9.0, Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Windows-10-10.0.17134-SP0
+2019-06-21 19:31:22 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrappy_app', 'LOG_FILE': 'logs\\default\\daum_blog\\ad0ca97e940f11e9b6d8606dc7a02a2e.log', 'NEWSPIDER_MODULE': 'scrappy_app.spiders', 'SPIDER_MODULES': ['scrappy_app.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0'}
+2019-06-21 19:31:22 [scrapy.extensions.telnet] INFO: Telnet Password: ce996c7b7dc1a239
+2019-06-21 19:31:22 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-06-21 19:31:22 [djongo.sql2mongo.query] DEBUG: params: ('78a746c2-0f7a-4f55-90aa-fd321d85fd0b',)
+2019-06-21 19:31:22 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:31:22 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '78a746c2-0f7a-4f55-90aa-fd321d85fd0b'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:31:22 [djongo.sql2mongo.query] DEBUG: params: ('78a746c2-0f7a-4f55-90aa-fd321d85fd0b', 'acf9564c940f11e9a030606dc7a02a2e ad027746940f11e9b412606dc7a02a2e ad0ca97e940f11e9b6d8606dc7a02a2e', '파프리카,paprika', '뉴시스,SBS 뉴스,MBN,한국경제TV,MBC 뉴스,others', '연합뉴스,아시아경제,매일경제,머니투데이,레이디경향,others', 'daum,naver', 'twitter', datetime.datetime(2019, 6, 20, 15, 0), datetime.datetime(2019, 6, 20, 15, 0), '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0', 'finished', datetime.datetime(2019, 6, 21, 10, 31, 4, 874000), 364)
+2019-06-21 19:31:22 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: UPDATE "iCrawler_mycollection" SET "unique_id" = %(0)s, "jobids" = %(1)s, "search_keyword" = %(2)s, "channel_broadcast" = %(3)s, "channel_published" = %(4)s, "channel_blog" = %(5)s, "channel_sns" = %(6)s, "start_date" = %(7)s, "end_date" = %(8)s, "user_ip" = %(9)s, "user_agent" = %(10)s, "status" = %(11)s, "created_date" = %(12)s WHERE "iCrawler_mycollection"."id" = %(13)s
+2019-06-21 19:31:22 [djongo.sql2mongo.query] DEBUG: update_many: 1, matched: 1
+2019-06-21 19:31:22 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-06-21 19:31:22 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-06-21 19:31:22 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrappy_app.pipelines.DaumBlogPipeline']
+2019-06-21 19:31:22 [scrapy.core.engine] INFO: Spider opened
+2019-06-21 19:31:22 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-06-21 19:31:22 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-06-21 19:31:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://search.daum.net/search?q=paprika&w=blog&f=section&SA=daumsec&DA=PGD&lpp=10&nil_search=btn&sd=20190621000000&ed=20190621235959&period=u&enc=utf8&page=1> (referer: None)
+2019-06-21 19:31:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://search.daum.net/search?q=%ED%8C%8C%ED%94%84%EB%A6%AC%EC%B9%B4&w=blog&f=section&SA=daumsec&DA=PGD&lpp=10&nil_search=btn&sd=20190621000000&ed=20190621235959&period=u&enc=utf8&page=1> (referer: None)
+2019-06-21 19:31:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://m.blog.daum.net/star1248/4629> (referer: http://search.daum.net/search?q=%ED%8C%8C%ED%94%84%EB%A6%AC%EC%B9%B4&w=blog&f=section&SA=daumsec&DA=PGD&lpp=10&nil_search=btn&sd=20190621000000&ed=20190621235959&period=u&enc=utf8&page=1)
+2019-06-21 19:31:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://m.blog.daum.net/ssyi6611/917> (referer: http://search.daum.net/search?q=%ED%8C%8C%ED%94%84%EB%A6%AC%EC%B9%B4&w=blog&f=section&SA=daumsec&DA=PGD&lpp=10&nil_search=btn&sd=20190621000000&ed=20190621235959&period=u&enc=utf8&page=1)
+2019-06-21 19:31:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://m.blog.daum.net/goldenmedal/4456> (referer: http://search.daum.net/search?q=%ED%8C%8C%ED%94%84%EB%A6%AC%EC%B9%B4&w=blog&f=section&SA=daumsec&DA=PGD&lpp=10&nil_search=btn&sd=20190621000000&ed=20190621235959&period=u&enc=utf8&page=1)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: ('78a746c2-0f7a-4f55-90aa-fd321d85fd0b',)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '78a746c2-0f7a-4f55-90aa-fd321d85fd0b'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: ('http://m.blog.daum.net/star1248/4629',)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_daumblog"."id", "iCrawler_daumblog"."unique_id", "iCrawler_daumblog"."search_keyword", "iCrawler_daumblog"."origin_keyword", "iCrawler_daumblog"."item_type", "iCrawler_daumblog"."category", "iCrawler_daumblog"."sub_category", "iCrawler_daumblog"."url", "iCrawler_daumblog"."title", "iCrawler_daumblog"."date", "iCrawler_daumblog"."content", "iCrawler_daumblog"."no_likes", "iCrawler_daumblog"."no_images", "iCrawler_daumblog"."no_comments", "iCrawler_daumblog"."created_date" FROM "iCrawler_daumblog" WHERE "iCrawler_daumblog"."url" = %(0)s
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://m.blog.daum.net/star1248/4629'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'title', 'date', 'content', 'no_likes', 'no_images', 'no_comments', 'created_date']}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [None, '파프리카', '파프리카', 'blog', 'blog', 'daum', 'http://m.blog.daum.net/star1248/4629', '6월 21일 식단', '2019-06-21 14:37:00', '잡곡밥, 청국장국, 돼지고기볶음, 파프리카무침, 백김치 \n\t\t\t                                                                    \n            \n             \n                \n                                                             \n                             댓글쓰기 \n                         \n                                                 \n\n\n                                         \n            \n             \n                                     \n                         파프리카  에 관한 추천글', 0, 1, 0, datetime.datetime(2019, 6, 21, 10, 31, 23, 69342)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_daumblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880f6')]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [364, None, None, None, 104, datetime.datetime(2019, 6, 21, 10, 31, 23, 85297)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880f7')]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [364, None, None, None, 104, datetime.datetime(2019, 6, 21, 10, 31, 23, 92279)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880f8')]
+2019-06-21 19:31:23 [scrapy.core.scraper] DEBUG: Scraped from <200 http://m.blog.daum.net/star1248/4629>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'daum',
+ 'content': '잡곡밥, 청국장국, 돼지고기볶음, 파프리카무침, 백김치 \n'
+            '\t\t\t                                                                    \n'
+            '            \n'
+            '             \n'
+            '                \n'
+            '                                                             \n'
+            '                             댓글쓰기 \n'
+            '                         \n'
+            '                                                 \n'
+            '\n'
+            '\n'
+            '                                         \n'
+            '            \n'
+            '             \n'
+            '                                     \n'
+            '                         파프리카  에 관한 추천글',
+ 'date': datetime.datetime(2019, 6, 21, 14, 37),
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 1,
+ 'noLikes': 0,
+ 'originKeyword': '파프리카',
+ 'searchKeyword': '파프리카',
+ 'subCategory': 'daum',
+ 'title': '6월 21일 식단',
+ 'url': 'http://m.blog.daum.net/star1248/4629'}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: ('78a746c2-0f7a-4f55-90aa-fd321d85fd0b',)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '78a746c2-0f7a-4f55-90aa-fd321d85fd0b'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: ('http://m.blog.daum.net/ssyi6611/917',)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_daumblog"."id", "iCrawler_daumblog"."unique_id", "iCrawler_daumblog"."search_keyword", "iCrawler_daumblog"."origin_keyword", "iCrawler_daumblog"."item_type", "iCrawler_daumblog"."category", "iCrawler_daumblog"."sub_category", "iCrawler_daumblog"."url", "iCrawler_daumblog"."title", "iCrawler_daumblog"."date", "iCrawler_daumblog"."content", "iCrawler_daumblog"."no_likes", "iCrawler_daumblog"."no_images", "iCrawler_daumblog"."no_comments", "iCrawler_daumblog"."created_date" FROM "iCrawler_daumblog" WHERE "iCrawler_daumblog"."url" = %(0)s
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://m.blog.daum.net/ssyi6611/917'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'title', 'date', 'content', 'no_likes', 'no_images', 'no_comments', 'created_date']}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [None, '파프리카', '파프리카', 'blog', 'blog', 'daum', 'http://m.blog.daum.net/ssyi6611/917', '매운 고추를 먹으면 (매운 고추의 효능)', '2019-06-21 07:16:00', '매운 고추를 먹으면 (매운 고추의 효능) \xa0 매운 고추를 먹으면 영웅호걸의 기상이  생긴다 정신과 몸을 일깨우는 훌륭한 자극제,  고추 한여름 동안 햇볕을 받아 빨갛게 익은 고추에는 \xa0태양의 양기가 가득 쌓여 있다. \xa0고추는 양기의 상징이며 결정체다.\xa0 \xa0양기는 음기를 내쫓는다.  고추를 먹으면 피가 뜨거워지고 \xa0백절불굴의 용기와 정열이 솟구친다. \xa0고추를 잘 먹으면 열혈남아의 기질이 생긴다. \xa0고추의  매운맛은 온갖 나쁜 기운과 귀기, 음기를 내쫓는다. 고추의 매운맛은 정신과 몸을 일깨우는 \xa0가장 훌륭한 자극제이다.  고추의 매운맛은  위와 장, 뇌를 비롯한 몸의 모든 세포들이  깨어 일어나서 더 열심히 일하도록 자극한다. \xa0‘달리는 말에 채찍질을 한다’는 말이 있다.  고추는  게으르거나 잠자고 있는 세포를 깨워서 \xa0열심히 일하라고 채찍질을 한다. 맵고 짜게 먹으면 우울증·불면증  사라져 고추를 많이 먹으면 몸과 정신이 부지런해진다. \xa0고추는 잠들어 있는 신경과 감각을 흔들어 깨운다.  그래서 고추를  좋아하는 사람은 정열적이다.  맵지 않은 피망이나 파프리카 같은 것은 소용이 없다. \xa0고추는 매운 것이 본분인데 본분을 잃어버린 것은 기능이 없다. \xa0 가짜한테서 진짜의 효능을 기대할 수 없는 것이다. 고추의 매운맛이 혀끝을 자극하면  말초신경이 대뇌에 신호를 보내고 대뇌에서는 \xa0즉시  온몸을 경계 태세로 돌입한다. \xa0심장이 빨리 뛰고 침과 땀이 많이 나온다.  위와 장이 활발하게 운동하고, \xa0뇌에서 엔도르핀(Endorphin)을  분비한다. \xa0매운 고추를 많이 먹을수록 엔도르핀이 더 많이 나온다.  그로 인해 기분이 좋아진다.  캅사이신(capsaicin)은 마약처럼 중독성  있는 물질이다. 고추는 맛이 맵고 성질이 뜨겁다.  맵고 뜨거운 것은 침투하는 힘과 발산하는 힘이 있다.  그러므로 매운 고추는 훌륭한  인경약이고 발한제다. \xa0고추는 몸속에 있는 사기(邪氣)와  한기(寒氣)를 몸 밖으로 몰아낸다. 매운 고추를 많이 먹는 사람들한테는 병이  없다. \xa0성격이 매우 발랄하고 깨끗하다.  마음속에 담아두는 것이 없다. \xa0우울증이나 정신병 환자들은 그 대부분이 \xa0맵고 짠 음식을 싫어하고 음식을  매우 싱겁게 먹는 사람들이다.  불면증이나 우울증에는 매운 고추나  후추 같은 것을 먹으면 잘 낫는다. 매운 고추를 즐겨 먹는 사람들은  대개 정의감이 강하다.  마음이 뜨거우므로 의협심이 있다.  무슨 일을 하든지 배신하는 사람이 없다.  무슨 일을 하든지 거침이 없다.  마음속에  감추는 것 없이 자신을 모두 드러낸다. \xa0우울증이나 불면증, 정신병 같은 병에 걸리지 않는다. \xa0소리장도(笑裏藏刀)라 하여 웃음 속에 \xa0칼을 감추고  있는 사람들은 대개 음식을 \xa0싱겁게 먹는 사람들이다. 매운 고추를 익혀서 먹으면 아무리 많이 먹어도  입 안이 헐거나 상하지 않으며  미각이 더욱 민감해진다. \xa0달콤한 것을 먹으면 미각이 둔해지지만  매운 것을 먹으면 미각이 활발하게 살아난다.  뿐만 아니라 침이 잘 나오고 소화액이  많이 나오며  위와 장의 연동운동이 활발해져서 소화가 잘 된다. 고추는 혈액순환에도 아주 좋다.  하지만 매운 고추는 절대 날것으로  먹으면 안 된다. 세포에 상처를 입힌다. \xa0매운맛이 나는 성분의 입자는  그 끝이 바늘처럼 날카롭다. 매운 고추를 날것으로  많이 먹으면  위장의 점막이 파괴되고 미세한 뇌신경이나 \xa0시신경에 염증을 일으켜서 눈과 귀가 어두워지고  기억력이 없어지며 오래 먹으면 치매가 온다.\xa0 \xa0또한 기관지염, 치질, 인후염, 위염 같은 병이 잘 생긴다. 하늘을 찌르듯 하늘을 향해 빳빳하게 서 있는  멕시코 고추나 월남 고추  같은 것은 좋지 않다. \xa0이런 고추는 오직 매운맛밖에는 다른 맛이 거의 없다. \xa0끝이 뾰족한 고추를 브라질이나 멕시코에서는 \xa0‘마귀고추’라고 부른다. \xa0 끝이 하늘을 찌르듯 뾰족한 고추를 많이 먹으면 \xa0열이 위로만 솟구쳐 올라서 고혈압, 중풍, 심장병 같은 것이  생기고 몸이 바싹 말라서 몰골이  마귀처럼 흉해진다. 매운 고추는 암세포를 죽인다   ▲   고추는 지방질을 분해하는 작용이 있으므로 고추를 먹으면 혈액이 맑아진다.   매운 고추는 고추장이나 김치, 젓갈 같은 \xa0발효식품을  만들 때 넣어서 \xa0발효하여 먹거나 반드시 끓여서 익혀 먹어야 한다.  고춧가루는 국이나 찌개를 끓일 때 넣어  익혀서 먹는 것이  좋다. 매운 고추를 가열해 익히거나 김치나 고추장을 담가서 \xa0발효하면 미생물들이 캅사이신 성분을 분해해 \xa0바늘 끝처럼 날카로운 입자를  잘라내어  뭉툭하게 만든다. \xa0창날처럼 날카로운 것을 망치처럼 만드는 것이다.  같은 힘을 가지고 바늘로 찌르면 상처가 깊게 \xa0나지만 손바닥으로  두드리면 가볍게  마사지를 하는 것과 같은 법이다. 매운 고추는 암세포의 천적(天敵)이다.  고추에 들어 있는 매운맛 성분은 몸속에  있는 \xa0암 세포를 비롯한 기형 세포를 파괴한다.  암세포는 4차 기형세포이다. \xa0정상적인 세포가 악랄한 환경에서  살아남기 위하여 반란을 일으켜서  1차, 2차, 3차를 \xa0걸쳐 4차 기형세포가 되면 마치 불사신처럼 되어 \xa0끝없이 분열을 계속하는데 이것이 바로 암세포이다. 매운 고추는  훌륭한 암 치료약이다. \xa0암세포는 매운 고추를 아주 싫어한다. \xa0그러나 맵지 않은 고추는 소용이 없다. \xa0매운 고추는 암세포에 영양 공급을 차단한다. \xa0암세포는 육식성이고 혐기성이다.  암은 불량한 단백질과 설탕을 많이 먹는 데서 오는 병이다. ▲   고추는 세포를 자극해 운동을 활발하게 하므로 비만증을  치료한다. 고기와 설탕을 먹으면 암세포가 아주 잘 자라고 ,  산소가 풍부하게 공급하고 미네랄이 많은  알칼리성 음식을 먹으면 암세포가 더 이상  분열하지 못하고 굶어 죽는다 . 영국 노팅엄대학교 연구팀은 매운 고추에 들어 있 는 매운맛 성분인 캅사이신이 암세포의 \xa0 미토콘드리아를 공격해서 죽이는  효능이 있는 것을 발견했다 .\xa0 \xa0 연구팀은 폐암과 췌장암 세포를 배양해  고추 추출물에 넣어 고추 추출물이  어떻게 암세포를 죽이는지를 알아보는 실험을 했다 . 그 결과 고추에 들어 있는 캅사이신이 암세포의 \xa0 미토콘드리아를 공격해 암세포를 죽이는 것으로 확인됐다 .  캅사이신은 암세포만 죽일 뿐 건강한 세포에는 \xa0 전혀 피해를 입히지 않는다 . 노팅엄대학의 티모시 베이츠 (Timothy Bates)  박사는 \xa0 암 환자들에게 매운 음식을 많이 먹도록 권장했다 . \xa0 암 환자는 매운 것을 많이 먹되 반드시 \xa0 소금으로 발효해 푹 익힌 고추 곧 \xa0 고추장이나 김치를 많이 먹어야 한다 . 고추에는 비타민  C 와 비타민  A 의 전구물질인 \xa0 카로틴 (carotene) 이 풍부하게 들어 있다 .  고추에는 비타민  B 군이 많이 들어 있는데 ,  특히 비타민  B6 이 많다 . 고추에는 칼륨과 칼슘 ,  마그네슘 ,  철분이 풍부하다 . \xa0 매운 고추에 들어 있는 \xa0 \xa0 캅사이시노이드 (Capsaicinoids) 라는 \xa0 성분이 암세포를 죽이는 효능이 있는 것으로 확인되었다 . \xa0 매운 고추에 들어 있는 캅사이신은 암세포가 \xa0 \xa0 생기지 않게 하고 정상 세포가 돌연변이를 일으켜 \xa0 기형이 되지 않게 한다 지방 분해·당분 분해  효능 ▲   지방 분해·당분 분해  효능. 학자들은 캅사이신이 몸무게를 줄이는 효능이 있다고 했다 .    \xa0    \xa0 고추는 세포가 운동을 활발하게 하도록    \xa0    \xa0 자극해 열을 발산시킨다 . \xa0 고추는 잘 먹으면 당뇨병을 예방하고 고칠 수 있다 .     \xa0    밥을 먹을 때 매운 고추를 같이 먹으면    \xa0    \xa0 췌장에서 인슐린이 적게 나와도 당분을     \xa0    잘 분해할 수 있으므로 당뇨병에 걸리지 않는다 .    \xa0       \xa0    고추의 캅사이신은 진통제나 마취제 같은 역할도 한다 .    \xa0    \xa0 관절의 통증과 헤르페스 감염으로 인한 통증 ,    \xa0    \xa0 당뇨병성신경병 ,  유방절제 수술 후의 통증 ,     \xa0    두통 등 갖가지 통증을 줄이는 효과가 있다 . 캐나다의 퀘벡에 있는     \xa0    라발대학교 (Laval University)  연구팀은    \xa0    \xa0 밥을 먹을 때 매운 고추를 같이 먹는 사람들은    \xa0    \xa0 고추를 전혀 먹지 않은 사람들에 비해 하루에    \xa0    \xa01,000 ㎈  이상의 열량을 더 소모한다고 발표하였다 . 매운 고춧가루를 절대로 날것으로 먹어서는 안 된다 .    \xa0    \xa0 김치나 고추장 같은 것을 담가서 먹거나 찌개나    \xa0    \xa0 국 같은 것을 끓일 때 넣어 익혀 먹어야 한다 . 고추는 심장박동을 왕성하게 하고    \xa0    \xa0 신진대사를 잘되게 하여 몸무게를 줄인다 .    \xa0    \xa0 신진대사가 왕성해지면     \xa0    지방을 빨리 분해해 태워 없앤다 . 매운 고추는 혈압을 낮춘다 .    \xa0    \xa0 미국 심장협회에서는 고추  100g 에  26 ㎈ 로 열량이 낮고    \xa0    \xa0 지방이 거의 없어서 스트레스를 없애고     \xa0    몸무게를 줄이는 데 매우 좋은 효능이 있다고 발표했다 . 비만증으로 인한 살집은 기형세포가 모인 것이다 . \xa0 기형세포는 세포로서의 기능을 제대로 하지 못한다 .    \xa0    \xa0  날마다 먹고 잠만 자고 말썽만 부릴 뿐이다 .    \xa0    \xa0 고추의 매운맛 성분은 기형세포의    \xa0    \xa0 세포벽을 깨트려서 더 이상 분열하지 못하게 한다 .     \xa0    그러므로 잘 익은 고추장과 김치는    \xa0    \xa0 아주 훌륭한 다이어트 식품이다 .    \xa0    고추는 훌륭한 청혈제이다 .     \xa0    고추는 피를 잘 돌게 하고 피를 깨끗하게 한다 . \xa0 매운 고추는 혈중 콜레스테롤의 수치를 낮춘다 .    \xa0    \xa0 미국 로스엔젤리스에 있는 퍼시픽 웨스턴 대학교    \xa0    (Pacific Western University) 의 영양학 교수    \xa0    \xa0 얼 민델 (Earl Mindell) 은    \xa0    \xa0‘ 동물 실험에서 매운 고추가 혈중     \xa0    나쁜 콜레스테롤의 수치를 낮추어 준다 ’ 고    \xa0    \xa0 영국 영양학회지에 발표했다 . 매운 고추는 혈액 속에 포함되어 있는 필요 없는    \xa0    \xa0 지방을 연소시켜 피를 깨끗하게 만들어 준다 .    \xa0    \xa0 고추에 들어 있는  ‘ 케르세틴 (quercetin)’ 이라는    \xa0    \xa0 플라보노이드 성분은  LDL( 나쁜 콜레스테롤 ) 의    \xa0    \xa0 수치는 낮추고 ,     \xa0    HDL( 좋은 콜레스테롤 )  수치는 높여 주며 ,    \xa0    \xa0  트리글리세리드 곧 중성지방을 분해한다 .    \xa0    \xa0 그래서 고추를 먹으면    \xa0    \xa0 기름기 많은 음식이 먹기 싫어진다 . < 본초강목습유 ( 本草綱目拾遺 )> 에 고추는    \xa0    \xa0‘ 심장과 비장으로 들어가며 속을 따뜻하게 하고    \xa0    \xa0 한기를 몰아내며 위 ( 胃 ) 를 열고     \xa0    식욕을 좋게 하고 음식을 잘 소화되게 한다 ’ 고     \xa0    기록돼 있다 . 고추는 영양 가치가 높다 .    \xa0    \xa0 특히 비타민  C 와 비타민  A,  비타민  B1 과    \xa0    \xa0B2 가 풍부하게 들어 있고 단백질 ,  지방 ,  탄수화물과    \xa0    \xa0 섬유질과 칼슘과 인과 철분과 베타카로틴과     \xa0    니코틴산과 레몬산과 주석산과 사과산 등이 들어 있다 . 고추에서 캅사이신을 추출해 안면신경통과    \xa0    \xa0 건선 ( 乾癬 ),  인선 ( 鱗癬 ),  당뇨병으로 인한    \xa0    \xa0 신경질환 등을 치료하는 데 쓴다 . 고춧가루를 늘 조금씩 먹는 사람은 건강하다 .     \xa0    여간해서는 병에 잘 걸리지 않고 걸렸다    \xa0    \xa0 할지라도 금방 낫는다 . 매운 고추는 발산하는 작용이 있다 .    \xa0    \xa0 매운 고춧가루를 먹으면 땀이 많이 난다 .    \xa0    \xa0 여름철에 고춧가루를 먹으면 땀이 많이     \xa0    나와서 열을 식히는 데 좋다 .    \xa0    \xa0 더운 지방 사람들이    \xa0    \xa0 대부분 음식을 맵게 먹는 것은 이 때문이다 . 겨울철에 고춧가루를 먹으면    \xa0    \xa0 몸속에 쌓여 있는 한기를 몰아낸다 .     \xa0    병원균과 바이러스에 감염되지 않게 하므로    \xa0    \xa0 감기를 예방한다 .    \xa0    \xa0 동상이나 사지궤양 ,  관절염 ,  만성 요통 등에도    \xa0    \xa0 효과가 있으며 온갖 종기를 삭이는 효능도 있다 . 고춧가루  6g 과 진피  6g 을  35 ℃  이상의    \xa0    \xa0 증류주  500g 에 일주일 동안 담가 두었다가     \xa0    한 번에  2g 씩 하루에 세 번 마시는 한편     \xa0    아픈 관절 주위에 발라 주면 관절염과 요통 ,     \xa0    신경통의 통증이 사라진다 . 그러나 고춧가루를 지나치게 많이 먹으면 몸에 해롭다 .    \xa0    \xa0 고춧가루를 지나치게 많이 먹으면     \xa0    몸이 음허화왕 ( 陰虛火旺 )  상태가 된다 .     \xa0    기침을 하거나 눈병이 있는 사람은     \xa0    고춧가루를 먹지 말아야 한다 . < 약성고 ( 藥性考 )> 에 고춧가루를 지나치게 많이 먹으면    \xa0    \xa0 화기 ( 火氣 ) 가 동하여 어지럼증이 생긴다고 했다 .    \xa0    \xa0 매운 고추를 오래 먹으면    \xa0    \xa0 치질 ,  치통 ,  인후염 같은 것이 생긴다 . 고춧가루는 자극이 강하므로     \xa0    구강 ,  식도 ,  위장 ,  항문 등의 소화기관에 있는    \xa0    \xa0 점막에 자극을 주어 충혈되게 한다 .    \xa0    \xa0 고춧가루를 지나치게 많이 먹으면     \xa0    소화액이 너무 많이 나오고 몸이 퉁퉁 부으며    \xa0    \xa0 위장의 연동운동이 지나치게 활발해져서    \xa0    \xa0 위경련이 생기기 쉽다 . \xa0 만성위염이나 위궤양 ,  십이지장궤양 ,  만성결장염 ,    \xa0    \xa0 고혈압 ,  각혈 ,  눈병이 있는 사람은    \xa0    \xa0 고춧가루를 많이 먹지 말아야 한다 .    \xa0    \xa0 또한 요도염 ,  간염 ,  기관지염 ,  인후염 ,  치질 같은    \xa0    \xa0 염증이 있는 사람도 고춧가루를     \xa0    너무 많이 먹지 않도록 주의해야 한다 . 고추의 알칼리성 성분, 강력한 진통  효과 최근 일본의 과학자들은 고추에 진통작용이 있는    \xa0    \xa0 알칼리성 물질이 들어 있는 것을 발견했다 .     \xa0    마른 고추에 통증을 멎게 하는 물질이    \xa0    \xa00.15~0.65%  들어 있다 . 고추에서 추출한 알칼리성 성분을     \xa0    흰쥐의 척수 신경에 주입했더니    \xa0    \xa0 신경전도 물질의 농도가 현저하게 줄어들어    \xa0    \xa0 통증이 사라지는 것이 확인됐다 .    \xa0    \xa0 고추의 알칼리성 성분은 \xa0 진통 효과가 강력할 뿐만 아니라    \xa0    \xa0 오래 지속되는 장점이 있다 .     \xa0    실제로 일본에서는 말기 암 환자들한테 고추의    \xa0    \xa0 알칼리성 성분을 진통제로 써서 효과를 거두고 있다 .   글  :  최진규  /  약초학자, 한국토종약초연구학회    회장 \n\t\t\t                                                                    \n            \n             \n                \n                                                             \n                             댓글쓰기 \n                         \n                                                 \n\n\n                                         \n            \n             \n                                     \n                         파프리카  에 관한 추천글', 0, 10, 0, datetime.datetime(2019, 6, 21, 10, 31, 23, 193010)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_daumblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880f9')]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [364, None, None, None, 105, datetime.datetime(2019, 6, 21, 10, 31, 23, 203981)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880fa')]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [364, None, None, None, 105, datetime.datetime(2019, 6, 21, 10, 31, 23, 209964)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880fb')]
+2019-06-21 19:31:23 [scrapy.core.scraper] DEBUG: Scraped from <200 http://m.blog.daum.net/ssyi6611/917>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'daum',
+ 'content': '매운 고추를 먹으면 (매운 고추의 효능) \xa0 매운 고추를 먹으면 영웅호걸의 기상이  생긴다 정신과 몸을 일깨우는 '
+            '훌륭한 자극제,  고추 한여름 동안 햇볕을 받아 빨갛게 익은 고추에는 \xa0태양의 양기가 가득 쌓여 있다. \xa0'
+            '고추는 양기의 상징이며 결정체다.\xa0 \xa0양기는 음기를 내쫓는다.  고추를 먹으면 피가 뜨거워지고 \xa0'
+            '백절불굴의 용기와 정열이 솟구친다. \xa0고추를 잘 먹으면 열혈남아의 기질이 생긴다. \xa0고추의  매운맛은 온갖 '
+            '나쁜 기운과 귀기, 음기를 내쫓는다. 고추의 매운맛은 정신과 몸을 일깨우는 \xa0가장 훌륭한 자극제이다.  고추의 '
+            '매운맛은  위와 장, 뇌를 비롯한 몸의 모든 세포들이  깨어 일어나서 더 열심히 일하도록 자극한다. \xa0‘달리는 '
+            '말에 채찍질을 한다’는 말이 있다.  고추는  게으르거나 잠자고 있는 세포를 깨워서 \xa0열심히 일하라고 채찍질을 '
+            '한다. 맵고 짜게 먹으면 우울증·불면증  사라져 고추를 많이 먹으면 몸과 정신이 부지런해진다. \xa0고추는 잠들어 '
+            '있는 신경과 감각을 흔들어 깨운다.  그래서 고추를  좋아하는 사람은 정열적이다.  맵지 않은 피망이나 파프리카 같은 '
+            '것은 소용이 없다. \xa0고추는 매운 것이 본분인데 본분을 잃어버린 것은 기능이 없다. \xa0 가짜한테서 진짜의 '
+            '효능을 기대할 수 없는 것이다. 고추의 매운맛이 혀끝을 자극하면  말초신경이 대뇌에 신호를 보내고 대뇌에서는 \xa0'
+            '즉시  온몸을 경계 태세로 돌입한다. \xa0심장이 빨리 뛰고 침과 땀이 많이 나온다.  위와 장이 활발하게 '
+            '운동하고, \xa0뇌에서 엔도르핀(Endorphin)을  분비한다. \xa0매운 고추를 많이 먹을수록 엔도르핀이 더 '
+            '많이 나온다.  그로 인해 기분이 좋아진다.  캅사이신(capsaicin)은 마약처럼 중독성  있는 물질이다. 고추는 '
+            '맛이 맵고 성질이 뜨겁다.  맵고 뜨거운 것은 침투하는 힘과 발산하는 힘이 있다.  그러므로 매운 고추는 훌륭한  '
+            '인경약이고 발한제다. \xa0고추는 몸속에 있는 사기(邪氣)와  한기(寒氣)를 몸 밖으로 몰아낸다. 매운 고추를 많이 '
+            '먹는 사람들한테는 병이  없다. \xa0성격이 매우 발랄하고 깨끗하다.  마음속에 담아두는 것이 없다. \xa0'
+            '우울증이나 정신병 환자들은 그 대부분이 \xa0맵고 짠 음식을 싫어하고 음식을  매우 싱겁게 먹는 사람들이다.  '
+            '불면증이나 우울증에는 매운 고추나  후추 같은 것을 먹으면 잘 낫는다. 매운 고추를 즐겨 먹는 사람들은  대개 '
+            '정의감이 강하다.  마음이 뜨거우므로 의협심이 있다.  무슨 일을 하든지 배신하는 사람이 없다.  무슨 일을 하든지 '
+            '거침이 없다.  마음속에  감추는 것 없이 자신을 모두 드러낸다. \xa0우울증이나 불면증, 정신병 같은 병에 걸리지 '
+            '않는다. \xa0소리장도(笑裏藏刀)라 하여 웃음 속에 \xa0칼을 감추고  있는 사람들은 대개 음식을 \xa0싱겁게 '
+            '먹는 사람들이다. 매운 고추를 익혀서 먹으면 아무리 많이 먹어도  입 안이 헐거나 상하지 않으며  미각이 더욱 '
+            '민감해진다. \xa0달콤한 것을 먹으면 미각이 둔해지지만  매운 것을 먹으면 미각이 활발하게 살아난다.  뿐만 아니라 '
+            '침이 잘 나오고 소화액이  많이 나오며  위와 장의 연동운동이 활발해져서 소화가 잘 된다. 고추는 혈액순환에도 아주 '
+            '좋다.  하지만 매운 고추는 절대 날것으로  먹으면 안 된다. 세포에 상처를 입힌다. \xa0매운맛이 나는 성분의 '
+            '입자는  그 끝이 바늘처럼 날카롭다. 매운 고추를 날것으로  많이 먹으면  위장의 점막이 파괴되고 미세한 '
+            '뇌신경이나 \xa0시신경에 염증을 일으켜서 눈과 귀가 어두워지고  기억력이 없어지며 오래 먹으면 치매가 '
+            '온다.\xa0 \xa0또한 기관지염, 치질, 인후염, 위염 같은 병이 잘 생긴다. 하늘을 찌르듯 하늘을 향해 빳빳하게 '
+            '서 있는  멕시코 고추나 월남 고추  같은 것은 좋지 않다. \xa0이런 고추는 오직 매운맛밖에는 다른 맛이 거의 '
+            '없다. \xa0끝이 뾰족한 고추를 브라질이나 멕시코에서는 \xa0‘마귀고추’라고 부른다. \xa0 끝이 하늘을 찌르듯 '
+            '뾰족한 고추를 많이 먹으면 \xa0열이 위로만 솟구쳐 올라서 고혈압, 중풍, 심장병 같은 것이  생기고 몸이 바싹 '
+            '말라서 몰골이  마귀처럼 흉해진다. 매운 고추는 암세포를 죽인다   ▲   고추는 지방질을 분해하는 작용이 있으므로 '
+            '고추를 먹으면 혈액이 맑아진다.   매운 고추는 고추장이나 김치, 젓갈 같은 \xa0발효식품을  만들 때 '
+            '넣어서 \xa0발효하여 먹거나 반드시 끓여서 익혀 먹어야 한다.  고춧가루는 국이나 찌개를 끓일 때 넣어  익혀서 '
+            '먹는 것이  좋다. 매운 고추를 가열해 익히거나 김치나 고추장을 담가서 \xa0발효하면 미생물들이 캅사이신 성분을 '
+            '분해해 \xa0바늘 끝처럼 날카로운 입자를  잘라내어  뭉툭하게 만든다. \xa0창날처럼 날카로운 것을 망치처럼 '
+            '만드는 것이다.  같은 힘을 가지고 바늘로 찌르면 상처가 깊게 \xa0나지만 손바닥으로  두드리면 가볍게  마사지를 '
+            '하는 것과 같은 법이다. 매운 고추는 암세포의 천적(天敵)이다.  고추에 들어 있는 매운맛 성분은 몸속에  '
+            '있는 \xa0암 세포를 비롯한 기형 세포를 파괴한다.  암세포는 4차 기형세포이다. \xa0정상적인 세포가 악랄한 '
+            '환경에서  살아남기 위하여 반란을 일으켜서  1차, 2차, 3차를 \xa0걸쳐 4차 기형세포가 되면 마치 불사신처럼 '
+            '되어 \xa0끝없이 분열을 계속하는데 이것이 바로 암세포이다. 매운 고추는  훌륭한 암 치료약이다. \xa0암세포는 '
+            '매운 고추를 아주 싫어한다. \xa0그러나 맵지 않은 고추는 소용이 없다. \xa0매운 고추는 암세포에 영양 공급을 '
+            '차단한다. \xa0암세포는 육식성이고 혐기성이다.  암은 불량한 단백질과 설탕을 많이 먹는 데서 오는 병이다. ▲   '
+            '고추는 세포를 자극해 운동을 활발하게 하므로 비만증을  치료한다. 고기와 설탕을 먹으면 암세포가 아주 잘 자라고 ,  '
+            '산소가 풍부하게 공급하고 미네랄이 많은  알칼리성 음식을 먹으면 암세포가 더 이상  분열하지 못하고 굶어 죽는다 . '
+            '영국 노팅엄대학교 연구팀은 매운 고추에 들어 있 는 매운맛 성분인 캅사이신이 암세포의 \xa0 미토콘드리아를 공격해서 '
+            '죽이는  효능이 있는 것을 발견했다 .\xa0 \xa0 연구팀은 폐암과 췌장암 세포를 배양해  고추 추출물에 넣어 '
+            '고추 추출물이  어떻게 암세포를 죽이는지를 알아보는 실험을 했다 . 그 결과 고추에 들어 있는 캅사이신이 '
+            '암세포의 \xa0 미토콘드리아를 공격해 암세포를 죽이는 것으로 확인됐다 .  캅사이신은 암세포만 죽일 뿐 건강한 '
+            '세포에는 \xa0 전혀 피해를 입히지 않는다 . 노팅엄대학의 티모시 베이츠 (Timothy Bates)  '
+            '박사는 \xa0 암 환자들에게 매운 음식을 많이 먹도록 권장했다 . \xa0 암 환자는 매운 것을 많이 먹되 '
+            '반드시 \xa0 소금으로 발효해 푹 익힌 고추 곧 \xa0 고추장이나 김치를 많이 먹어야 한다 . 고추에는 비타민  '
+            'C 와 비타민  A 의 전구물질인 \xa0 카로틴 (carotene) 이 풍부하게 들어 있다 .  고추에는 비타민  '
+            'B 군이 많이 들어 있는데 ,  특히 비타민  B6 이 많다 . 고추에는 칼륨과 칼슘 ,  마그네슘 ,  철분이 '
+            '풍부하다 . \xa0 매운 고추에 들어 있는 \xa0 \xa0 캅사이시노이드 (Capsaicinoids) '
+            '라는 \xa0 성분이 암세포를 죽이는 효능이 있는 것으로 확인되었다 . \xa0 매운 고추에 들어 있는 캅사이신은 '
+            '암세포가 \xa0 \xa0 생기지 않게 하고 정상 세포가 돌연변이를 일으켜 \xa0 기형이 되지 않게 한다 지방 '
+            '분해·당분 분해  효능 ▲   지방 분해·당분 분해  효능. 학자들은 캅사이신이 몸무게를 줄이는 효능이 있다고 했다 '
+            '.    \xa0    \xa0 고추는 세포가 운동을 활발하게 하도록    \xa0    \xa0 자극해 열을 '
+            '발산시킨다 . \xa0 고추는 잘 먹으면 당뇨병을 예방하고 고칠 수 있다 .     \xa0    밥을 먹을 때 매운 '
+            '고추를 같이 먹으면    \xa0    \xa0 췌장에서 인슐린이 적게 나와도 당분을     \xa0    잘 분해할 '
+            '수 있으므로 당뇨병에 걸리지 않는다 .    \xa0       \xa0    고추의 캅사이신은 진통제나 마취제 같은 '
+            '역할도 한다 .    \xa0    \xa0 관절의 통증과 헤르페스 감염으로 인한 통증 '
+            ',    \xa0    \xa0 당뇨병성신경병 ,  유방절제 수술 후의 통증 ,     \xa0    두통 등 갖가지 '
+            '통증을 줄이는 효과가 있다 . 캐나다의 퀘벡에 있는     \xa0    라발대학교 (Laval '
+            'University)  연구팀은    \xa0    \xa0 밥을 먹을 때 매운 고추를 같이 먹는 '
+            '사람들은    \xa0    \xa0 고추를 전혀 먹지 않은 사람들에 비해 하루에    \xa0    \xa0'
+            '1,000 ㎈  이상의 열량을 더 소모한다고 발표하였다 . 매운 고춧가루를 절대로 날것으로 먹어서는 안 된다 '
+            '.    \xa0    \xa0 김치나 고추장 같은 것을 담가서 먹거나 찌개나    \xa0    \xa0 국 같은 '
+            '것을 끓일 때 넣어 익혀 먹어야 한다 . 고추는 심장박동을 왕성하게 하고    \xa0    \xa0 신진대사를 '
+            '잘되게 하여 몸무게를 줄인다 .    \xa0    \xa0 신진대사가 왕성해지면     \xa0    지방을 빨리 '
+            '분해해 태워 없앤다 . 매운 고추는 혈압을 낮춘다 .    \xa0    \xa0 미국 심장협회에서는 고추  100g '
+            '에  26 ㎈ 로 열량이 낮고    \xa0    \xa0 지방이 거의 없어서 스트레스를 없애고     \xa0    '
+            '몸무게를 줄이는 데 매우 좋은 효능이 있다고 발표했다 . 비만증으로 인한 살집은 기형세포가 모인 것이다 . \xa0 '
+            '기형세포는 세포로서의 기능을 제대로 하지 못한다 .    \xa0    \xa0  날마다 먹고 잠만 자고 말썽만 부릴 '
+            '뿐이다 .    \xa0    \xa0 고추의 매운맛 성분은 기형세포의    \xa0    \xa0 세포벽을 깨트려서 '
+            '더 이상 분열하지 못하게 한다 .     \xa0    그러므로 잘 익은 고추장과 김치는    \xa0    \xa0 '
+            '아주 훌륭한 다이어트 식품이다 .    \xa0    고추는 훌륭한 청혈제이다 .     \xa0    고추는 피를 '
+            '잘 돌게 하고 피를 깨끗하게 한다 . \xa0 매운 고추는 혈중 콜레스테롤의 수치를 낮춘다 '
+            '.    \xa0    \xa0 미국 로스엔젤리스에 있는 퍼시픽 웨스턴 대학교    \xa0    (Pacific '
+            'Western University) 의 영양학 교수    \xa0    \xa0 얼 민델 (Earl Mindell) '
+            '은    \xa0    \xa0‘ 동물 실험에서 매운 고추가 혈중     \xa0    나쁜 콜레스테롤의 수치를 '
+            '낮추어 준다 ’ 고    \xa0    \xa0 영국 영양학회지에 발표했다 . 매운 고추는 혈액 속에 포함되어 있는 '
+            '필요 없는    \xa0    \xa0 지방을 연소시켜 피를 깨끗하게 만들어 준다 .    \xa0    \xa0 '
+            '고추에 들어 있는  ‘ 케르세틴 (quercetin)’ 이라는    \xa0    \xa0 플라보노이드 성분은  '
+            'LDL( 나쁜 콜레스테롤 ) 의    \xa0    \xa0 수치는 낮추고 ,     \xa0    HDL( 좋은 '
+            '콜레스테롤 )  수치는 높여 주며 ,    \xa0    \xa0  트리글리세리드 곧 중성지방을 분해한다 '
+            '.    \xa0    \xa0 그래서 고추를 먹으면    \xa0    \xa0 기름기 많은 음식이 먹기 싫어진다 '
+            '. < 본초강목습유 ( 本草綱目拾遺 )> 에 고추는    \xa0    \xa0‘ 심장과 비장으로 들어가며 속을 '
+            '따뜻하게 하고    \xa0    \xa0 한기를 몰아내며 위 ( 胃 ) 를 열고     \xa0    식욕을 좋게 '
+            '하고 음식을 잘 소화되게 한다 ’ 고     \xa0    기록돼 있다 . 고추는 영양 가치가 높다 '
+            '.    \xa0    \xa0 특히 비타민  C 와 비타민  A,  비타민  B1 과    \xa0    \xa0'
+            'B2 가 풍부하게 들어 있고 단백질 ,  지방 ,  탄수화물과    \xa0    \xa0 섬유질과 칼슘과 인과 '
+            '철분과 베타카로틴과     \xa0    니코틴산과 레몬산과 주석산과 사과산 등이 들어 있다 . 고추에서 캅사이신을 '
+            '추출해 안면신경통과    \xa0    \xa0 건선 ( 乾癬 ),  인선 ( 鱗癬 ),  당뇨병으로 '
+            '인한    \xa0    \xa0 신경질환 등을 치료하는 데 쓴다 . 고춧가루를 늘 조금씩 먹는 사람은 건강하다 '
+            '.     \xa0    여간해서는 병에 잘 걸리지 않고 걸렸다    \xa0    \xa0 할지라도 금방 낫는다 . '
+            '매운 고추는 발산하는 작용이 있다 .    \xa0    \xa0 매운 고춧가루를 먹으면 땀이 많이 난다 '
+            '.    \xa0    \xa0 여름철에 고춧가루를 먹으면 땀이 많이     \xa0    나와서 열을 식히는 데 '
+            '좋다 .    \xa0    \xa0 더운 지방 사람들이    \xa0    \xa0 대부분 음식을 맵게 먹는 것은 '
+            '이 때문이다 . 겨울철에 고춧가루를 먹으면    \xa0    \xa0 몸속에 쌓여 있는 한기를 몰아낸다 '
+            '.     \xa0    병원균과 바이러스에 감염되지 않게 하므로    \xa0    \xa0 감기를 예방한다 '
+            '.    \xa0    \xa0 동상이나 사지궤양 ,  관절염 ,  만성 요통 등에도    \xa0    \xa0 '
+            '효과가 있으며 온갖 종기를 삭이는 효능도 있다 . 고춧가루  6g 과 진피  6g 을  35 ℃  '
+            '이상의    \xa0    \xa0 증류주  500g 에 일주일 동안 담가 두었다가     \xa0    한 번에  '
+            '2g 씩 하루에 세 번 마시는 한편     \xa0    아픈 관절 주위에 발라 주면 관절염과 요통 '
+            ',     \xa0    신경통의 통증이 사라진다 . 그러나 고춧가루를 지나치게 많이 먹으면 몸에 해롭다 '
+            '.    \xa0    \xa0 고춧가루를 지나치게 많이 먹으면     \xa0    몸이 음허화왕 ( 陰虛火旺 )  '
+            '상태가 된다 .     \xa0    기침을 하거나 눈병이 있는 사람은     \xa0    고춧가루를 먹지 말아야 '
+            '한다 . < 약성고 ( 藥性考 )> 에 고춧가루를 지나치게 많이 먹으면    \xa0    \xa0 화기 ( 火氣 ) '
+            '가 동하여 어지럼증이 생긴다고 했다 .    \xa0    \xa0 매운 고추를 오래 '
+            '먹으면    \xa0    \xa0 치질 ,  치통 ,  인후염 같은 것이 생긴다 . 고춧가루는 자극이 '
+            '강하므로     \xa0    구강 ,  식도 ,  위장 ,  항문 등의 소화기관에 있는    \xa0    \xa0 '
+            '점막에 자극을 주어 충혈되게 한다 .    \xa0    \xa0 고춧가루를 지나치게 많이 '
+            '먹으면     \xa0    소화액이 너무 많이 나오고 몸이 퉁퉁 부으며    \xa0    \xa0 위장의 '
+            '연동운동이 지나치게 활발해져서    \xa0    \xa0 위경련이 생기기 쉽다 . \xa0 만성위염이나 위궤양 ,  '
+            '십이지장궤양 ,  만성결장염 ,    \xa0    \xa0 고혈압 ,  각혈 ,  눈병이 있는 '
+            '사람은    \xa0    \xa0 고춧가루를 많이 먹지 말아야 한다 .    \xa0    \xa0 또한 요도염 '
+            ',  간염 ,  기관지염 ,  인후염 ,  치질 같은    \xa0    \xa0 염증이 있는 사람도 '
+            '고춧가루를     \xa0    너무 많이 먹지 않도록 주의해야 한다 . 고추의 알칼리성 성분, 강력한 진통  효과 '
+            '최근 일본의 과학자들은 고추에 진통작용이 있는    \xa0    \xa0 알칼리성 물질이 들어 있는 것을 발견했다 '
+            '.     \xa0    마른 고추에 통증을 멎게 하는 물질이    \xa0    \xa00.15~0.65%  들어 '
+            '있다 . 고추에서 추출한 알칼리성 성분을     \xa0    흰쥐의 척수 신경에 '
+            '주입했더니    \xa0    \xa0 신경전도 물질의 농도가 현저하게 줄어들어    \xa0    \xa0 통증이 '
+            '사라지는 것이 확인됐다 .    \xa0    \xa0 고추의 알칼리성 성분은 \xa0 진통 효과가 강력할 뿐만 '
+            '아니라    \xa0    \xa0 오래 지속되는 장점이 있다 .     \xa0    실제로 일본에서는 말기 암 '
+            '환자들한테 고추의    \xa0    \xa0 알칼리성 성분을 진통제로 써서 효과를 거두고 있다 .   글  :  '
+            '최진규  /  약초학자, 한국토종약초연구학회    회장 \n'
+            '\t\t\t                                                                    \n'
+            '            \n'
+            '             \n'
+            '                \n'
+            '                                                             \n'
+            '                             댓글쓰기 \n'
+            '                         \n'
+            '                                                 \n'
+            '\n'
+            '\n'
+            '                                         \n'
+            '            \n'
+            '             \n'
+            '                                     \n'
+            '                         파프리카  에 관한 추천글',
+ 'date': datetime.datetime(2019, 6, 21, 7, 16),
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 10,
+ 'noLikes': 0,
+ 'originKeyword': '파프리카',
+ 'searchKeyword': '파프리카',
+ 'subCategory': 'daum',
+ 'title': '매운 고추를 먹으면 (매운 고추의 효능)',
+ 'url': 'http://m.blog.daum.net/ssyi6611/917'}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: ('78a746c2-0f7a-4f55-90aa-fd321d85fd0b',)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '78a746c2-0f7a-4f55-90aa-fd321d85fd0b'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: ('http://m.blog.daum.net/goldenmedal/4456',)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_daumblog"."id", "iCrawler_daumblog"."unique_id", "iCrawler_daumblog"."search_keyword", "iCrawler_daumblog"."origin_keyword", "iCrawler_daumblog"."item_type", "iCrawler_daumblog"."category", "iCrawler_daumblog"."sub_category", "iCrawler_daumblog"."url", "iCrawler_daumblog"."title", "iCrawler_daumblog"."date", "iCrawler_daumblog"."content", "iCrawler_daumblog"."no_likes", "iCrawler_daumblog"."no_images", "iCrawler_daumblog"."no_comments", "iCrawler_daumblog"."created_date" FROM "iCrawler_daumblog" WHERE "iCrawler_daumblog"."url" = %(0)s
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://m.blog.daum.net/goldenmedal/4456'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'title', 'date', 'content', 'no_likes', 'no_images', 'no_comments', 'created_date']}
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [None, '파프리카', '파프리카', 'blog', 'blog', 'daum', 'http://m.blog.daum.net/goldenmedal/4456', '화순 농가주택매매 청풍 등룡저수지부근 방3개 수세식화장실', '2019-06-21 17:24:00', '화순 농가주택매매  등룡저수지 상단 공기청정지역 주택매매  화순 청풍면소재지에서 차량으로  5 분거리 조용한마을 동네  화순 산과 물이 있는 마을 아담한 벽돌로 지은주택 매매     \xa0    화순군 청풍면 백운리 농가주택 매매합니다 . 대지가  169 ㎡ 이며 건물은  66 ㎡ 입니다 . 매매가격은  4 천만원입니다 . 집은 적색벽돌로 이루어져 있으며 내부에 방 3 개와  거실 화장실로 되어 있습니다 . 지붕은 검정색 기와로 되어 있습니다 . 마을 앞에는 주차할 수 있는 넓은 마당이 있고   마을로 들어가는 입구에는 정자가 있습니다 . 정자 옆에는 큰 고목나무가 있어서 여름에는  시원한 그늘을 만들어 줍니다 .    \xa0     백운리마을로 들어가는 입구에는 등룡저수지가 있습니다 . 102,000 ㎡ 규모의 저수지로 붕어 잉어가 서식하고 있으며  심산유곡에 아담한  ‘ ㄱ ’ 자형 저수지로 물이 깨끗하고 주변  경관이 너무나 아름답습니다 . 만수 때와 봄가을에는 상류의 계단식 논뚝 갈대 잡풀주변이  명당자리이며 길 아래 중류 전에는 갈수 때만 진입이 되고  밤낚시의 포인트라고 할 수 있습니다 . 광주에서 출발을 한다면 화순을 거쳐 능주 이양 그리고  청풍초교를 지나 우회전으로 진입하시면 됩니다 .    \xa0     청풍면에는 면소재지인 차리를 비롯하여 풍암리 · 한지리 · 어리 · 세청리 · 대비리 · 백운리 · 청용리 · 이만리 · 신석리 · 신리 등이 있습니다 . 농수산업에  98%  가량이 종사하고 있으며 ,  주산물은 쌀 · 보리 · 잡곡이며 ,  특산물은 더덕과 파프리카를 재배합니다 . 국도  29 호선이 신리만 약간 통과하며 지방도  839 호선은  이만리에서 천변을 따라 개설되어 이양면 이양리로 이어지며  또 풍암리 \xa0 입교 다리에서 풍무재까지도 국도  29 호선이  통과하고 있습니다 . 주요 유물 및 유적으로는 선돌  3 기 .  명학정 .  서학정 ,  선유정 , 신계정 ,  용산사 ,  청신사 ,  금석굴 등이 있으며 주요 공공  기관으로는 청풍면사무소 ,  청풍 보건 지소 ,  이양 파출소  청풍 지소 ,  청풍 우체국 ,  청풍 농협 ,  청풍 초등학교 등이 있습니다 .    \xa0       \xa0     청풍면은 화순군 중에서도 남부에 위치하며 북쪽으로부터 살펴보면 풍류재 · 예성산과 깃대봉 · 가덕골재 · 금성치 · 금성산 , 접팔재를 경계로 춘양면과 인접하고 화학산을 경계로  도암면과 인접하고 있으며 ,  바람재 · 국사봉 · 곰재 · 봉미산 · 수캐봉 · 뗏재 · 군치산을 경계로 전라남도 장흥군과 경계되어 있으며 동쪽은 대체로 남에서 북으로 흐르는 지석천을  따라 이양면과 경계를 이루고 있습니다 .  남에서 북으로  흐르는 지석천은 남쪽에서는 면의 중심부를 흐르고 북쪽으로 갈수록 이양면과 경계를 이루며 흐르고 있습니다 .    \xa0     청풍면은 조선 시대 능주현 서변면에 해당되는 지역이며  여지도서  “ 능주 ” 에  “ 서변면은 관아에서  17 리 거리라고  표시되어 있습니다 .  호적에 편성된 민호는  468 호이고 남자는  899 명이며 ,  여자는  1,162 명 ,  도로는 남쪽으로 장흥부와의 경계에 있는 웅치에서 오는 길이  44 리이다 ” 라고 기록되어 있습니다 .“ 해동 지도 ” 에는 화악산 동쪽에 서변면이 있다고 표기되어 있으며  1867 년  “ 대동지지 ” 에  능주목 웅남면이라고 기록되어 있습니다 . “1872 년 지방 지도 ” 에는 세청면과 신풍면이 나타나는데  세청면에는 구암리 · 세청동 · 지동 · 해동촌 등이 있고 ,  신풍면에는 차동 · 청룡동 · 백운리 등이 표기 되었습니다 . 1895 년에 능주군 세청면과 신풍면이 나타나는데 여기에서 청풍면과 관련한  지명이 처음으로 나타나며  1914 년에 세청면과 신풍면이  합해지며 각 면의  ‘ 청 ’ 자와  ‘ 풍 ’ 자를 따서 청풍면이라 하였다고 전해지고 있습니다 . 금메달 공인중개사는 고개님이 현명한 선택을 하실 수 있도록 최선의 노력을 경주하고 있습니다 . 언제라도 금메달 공인중개사  010-3061-7154 번으로 연락을  주시면 성심성의껏 상담하여 드리겠습니다 . 감사합니다 .    \xa0     \n\t\t\t                                                                    \n            \n             \n                \n                                                             \n                             댓글쓰기 \n                         \n                                                 \n\n\n                                         \n            \n             \n                                     \n                         파프리카  에 관한 추천글', 0, 7, 0, datetime.datetime(2019, 6, 21, 10, 31, 23, 236897)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_daumblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880fc')]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [364, None, None, None, 106, datetime.datetime(2019, 6, 21, 10, 31, 23, 246866)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880fd')]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: params: [364, None, None, None, 106, datetime.datetime(2019, 6, 21, 10, 31, 23, 253848)]
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:31:23 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb1fbbebf7b2e3cc880fe')]
+2019-06-21 19:31:23 [scrapy.core.scraper] DEBUG: Scraped from <200 http://m.blog.daum.net/goldenmedal/4456>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'daum',
+ 'content': '화순 농가주택매매  등룡저수지 상단 공기청정지역 주택매매  화순 청풍면소재지에서 차량으로  5 분거리 조용한마을 '
+            '동네  화순 산과 물이 있는 마을 아담한 벽돌로 지은주택 매매     \xa0    화순군 청풍면 백운리 농가주택 '
+            '매매합니다 . 대지가  169 ㎡ 이며 건물은  66 ㎡ 입니다 . 매매가격은  4 천만원입니다 . 집은 적색벽돌로 '
+            '이루어져 있으며 내부에 방 3 개와  거실 화장실로 되어 있습니다 . 지붕은 검정색 기와로 되어 있습니다 . 마을 '
+            '앞에는 주차할 수 있는 넓은 마당이 있고   마을로 들어가는 입구에는 정자가 있습니다 . 정자 옆에는 큰 고목나무가 '
+            '있어서 여름에는  시원한 그늘을 만들어 줍니다 .    \xa0     백운리마을로 들어가는 입구에는 등룡저수지가 '
+            '있습니다 . 102,000 ㎡ 규모의 저수지로 붕어 잉어가 서식하고 있으며  심산유곡에 아담한  ‘ ㄱ ’ 자형 '
+            '저수지로 물이 깨끗하고 주변  경관이 너무나 아름답습니다 . 만수 때와 봄가을에는 상류의 계단식 논뚝 갈대 '
+            '잡풀주변이  명당자리이며 길 아래 중류 전에는 갈수 때만 진입이 되고  밤낚시의 포인트라고 할 수 있습니다 . '
+            '광주에서 출발을 한다면 화순을 거쳐 능주 이양 그리고  청풍초교를 지나 우회전으로 진입하시면 됩니다 '
+            '.    \xa0     청풍면에는 면소재지인 차리를 비롯하여 풍암리 · 한지리 · 어리 · 세청리 · 대비리 · '
+            '백운리 · 청용리 · 이만리 · 신석리 · 신리 등이 있습니다 . 농수산업에  98%  가량이 종사하고 있으며 ,  '
+            '주산물은 쌀 · 보리 · 잡곡이며 ,  특산물은 더덕과 파프리카를 재배합니다 . 국도  29 호선이 신리만 약간 '
+            '통과하며 지방도  839 호선은  이만리에서 천변을 따라 개설되어 이양면 이양리로 이어지며  또 풍암리 \xa0 입교 '
+            '다리에서 풍무재까지도 국도  29 호선이  통과하고 있습니다 . 주요 유물 및 유적으로는 선돌  3 기 .  명학정 '
+            '.  서학정 ,  선유정 , 신계정 ,  용산사 ,  청신사 ,  금석굴 등이 있으며 주요 공공  기관으로는 '
+            '청풍면사무소 ,  청풍 보건 지소 ,  이양 파출소  청풍 지소 ,  청풍 우체국 ,  청풍 농협 ,  청풍 초등학교 '
+            '등이 있습니다 .    \xa0       \xa0     청풍면은 화순군 중에서도 남부에 위치하며 북쪽으로부터 '
+            '살펴보면 풍류재 · 예성산과 깃대봉 · 가덕골재 · 금성치 · 금성산 , 접팔재를 경계로 춘양면과 인접하고 화학산을 '
+            '경계로  도암면과 인접하고 있으며 ,  바람재 · 국사봉 · 곰재 · 봉미산 · 수캐봉 · 뗏재 · 군치산을 경계로 '
+            '전라남도 장흥군과 경계되어 있으며 동쪽은 대체로 남에서 북으로 흐르는 지석천을  따라 이양면과 경계를 이루고 있습니다 '
+            '.  남에서 북으로  흐르는 지석천은 남쪽에서는 면의 중심부를 흐르고 북쪽으로 갈수록 이양면과 경계를 이루며 흐르고 '
+            '있습니다 .    \xa0     청풍면은 조선 시대 능주현 서변면에 해당되는 지역이며  여지도서  “ 능주 ” 에  '
+            '“ 서변면은 관아에서  17 리 거리라고  표시되어 있습니다 .  호적에 편성된 민호는  468 호이고 남자는  '
+            '899 명이며 ,  여자는  1,162 명 ,  도로는 남쪽으로 장흥부와의 경계에 있는 웅치에서 오는 길이  44 '
+            '리이다 ” 라고 기록되어 있습니다 .“ 해동 지도 ” 에는 화악산 동쪽에 서변면이 있다고 표기되어 있으며  1867 '
+            '년  “ 대동지지 ” 에  능주목 웅남면이라고 기록되어 있습니다 . “1872 년 지방 지도 ” 에는 세청면과 '
+            '신풍면이 나타나는데  세청면에는 구암리 · 세청동 · 지동 · 해동촌 등이 있고 ,  신풍면에는 차동 · 청룡동 · '
+            '백운리 등이 표기 되었습니다 . 1895 년에 능주군 세청면과 신풍면이 나타나는데 여기에서 청풍면과 관련한  지명이 '
+            '처음으로 나타나며  1914 년에 세청면과 신풍면이  합해지며 각 면의  ‘ 청 ’ 자와  ‘ 풍 ’ 자를 따서 '
+            '청풍면이라 하였다고 전해지고 있습니다 . 금메달 공인중개사는 고개님이 현명한 선택을 하실 수 있도록 최선의 노력을 '
+            '경주하고 있습니다 . 언제라도 금메달 공인중개사  010-3061-7154 번으로 연락을  주시면 성심성의껏 상담하여 '
+            '드리겠습니다 . 감사합니다 .    \xa0     \n'
+            '\t\t\t                                                                    \n'
+            '            \n'
+            '             \n'
+            '                \n'
+            '                                                             \n'
+            '                             댓글쓰기 \n'
+            '                         \n'
+            '                                                 \n'
+            '\n'
+            '\n'
+            '                                         \n'
+            '            \n'
+            '             \n'
+            '                                     \n'
+            '                         파프리카  에 관한 추천글',
+ 'date': datetime.datetime(2019, 6, 21, 17, 24),
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 7,
+ 'noLikes': 0,
+ 'originKeyword': '파프리카',
+ 'searchKeyword': '파프리카',
+ 'subCategory': 'daum',
+ 'title': '화순 농가주택매매 청풍 등룡저수지부근 방3개 수세식화장실',
+ 'url': 'http://m.blog.daum.net/goldenmedal/4456'}
+2019-06-21 19:31:23 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-06-21 19:31:23 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2264,
+ 'downloader/request_count': 5,
+ 'downloader/request_method_count/GET': 5,
+ 'downloader/response_bytes': 89015,
+ 'downloader/response_count': 5,
+ 'downloader/response_status_count/200': 5,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 6, 21, 10, 31, 23, 264818),
+ 'item_scraped_count': 3,
+ 'log_count/DEBUG': 59,
+ 'log_count/INFO': 9,
+ 'request_depth_max': 1,
+ 'response_received_count': 5,
+ 'scheduler/dequeued': 5,
+ 'scheduler/dequeued/memory': 5,
+ 'scheduler/enqueued': 5,
+ 'scheduler/enqueued/memory': 5,
+ 'start_time': datetime.datetime(2019, 6, 21, 10, 31, 22, 428055)}
+2019-06-21 19:31:23 [scrapy.core.engine] INFO: Spider closed (finished)

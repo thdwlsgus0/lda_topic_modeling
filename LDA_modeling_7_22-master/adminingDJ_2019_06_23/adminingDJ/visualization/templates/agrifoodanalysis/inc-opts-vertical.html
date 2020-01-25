@@ -1,0 +1,267 @@
+{% load staticfiles %}
+
+<div class="form-group form-group-lg">
+    <label for="cats" class="col-lg-2 col-sm-2 control-label">분류</label>
+    <div class="col-lg-6 col-sm-10">
+        <div class="row">
+            <div class="col-xs-6">
+                <select class="form-control" id="cats">
+                    <option id="cat1" value="1">과채류</option>
+                    <option id="cat2" value="2" selected>조미채소</option>
+                    <option id="cat3" value="3">엽채류</option>
+                    <option id="cat4" value="4">근채류</option>
+                    <option id="cat5" value="5">양채류</option>
+                </select>
+            </div>
+            <div class="col-xs-6">
+                <select class="form-control" id="subcats" name="foodname">
+                    <option parent="cat1" value="딸기" style="display: none;">딸기</option>
+                    <option parent="cat1" value="완숙(일반) 토마토" style="display: none;">완숙(일반) 토마토
+                    </option>
+                    <option parent="cat1" value="방울토마토" style="display: none;">방울토마토
+                    </option>
+                    <option parent="cat1" value="참외" style="display: none;">참외</option>
+                    <option parent="cat2" value="고추">고추
+                    </option>
+                    <option parent="cat2" value="건고추">건고추
+                    </option>
+                    <option parent="cat2" value="양파" selected>양파
+                    </option>
+                    <option parent="cat2" value="마늘">마늘
+                    </option>
+                    <option parent="cat2" value="깐마늘">깐마늘
+                    </option>
+                    <option parent="cat3" value="배추" style="display: none;">배추
+                    </option>
+                    <option parent="cat3" value="절임배추" style="display: none;">절임배추
+                    </option>
+                    <option parent="cat4" value="무" style="display: none;">무
+                    </option>
+                    <option parent="cat5" value="파프리카" style="display: none;">파프리카
+                    </option>
+                </select>
+            </div>
+        </div>
+        <hr />
+    </div>
+</div>
+
+<div class="form-group form-group-lg">
+    <label for="drStart" class="col-sm-2 control-label">기간</label>
+    <div class="col-lg-6 col-sm-10">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="input-group input-daterange input-group-lg">
+                    <input type="text" class="form-control" value="2017-07-01" id="drStart" name="drStart" />
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control" value="2017-12-31" id="drEnd" name="drEnd" />
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <select class="form-control" id="timeFreq" name="period">
+                    <option value="daily">일별</option>
+                    <option value="weekly" selected>주별</option>
+                    <option value="monthly">월별</option>
+                    <option value="yearly">연별</option>
+                </select>
+            </div>
+        </div>
+        <hr />
+    </div>
+</div>
+
+<div class="form-group">
+
+    <label for="" class="col-sm-2 control-label">
+        매체
+
+    </label>
+    <div class="col-lg-6 col-sm-10">
+        <div class="serve-menu-area">
+            <ul class="list-inline">
+                <li>
+                    <input type="checkbox" class="btn-icheck media mediaAll" name="media" value="1" checked>
+                    <label title="All">모두 선택</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="btn-icheck media mediaOpt" name="media" value="2" checked>
+                    <label title="Broadcast News">방송뉴스</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" class="btn-icheck media mediaOpt" name="media" value="3" checked>
+                    <label title="Newspaper">신문뉴스</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" class="btn-icheck media mediaOpt" name="media" value="4" checked>
+                    <label title="Social Media">트위터</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" class="btn-icheck media mediaOpt" name="media" value="5" checked>
+                    <label title="Blogs">블로그</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="btn-icheck media mediaOpt" name="media" value="6" checked>
+                    <label title="Entertainment">엔터테인먼트</label>
+                </li>
+
+            </ul>
+
+        </div>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal"
+            title="Media Search Options"><i class="fa fa-cog "></i> 매체 선택 옵션</button>
+        <hr />
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="" class="col-sm-2 control-label">가격 정보</label>
+    <div class="col-lg-6 col-sm-10">
+        <div class="serve-menu-area">
+            <ul class="list-inline">
+                <li>
+                    <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="2" checked>
+                    <label title="Whole sales">도매가격</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="3" checked>
+                    <label title="Retail sales">소매가격</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="4" checked>
+                    <label title="Purchase rates">평균 소비자가격</label>
+                </li>
+                <li>
+                    <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="5" checked>
+                    <label title="Total rates">총 소비자가격</label>
+                </li>
+            </ul>
+        </div>
+        <hr />
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-lg-6 col-sm-10">
+        <button type="submit" class="btn btn-success btn-block btn-lg" title="Generate">결과보기</button>
+        <div class="alert alert-warning alert-dismissible" style='margin-top: 15px; display: none;'>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Warning!</strong> <span class="message"></span>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" title="Search Options">매체 선택 옵션</h4>
+            </div>
+            <div class="modal-body">
+
+                <h4 title="Broadcast News">방송뉴스</h4>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bc' value="뉴시스" checked>
+                    <img src="{% static 'img/channel/news_newsis.jpg' %}" alt="뉴시스">
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bc' value="SBS 뉴스" checked>
+                    <img src="{% static 'img/channel/news_sbs.jpg' %}" alt="SBS">
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bc' value="MBN" checked>
+                    <img src="{% static 'img/channel/news_mbn.jpg' %}" alt="MBN">
+                </label>
+
+                <p></p>
+
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bc' value="한국경제TV" checked>
+                    <img src="{% static 'img/channel/news_hankyung.jpg' %}" alt="한국경제TV">
+                </label>
+
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bc' value="MBC 뉴스" checked>
+                    <img src="{% static 'img/channel/news_mbc.jpg' %}" alt="MBC 뉴스">
+                </label>
+
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bc' value="others" checked>
+                    <img src="{% static 'img/channel/others.jpg' %}" alt="Others">
+                </label>
+                <hr />
+                <h4 title="Newspaper">신문뉴스</h4>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_pn' value="연합뉴스" checked>
+                    <img src="{% static 'img/channel/news_yonhapnews.jpg' %}" alt="연합뉴스">
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_pn' value="아시아경제" checked>
+                    <img src="{% static 'img/channel/news_asiae.jpg' %}" alt="아시아경제">
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_pn' value="매일경제" checked>
+                    <img src="{% static 'img/channel/news_mk.jpg' %}" alt="매일경제">
+                </label>
+                <p></p>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_pn' value="머니투데이" checked>
+                    <img src="{% static 'img/channel/news_mtoday.jpg' %}" alt="머니투데이">
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_pn' value="레이디경향" checked>
+                    <img src="{% static 'img/channel/news_ladykhan.jpg' %}" alt="레이디경향">
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_pn' value="others" checked>
+                    <img src="{% static 'img/channel/others.jpg' %}" alt="Others">
+                </label>
+                <hr />
+                <h4 title="Blogs">블로그</h4>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bl' value="daum" checked>
+                    <img src="{% static 'img/channel/daum.jpg' %}" alt="Daum Blog">
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_bl' value="naver" checked>
+                    <img src="{% static 'img/channel/naver.jpg' %}" alt="Naver Blog">
+                </label>
+                <hr />
+                <h4 title="Entertainment">엔터테인먼트</h4>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_en' value="시사/교양프로그램" checked>
+                    시사/교양프로그램
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_en' value="뉴스" checked>
+                    뉴스
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_en' value="예능_먹방" checked>
+                    예능 먹방
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_en' value="예능" checked>
+                    예능
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_en' value="예능_건강" checked>
+                    예능 건강
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name='mediaName_en' value="others" checked>
+                    Others
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">선택 옵션 저장</button>
+            </div>
+        </div>
+    </div>
+</div>

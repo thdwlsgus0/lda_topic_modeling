@@ -1,0 +1,412 @@
+2019-06-21 19:56:30 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: scrappy_app)
+2019-06-21 19:56:30 [scrapy.utils.log] INFO: Versions: lxml 4.2.5.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 18.9.0, Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Windows-10-10.0.17134-SP0
+2019-06-21 19:56:30 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrappy_app', 'LOG_FILE': 'logs\\default\\naver_news\\2e1bb37e941311e99fd6606dc7a02a2e.log', 'NEWSPIDER_MODULE': 'scrappy_app.spiders', 'SPIDER_MODULES': ['scrappy_app.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0'}
+2019-06-21 19:56:30 [scrapy.extensions.telnet] INFO: Telnet Password: 3263f2ab8f9e8658
+2019-06-21 19:56:30 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-06-21 19:56:30 [djongo.sql2mongo.query] DEBUG: params: ('5bda9a76-42e9-47d1-b224-db6569229654',)
+2019-06-21 19:56:30 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:56:30 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '5bda9a76-42e9-47d1-b224-db6569229654'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:56:30 [djongo.sql2mongo.query] DEBUG: params: ('5bda9a76-42e9-47d1-b224-db6569229654', '2dae2142941311e9b6d3606dc7a02a2e 2dfd4398941311e9b07b606dc7a02a2e 2e0e4ef4941311e98e50606dc7a02a2e 2e1bb37e941311e99fd6606dc7a02a2e', 'potato,배추,백채,숭채,cabbage', '뉴시스,SBS 뉴스,MBN,한국경제TV,MBC 뉴스,others', '연합뉴스,아시아경제,매일경제,머니투데이,레이디경향,others', 'daum,naver', 'twitter', datetime.datetime(2019, 6, 20, 15, 0), datetime.datetime(2019, 6, 20, 15, 0), '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0', 'finished', datetime.datetime(2019, 6, 21, 10, 56, 5, 85000), 366)
+2019-06-21 19:56:30 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: UPDATE "iCrawler_mycollection" SET "unique_id" = %(0)s, "jobids" = %(1)s, "search_keyword" = %(2)s, "channel_broadcast" = %(3)s, "channel_published" = %(4)s, "channel_blog" = %(5)s, "channel_sns" = %(6)s, "start_date" = %(7)s, "end_date" = %(8)s, "user_ip" = %(9)s, "user_agent" = %(10)s, "status" = %(11)s, "created_date" = %(12)s WHERE "iCrawler_mycollection"."id" = %(13)s
+2019-06-21 19:56:30 [djongo.sql2mongo.query] DEBUG: update_many: 1, matched: 1
+2019-06-21 19:56:30 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrappy_app.middlewares.SeleniumMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-06-21 19:56:30 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-06-21 19:56:30 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrappy_app.pipelines.NaverNewsPipeline']
+2019-06-21 19:56:30 [scrapy.core.engine] INFO: Spider opened
+2019-06-21 19:56:30 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-06-21 19:56:33 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIAA+f1U797RI2mAMAADkNAAAHAAAAdXNlci5qc6VWTW/bOBC9F9j/UOS0BWoi6celPaVpCixQNIsaQY8ERY4sxhTJJYdW/O93KFqtIVuWtnvTx3sc8s3MG6YIgfsA9Z9XVXAdvTHlWtZpq1zHVGo9AysqA+rq9UsMCV59/ONFOiUZgRBCskfoWpg4BbfQoahYCoaAV6JyCT9URtjt1UWCFxtYGCGiCJg8yxSCXs/AGtfCAbpkO2Madzs6vlbA2ojO9svojXUBplagT+rB/uh1jjfXTFsM7vH715kN5OS04pnLJlBoHmXQHjkJz1G3Oezb8UkHxkJoAO8CcmEMf4ocniV41M7G8+l/EjtRFmau4FhsXPeXvaNHZ+A8ywJ2LmyZFMTZwSpHFGZFgJ2WcwmOIFPQuGcyDrU5hRwnqQMjs2rzZXeJyoRSOp9VzK3SQaUCHTBwIbOOPFGSU0RQXELACU2PWDGmHPMnS9MHCHO0Igq3IovLYQd2KpSH0NKafd4U1CIZZLotbfBmhBXes+QV9TkTCd2E5keoZX2qdPRG7EHd31yvvzmkAiDGuym066xxQlFFW9pm6KvtRwN2nROm7WYm2v3j11s29OplR+uhb1nJ3Kz9abulDgBLHUNGWEpjrOApmFytOO0FtKtrIkzV+IAKIFTWBxAk7faLDhFvSRE51YM/nUzU0D+TeEut9ZjSCtOJsNiVQQTZHCpkFmvqmHw2h2FQTNoxlCJGMlySou+amgySyyBiMxenAWOYbEBuP5ce+FT+zPBoHkVGZ7cP9s64OHecI/gD5X4CTbqIYsFZ3AaEwaa8s2X2eGGB5HPr3P8ufYhf59r6nn7jBMZtNvmjLMPhv+zEO6PlnuWP61QdTOt/L/B3//H2V4ufXQd26JyJjFzDhcPeL9+K8iAlY+ttuG90RSPLbnjWfyJK9g1bnDjb6+fCXkuiZ/O+Gc/qI3xlnNwaHXGmNI4ofbXfudbTjKi0yePU6k2DZj/PXWTvp3hL3l7vH6f76ugucVHc4fZQRsDq4I8rGtmY4sTaA6dBpCtho2OzX+XfnkbsyoDdYHaJN+/fj3jD4jTWKC/GuI5Xe34YlRMzlXzHY8z9zlunhFl6n6m1AXpiLmjqEl4KNl/T5ggRg5bIx7yzwfKl1JJFttBWENb965Roueq3GtlBvGHkHgr7/OkHDoKhGBj2rOjRH3884k7Bl6U6xQd46ufd+c08e00zgdLG8rmpPGg0EOWfpMNkjF+crtEUKLfVOcq/UEsBAhQAFAAAAAgAD5/VTv3tEjaYAwAAOQ0AAAcAAAAAAAAAAAAAALaBAAAAAHVzZXIuanNQSwUGAAAAAAEAAQA1AAAAvQMAAAAA"}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIAA+f1U797RI2mAMAADkNAAAHAAAAdXNlci5qc6VWTW/bOBC9F9j/UOS0BWoi6celPaVpCixQNIsaQY8ERY4sxhTJJYdW/O93KFqtIVuWtnvTx3sc8s3MG6YIgfsA9Z9XVXAdvTHlWtZpq1zHVGo9AysqA+rq9UsMCV59/ONFOiUZgRBCskfoWpg4BbfQoahYCoaAV6JyCT9URtjt1UWCFxtYGCGiCJg8yxSCXs/AGtfCAbpkO2Madzs6vlbA2ojO9svojXUBplagT+rB/uh1jjfXTFsM7vH715kN5OS04pnLJlBoHmXQHjkJz1G3Oezb8UkHxkJoAO8CcmEMf4ocniV41M7G8+l/EjtRFmau4FhsXPeXvaNHZ+A8ywJ2LmyZFMTZwSpHFGZFgJ2WcwmOIFPQuGcyDrU5hRwnqQMjs2rzZXeJyoRSOp9VzK3SQaUCHTBwIbOOPFGSU0RQXELACU2PWDGmHPMnS9MHCHO0Igq3IovLYQd2KpSH0NKafd4U1CIZZLotbfBmhBXes+QV9TkTCd2E5keoZX2qdPRG7EHd31yvvzmkAiDGuym066xxQlFFW9pm6KvtRwN2nROm7WYm2v3j11s29OplR+uhb1nJ3Kz9abulDgBLHUNGWEpjrOApmFytOO0FtKtrIkzV+IAKIFTWBxAk7faLDhFvSRE51YM/nUzU0D+TeEut9ZjSCtOJsNiVQQTZHCpkFmvqmHw2h2FQTNoxlCJGMlySou+amgySyyBiMxenAWOYbEBuP5ce+FT+zPBoHkVGZ7cP9s64OHecI/gD5X4CTbqIYsFZ3AaEwaa8s2X2eGGB5HPr3P8ufYhf59r6nn7jBMZtNvmjLMPhv+zEO6PlnuWP61QdTOt/L/B3//H2V4ufXQd26JyJjFzDhcPeL9+K8iAlY+ttuG90RSPLbnjWfyJK9g1bnDjb6+fCXkuiZ/O+Gc/qI3xlnNwaHXGmNI4ofbXfudbTjKi0yePU6k2DZj/PXWTvp3hL3l7vH6f76ugucVHc4fZQRsDq4I8rGtmY4sTaA6dBpCtho2OzX+XfnkbsyoDdYHaJN+/fj3jD4jTWKC/GuI5Xe34YlRMzlXzHY8z9zlunhFl6n6m1AXpiLmjqEl4KNl/T5ggRg5bIx7yzwfKl1JJFttBWENb965Roueq3GtlBvGHkHgr7/OkHDoKhGBj2rOjRH3884k7Bl6U6xQd46ufd+c08e00zgdLG8rmpPGg0EOWfpMNkjF+crtEUKLfVOcq/UEsBAhQAFAAAAAgAD5/VTv3tEjaYAwAAOQ0AAAcAAAAAAAAAAAAAALaBAAAAAHVzZXIuanNQSwUGAAAAAAEAAQA1AAAAvQMAAAAA"}}}
+2019-06-21 19:56:33 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:18703
+2019-06-21 19:56:42 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session HTTP/1.1" 200 733
+2019-06-21 19:56:42 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:42 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/timeouts {"pageLoad": 100000}
+2019-06-21 19:56:42 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/timeouts HTTP/1.1" 200 14
+2019-06-21 19:56:42 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:42 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6024
+2019-06-21 19:56:42 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=cabbage&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1"}
+2019-06-21 19:56:46 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:46 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:46 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:46 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 656721
+2019-06-21 19:56:46 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:46 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:46 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 163
+2019-06-21 19:56:46 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=cabbage&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1> (referer: None)
+2019-06-21 19:56:46 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=%EC%88%AD%EC%B1%84&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1"}
+2019-06-21 19:56:48 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:48 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:48 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:48 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 652387
+2019-06-21 19:56:48 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:48 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:48 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 174
+2019-06-21 19:56:48 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=%EC%88%AD%EC%B1%84&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1> (referer: None)
+2019-06-21 19:56:48 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1"}
+2019-06-21 19:56:49 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:49 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:49 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:49 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 680130
+2019-06-21 19:56:49 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:49 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:49 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 174
+2019-06-21 19:56:49 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1> (referer: None)
+2019-06-21 19:56:49 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=potato&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1"}
+2019-06-21 19:56:50 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:50 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:50 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:50 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 663008
+2019-06-21 19:56:50 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:50 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:50 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 162
+2019-06-21 19:56:50 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=potato&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1> (referer: None)
+2019-06-21 19:56:50 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B1%EC%B1%84&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1"}
+2019-06-21 19:56:51 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:51 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:51 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:51 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 656808
+2019-06-21 19:56:51 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:51 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:51 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 174
+2019-06-21 19:56:51 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B1%EC%B1%84&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1> (referer: None)
+2019-06-21 19:56:51 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787
+2019-06-21 19:56:52 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782
+2019-06-21 19:56:52 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782"}
+2019-06-21 19:56:53 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:53 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:53 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:54 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 139029
+2019-06-21 19:56:54 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:54 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:54 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 97
+2019-06-21 19:56:54 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1)
+2019-06-21 19:56:54 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787"}
+2019-06-21 19:56:55 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:55 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:55 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:55 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 139203
+2019-06-21 19:56:55 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:55 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:55 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 97
+2019-06-21 19:56:55 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1)
+2019-06-21 19:56:55 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=11"}
+2019-06-21 19:56:56 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:56 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:56 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:56 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 680585
+2019-06-21 19:56:56 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:56 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:56 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 175
+2019-06-21 19:56:56 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=11> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=1)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: ('5bda9a76-42e9-47d1-b224-db6569229654',)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '5bda9a76-42e9-47d1-b224-db6569229654'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: ('https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782',)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_navernews"."id", "iCrawler_navernews"."unique_id", "iCrawler_navernews"."search_keyword", "iCrawler_navernews"."origin_keyword", "iCrawler_navernews"."item_type", "iCrawler_navernews"."category", "iCrawler_navernews"."sub_category", "iCrawler_navernews"."url", "iCrawler_navernews"."title", "iCrawler_navernews"."publisher", "iCrawler_navernews"."original_link", "iCrawler_navernews"."date", "iCrawler_navernews"."content", "iCrawler_navernews"."no_emotions", "iCrawler_navernews"."no_e_likes", "iCrawler_navernews"."no_e_warms", "iCrawler_navernews"."no_e_sads", "iCrawler_navernews"."no_e_angries", "iCrawler_navernews"."no_e_wants", "iCrawler_navernews"."no_images", "iCrawler_navernews"."no_comments", "iCrawler_navernews"."created_date" FROM "iCrawler_navernews" WHERE "iCrawler_navernews"."url" = %(0)s
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'title', 'publisher', 'original_link', 'date', 'content', 'no_emotions', 'no_e_likes', 'no_e_warms', 'no_e_sads', 'no_e_angries', 'no_e_wants', 'no_images', 'no_comments', 'created_date']}
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: [None, '배추', '배추', 'news', 'news', 'news', 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782', "'생방송 오늘 저녁' 통들깨 비빔냉면, 서초동 서관면옥… 국수의신(오늘방송맛집)", '부산일보', '', '2019-06-21 06:21:00', "// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} 사진-'생방송 오늘저녁' 방송화면(오늘방송맛집) 21일 방송되는 MBC '생방송 오늘 저녁'에서는 '국수의 신(神)' 코너를 통해 '통들깨 비빔냉면' 맛집이 소개됐다.서울 서초구 서초대로56길 11에 위치한 '서관면옥'이 이날 '통들깨 비빔냉면' 맛집으로 알려진 곳이다.통들깨 비빔냉면은 비빔밥처럼 비벼 먹는 냉면으로 사태, 파, 깨, 통들깨, 김가루를 고명으로 올린다. 생 들기름과 특제간장을 살짝 뿌려 비벼 먹는 냉면이다. 부드럽고 담백한 매력을 더하는 100% 메밀면발과 더해져 입안 가득 감칠맛을 전한다. 고기 고명이 듬뿍 올라가 안주로 인기라는 맛박이 냉면도 마니아층이 두터운 메뉴다. 지리산 흑돼지 앞다릿살과 소고기 사태, 양지를 듬뿍 올리고 얼갈이배추 김치를 곁들였다. 매콤한 겨자 양념을 곁들여 잘 비벼주면 입에 착 감기는 맛이 일품이다. 더위를 날리는 시원한 육수는 한우와 돼지고기를 9 대 1비율로 넣어 진한 육향을 자랑한다.디지털편성부 multi@", 0, 0, 0, 0, 0, 0, 1, 0, datetime.datetime(2019, 6, 21, 10, 56, 56, 862720)]
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_navernews" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "publisher", "original_link", "date", "content", "no_emotions", "no_e_likes", "no_e_warms", "no_e_sads", "no_e_angries", "no_e_wants", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s, %(14)s, %(15)s, %(16)s, %(17)s, %(18)s, %(19)s, %(20)s)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7f8bebf7b2888fa51ff')]
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: [366, None, 114, None, None, datetime.datetime(2019, 6, 21, 10, 56, 56, 880672)]
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7f8bebf7b2888fa5200')]
+2019-06-21 19:56:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782>
+{'category': 'news',
+ 'channel': 'news',
+ 'channel_sub': '부산일보',
+ 'content': '// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} '
+            "사진-'생방송 오늘저녁' 방송화면(오늘방송맛집) 21일 방송되는 MBC '생방송 오늘 저녁'에서는 '국수의 신(神)' "
+            "코너를 통해 '통들깨 비빔냉면' 맛집이 소개됐다.서울 서초구 서초대로56길 11에 위치한 '서관면옥'이 이날 '통들깨 "
+            "비빔냉면' 맛집으로 알려진 곳이다.통들깨 비빔냉면은 비빔밥처럼 비벼 먹는 냉면으로 사태, 파, 깨, 통들깨, 김가루를 "
+            '고명으로 올린다. 생 들기름과 특제간장을 살짝 뿌려 비벼 먹는 냉면이다. 부드럽고 담백한 매력을 더하는 100% '
+            '메밀면발과 더해져 입안 가득 감칠맛을 전한다. 고기 고명이 듬뿍 올라가 안주로 인기라는 맛박이 냉면도 마니아층이 '
+            '두터운 메뉴다. 지리산 흑돼지 앞다릿살과 소고기 사태, 양지를 듬뿍 올리고 얼갈이배추 김치를 곁들였다. 매콤한 겨자 '
+            '양념을 곁들여 잘 비벼주면 입에 착 감기는 맛이 일품이다. 더위를 날리는 시원한 육수는 한우와 돼지고기를 9 대 '
+            '1비율로 넣어 진한 육향을 자랑한다.디지털편성부 multi@',
+ 'date': datetime.datetime(2019, 6, 21, 6, 21),
+ 'itemType': 'news',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 1,
+ 'originKeyword': '배추',
+ 'originalLink': '',
+ 'publisher': '부산일보',
+ 'searchKeyword': '배추',
+ 'subCategory': 'news',
+ 'title': "'생방송 오늘 저녁' 통들깨 비빔냉면, 서초동 서관면옥… 국수의신(오늘방송맛집)",
+ 'url': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916782'}
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: ('5bda9a76-42e9-47d1-b224-db6569229654',)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '5bda9a76-42e9-47d1-b224-db6569229654'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: ('https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787',)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_navernews"."id", "iCrawler_navernews"."unique_id", "iCrawler_navernews"."search_keyword", "iCrawler_navernews"."origin_keyword", "iCrawler_navernews"."item_type", "iCrawler_navernews"."category", "iCrawler_navernews"."sub_category", "iCrawler_navernews"."url", "iCrawler_navernews"."title", "iCrawler_navernews"."publisher", "iCrawler_navernews"."original_link", "iCrawler_navernews"."date", "iCrawler_navernews"."content", "iCrawler_navernews"."no_emotions", "iCrawler_navernews"."no_e_likes", "iCrawler_navernews"."no_e_warms", "iCrawler_navernews"."no_e_sads", "iCrawler_navernews"."no_e_angries", "iCrawler_navernews"."no_e_wants", "iCrawler_navernews"."no_images", "iCrawler_navernews"."no_comments", "iCrawler_navernews"."created_date" FROM "iCrawler_navernews" WHERE "iCrawler_navernews"."url" = %(0)s
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'title', 'publisher', 'original_link', 'date', 'content', 'no_emotions', 'no_e_likes', 'no_e_warms', 'no_e_sads', 'no_e_angries', 'no_e_wants', 'no_images', 'no_comments', 'created_date']}
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: [None, '배추', '배추', 'news', 'news', 'news', 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787', "'2TV생생정보' 볏집 숙성 청국장+차돌박이 순두부 전골, 일산 구산동 '옛날집'…전설의맛 (생생정보통 맛집오늘)", '부산일보', '', '2019-06-21 06:46:00', "// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} 사진-'2TV생생정보' 방송화면(생생정보통 맛집오늘) 21일 오후 방송된 KBS '2TV 생생정보'에서는 '전설의 맛' 코너를 통해 '36년 전통! 볏짚 숙성 청국장' 맛집이 소개됐다. 경기 고양시 일산서구 송산로 5(구산동 1464-4)에 위치한 '옛날집'이 이날 '36년 전통!볏짚 숙성 청국장' 맛집으로 알려진 곳이다.이곳의 청국장은 입맛 없는 사람도 밥한그릇 뚝딱 먹게 만드는 맛이다. 맛의 비법은 바로 전통 청국장을 만드는 것에 있다. 청국장에는 바로 볏집을 이용해 발효시키는 것이 '신의 한수'. 여기에 왕겨를 이용한 것도 청국장 발효를 돕는 비법 중의 하나다. 정성드려 만든 청국장은 얼갈이 배추와 두부를 넣어 구수함을 더한다. 청국장에 이어 이곳의 별미는 바로 차돌박이 손두부 전골이다. 가마솥을 걸고 직접 두부들 만들어 두부에도 깊은 담백한 맛이 배여있다. 디지털편성부 multi@", 0, 0, 0, 0, 0, 0, 1, 0, datetime.datetime(2019, 6, 21, 10, 56, 56, 930539)]
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_navernews" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "publisher", "original_link", "date", "content", "no_emotions", "no_e_likes", "no_e_warms", "no_e_sads", "no_e_angries", "no_e_wants", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s, %(14)s, %(15)s, %(16)s, %(17)s, %(18)s, %(19)s, %(20)s)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7f8bebf7b2888fa5201')]
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: params: [366, None, 115, None, None, datetime.datetime(2019, 6, 21, 10, 56, 56, 949488)]
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:56:56 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7f8bebf7b2888fa5202')]
+2019-06-21 19:56:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787>
+{'category': 'news',
+ 'channel': 'news',
+ 'channel_sub': '부산일보',
+ 'content': '// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} '
+            "사진-'2TV생생정보' 방송화면(생생정보통 맛집오늘) 21일 오후 방송된 KBS '2TV 생생정보'에서는 '전설의 "
+            "맛' 코너를 통해 '36년 전통! 볏짚 숙성 청국장' 맛집이 소개됐다. 경기 고양시 일산서구 송산로 5(구산동 "
+            "1464-4)에 위치한 '옛날집'이 이날 '36년 전통!볏짚 숙성 청국장' 맛집으로 알려진 곳이다.이곳의 청국장은 "
+            '입맛 없는 사람도 밥한그릇 뚝딱 먹게 만드는 맛이다. 맛의 비법은 바로 전통 청국장을 만드는 것에 있다. 청국장에는 '
+            "바로 볏집을 이용해 발효시키는 것이 '신의 한수'. 여기에 왕겨를 이용한 것도 청국장 발효를 돕는 비법 중의 하나다. "
+            '정성드려 만든 청국장은 얼갈이 배추와 두부를 넣어 구수함을 더한다. 청국장에 이어 이곳의 별미는 바로 차돌박이 손두부 '
+            '전골이다. 가마솥을 걸고 직접 두부들 만들어 두부에도 깊은 담백한 맛이 배여있다. 디지털편성부 multi@',
+ 'date': datetime.datetime(2019, 6, 21, 6, 46),
+ 'itemType': 'news',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 1,
+ 'originKeyword': '배추',
+ 'originalLink': '',
+ 'publisher': '부산일보',
+ 'searchKeyword': '배추',
+ 'subCategory': 'news',
+ 'title': "'2TV생생정보' 볏집 숙성 청국장+차돌박이 순두부 전골, 일산 구산동 '옛날집'…전설의맛 (생생정보통 맛집오늘)",
+ 'url': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=082&aid=0000916787'}
+2019-06-21 19:56:57 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168
+2019-06-21 19:56:57 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168"}
+2019-06-21 19:56:58 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:58 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:58 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:58 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 151565
+2019-06-21 19:56:58 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:58 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:58 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 97
+2019-06-21 19:56:58 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=11)
+2019-06-21 19:56:58 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=21"}
+2019-06-21 19:56:59 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:56:59 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:59 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:56:59 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 678863
+2019-06-21 19:56:59 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:59 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:56:59 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 175
+2019-06-21 19:56:59 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:56:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=21> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=11)
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: params: ('5bda9a76-42e9-47d1-b224-db6569229654',)
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '5bda9a76-42e9-47d1-b224-db6569229654'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: params: ('https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168',)
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_navernews"."id", "iCrawler_navernews"."unique_id", "iCrawler_navernews"."search_keyword", "iCrawler_navernews"."origin_keyword", "iCrawler_navernews"."item_type", "iCrawler_navernews"."category", "iCrawler_navernews"."sub_category", "iCrawler_navernews"."url", "iCrawler_navernews"."title", "iCrawler_navernews"."publisher", "iCrawler_navernews"."original_link", "iCrawler_navernews"."date", "iCrawler_navernews"."content", "iCrawler_navernews"."no_emotions", "iCrawler_navernews"."no_e_likes", "iCrawler_navernews"."no_e_warms", "iCrawler_navernews"."no_e_sads", "iCrawler_navernews"."no_e_angries", "iCrawler_navernews"."no_e_wants", "iCrawler_navernews"."no_images", "iCrawler_navernews"."no_comments", "iCrawler_navernews"."created_date" FROM "iCrawler_navernews" WHERE "iCrawler_navernews"."url" = %(0)s
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'title', 'publisher', 'original_link', 'date', 'content', 'no_emotions', 'no_e_likes', 'no_e_warms', 'no_e_sads', 'no_e_angries', 'no_e_wants', 'no_images', 'no_comments', 'created_date']}
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: params: [None, '배추', '배추', 'news', 'news', 'news', 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168', "'국수의 신' 평양식 골동냉면(통들깨 비빔냉면), 안주용 맛박이 냉면이란? 생방송 오늘저녁 교대역 '서관면옥' 방문", '매일신문', '', '2019-06-21 03:51:00', "// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} [황희진 기자 hhj@imaeil.com] '국수의 신' 평양식 골동냉면(통들깨 비빔냉면), 안주용 맛박이 냉면이란? 생방송 오늘저녁 교대역 '서관면옥' 방문. 네이버 지도21일 MBC '생방송 오늘저녁'에서 평양식 골동냉면, 맛박이 냉면을 소개해 시청자들의 눈길이 향할 전망이다.골동냉면은 비빔밥처럼 비벼 먹는 냉면이라고. 방송에서는 통들깨 비빔냉면으로 소개한다. 사태, 파, 깨, 통들깨, 김가루 등이 고명으로 올라가고, 여기에 생 들기름과 특제간장을 뿌려 먹는다.맛박이 냉면은 고기 고명을 잔뜩 맛 볼 수 있는 메뉴이다. 지리산 흑돼지 앞다리살, 소고기 사태, 양지 등이 들어간다. 여기에 얼갈이배추김치가 더해진다. 이 냉면 역시 겨자 양념을 넣어 비벼 먹으면 된다. 고기가 가득한 덕분에 주로 술을 곁들여 안주로 먹는 냉면이라고.서관면옥 주소는 서울 서초구 서초대로56길 11.서울 지하철 2, 3호선 교대역(법원, 검찰청) 가까이에 있는 역세권 맛집이다. 1번 출구로 나와 동쪽으로 이동하면 닿을 수 있다.ⓒ매일신문 - www.imaeil.com", 0, 0, 0, 0, 0, 0, 1, 0, datetime.datetime(2019, 6, 21, 10, 56, 59, 596918)]
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_navernews" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "publisher", "original_link", "date", "content", "no_emotions", "no_e_likes", "no_e_warms", "no_e_sads", "no_e_angries", "no_e_wants", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s, %(14)s, %(15)s, %(16)s, %(17)s, %(18)s, %(19)s, %(20)s)
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7fbbebf7b2888fa5203')]
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: params: [366, None, 116, None, None, datetime.datetime(2019, 6, 21, 10, 56, 59, 608889)]
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:56:59 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7fbbebf7b2888fa5204')]
+2019-06-21 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168>
+{'category': 'news',
+ 'channel': 'news',
+ 'channel_sub': '매일신문',
+ 'content': '// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} '
+            "[황희진 기자 hhj@imaeil.com] '국수의 신' 평양식 골동냉면(통들깨 비빔냉면), 안주용 맛박이 냉면이란? "
+            "생방송 오늘저녁 교대역 '서관면옥' 방문. 네이버 지도21일 MBC '생방송 오늘저녁'에서 평양식 골동냉면, 맛박이 "
+            '냉면을 소개해 시청자들의 눈길이 향할 전망이다.골동냉면은 비빔밥처럼 비벼 먹는 냉면이라고. 방송에서는 통들깨 '
+            '비빔냉면으로 소개한다. 사태, 파, 깨, 통들깨, 김가루 등이 고명으로 올라가고, 여기에 생 들기름과 특제간장을 뿌려 '
+            '먹는다.맛박이 냉면은 고기 고명을 잔뜩 맛 볼 수 있는 메뉴이다. 지리산 흑돼지 앞다리살, 소고기 사태, 양지 등이 '
+            '들어간다. 여기에 얼갈이배추김치가 더해진다. 이 냉면 역시 겨자 양념을 넣어 비벼 먹으면 된다. 고기가 가득한 덕분에 '
+            '주로 술을 곁들여 안주로 먹는 냉면이라고.서관면옥 주소는 서울 서초구 서초대로56길 11.서울 지하철 2, 3호선 '
+            '교대역(법원, 검찰청) 가까이에 있는 역세권 맛집이다. 1번 출구로 나와 동쪽으로 이동하면 닿을 수 있다.ⓒ매일신문 '
+            '- www.imaeil.com',
+ 'date': datetime.datetime(2019, 6, 21, 3, 51),
+ 'itemType': 'news',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 1,
+ 'originKeyword': '배추',
+ 'originalLink': '',
+ 'publisher': '매일신문',
+ 'searchKeyword': '배추',
+ 'subCategory': 'news',
+ 'title': "'국수의 신' 평양식 골동냉면(통들깨 비빔냉면), 안주용 맛박이 냉면이란? 생방송 오늘저녁 교대역 '서관면옥' 방문",
+ 'url': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=088&aid=0000599168'}
+2019-06-21 19:56:59 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096
+2019-06-21 19:56:59 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=449&aid=0000172779
+2019-06-21 19:56:59 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://entertain.naver.com/read?oid=449&aid=0000172779> from <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=449&aid=0000172779>
+2019-06-21 19:56:59 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096"}
+2019-06-21 19:57:01 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:57:01 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:57:01 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:57:01 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 137212
+2019-06-21 19:57:01 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:57:01 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:57:01 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 97
+2019-06-21 19:57:01 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:57:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=21)
+2019-06-21 19:57:01 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=31"}
+2019-06-21 19:57:02 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:57:02 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:57:02 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:57:02 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 679832
+2019-06-21 19:57:02 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:57:02 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:57:02 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 175
+2019-06-21 19:57:02 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:57:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=31> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=21)
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: params: ('5bda9a76-42e9-47d1-b224-db6569229654',)
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '5bda9a76-42e9-47d1-b224-db6569229654'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: params: ('https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096',)
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_navernews"."id", "iCrawler_navernews"."unique_id", "iCrawler_navernews"."search_keyword", "iCrawler_navernews"."origin_keyword", "iCrawler_navernews"."item_type", "iCrawler_navernews"."category", "iCrawler_navernews"."sub_category", "iCrawler_navernews"."url", "iCrawler_navernews"."title", "iCrawler_navernews"."publisher", "iCrawler_navernews"."original_link", "iCrawler_navernews"."date", "iCrawler_navernews"."content", "iCrawler_navernews"."no_emotions", "iCrawler_navernews"."no_e_likes", "iCrawler_navernews"."no_e_warms", "iCrawler_navernews"."no_e_sads", "iCrawler_navernews"."no_e_angries", "iCrawler_navernews"."no_e_wants", "iCrawler_navernews"."no_images", "iCrawler_navernews"."no_comments", "iCrawler_navernews"."created_date" FROM "iCrawler_navernews" WHERE "iCrawler_navernews"."url" = %(0)s
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'title', 'publisher', 'original_link', 'date', 'content', 'no_emotions', 'no_e_likes', 'no_e_warms', 'no_e_sads', 'no_e_angries', 'no_e_wants', 'no_images', 'no_comments', 'created_date']}
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: params: [None, '배추', '배추', 'news', 'news', 'news', 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096', '[자막뉴스] 배달앱도 ‘원산지 둔갑’…먹거리 불신 가중', 'KBS', '', '2019-06-21 02:01:00', '// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} 스마트폰 배달앱을 열자 인근의 수많은 음식점 메뉴가 나옵니다. 이같은 배달앱 메뉴도 식당과 마찬가지로 식자재 원산지를 꼭 표시해야 합니다. 하지만 한 음식점은 외국산을 국내산으로 속여 판매하다 적발됐습니다. 배달앱으론 조리과정을 볼 수 없다는 점을 악용한 겁니다. 해당 업체는 배달 어플리케이션에 칠레산과 미국산 돼지등뼈를 국내산과 스페인산으로 속여 팔다가 단속에 적발됐습니다. 칠레산 돼지등뼈 가격은 kg당 2200원. 국내산은 kg당 3500원으로 외국산보다 1.5배 비쌉니다. [원산지 적발업소 관계자/음성변조 : "(돼지등뼈) 국내산을 같이 썼다가 요새 장사가 어려워서 그냥, 같이 (포시)하면 상관이 없다고 나는 그런식으로 들어서..."] 또 다른 업체는 중국산 배추로 만든 김치를 국내산으로 둔갑시켰습니다. [원산지 적발업소 관계자/음성변조 : "장사 자체를 처음하는 입장에서 원산지 표기에 대한 것을 요식업 교육을 받으면서 받긴 받았는데 정확히 표기를 안했어요."] 배달앱까지 파고드는 원산지 둔갑으로 소비자들의 먹거리 불신이 가중되고 있습니다. KBS 뉴스 정재훈입니다. 정재훈 기자 (jjh119@kbs.co.kr)▶ 네이버 채널 KBS뉴스 구독! 시원하게 털어드립니다▶ ‘TV보다 ㄹㅇ’ 당신의 진짜 뉴스 ‘케이야’', 0, 0, 0, 0, 0, 0, 0, 0, datetime.datetime(2019, 6, 21, 10, 57, 2, 563986)]
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_navernews" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "publisher", "original_link", "date", "content", "no_emotions", "no_e_likes", "no_e_warms", "no_e_sads", "no_e_angries", "no_e_wants", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s, %(14)s, %(15)s, %(16)s, %(17)s, %(18)s, %(19)s, %(20)s)
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7febebf7b2888fa5205')]
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: params: [366, None, 117, None, None, datetime.datetime(2019, 6, 21, 10, 57, 2, 577949)]
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-21 19:57:02 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0cb7febebf7b2888fa5206')]
+2019-06-21 19:57:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096>
+{'category': 'news',
+ 'channel': 'news',
+ 'channel_sub': 'KBS',
+ 'content': '// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} '
+            '스마트폰 배달앱을 열자 인근의 수많은 음식점 메뉴가 나옵니다. 이같은 배달앱 메뉴도 식당과 마찬가지로 식자재 원산지를 '
+            '꼭 표시해야 합니다. 하지만 한 음식점은 외국산을 국내산으로 속여 판매하다 적발됐습니다. 배달앱으론 조리과정을 볼 수 '
+            '없다는 점을 악용한 겁니다. 해당 업체는 배달 어플리케이션에 칠레산과 미국산 돼지등뼈를 국내산과 스페인산으로 속여 '
+            '팔다가 단속에 적발됐습니다. 칠레산 돼지등뼈 가격은 kg당 2200원. 국내산은 kg당 3500원으로 외국산보다 '
+            '1.5배 비쌉니다. [원산지 적발업소 관계자/음성변조 : "(돼지등뼈) 국내산을 같이 썼다가 요새 장사가 어려워서 '
+            '그냥, 같이 (포시)하면 상관이 없다고 나는 그런식으로 들어서..."] 또 다른 업체는 중국산 배추로 만든 김치를 '
+            '국내산으로 둔갑시켰습니다. [원산지 적발업소 관계자/음성변조 : "장사 자체를 처음하는 입장에서 원산지 표기에 대한 '
+            '것을 요식업 교육을 받으면서 받긴 받았는데 정확히 표기를 안했어요."] 배달앱까지 파고드는 원산지 둔갑으로 소비자들의 '
+            '먹거리 불신이 가중되고 있습니다. KBS 뉴스 정재훈입니다. 정재훈 기자 (jjh119@kbs.co.kr)▶ 네이버 '
+            '채널 KBS뉴스 구독! 시원하게 털어드립니다▶ ‘TV보다 ㄹㅇ’ 당신의 진짜 뉴스 ‘케이야’',
+ 'date': datetime.datetime(2019, 6, 21, 2, 1),
+ 'itemType': 'news',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 0,
+ 'originKeyword': '배추',
+ 'originalLink': '',
+ 'publisher': 'KBS',
+ 'searchKeyword': '배추',
+ 'subCategory': 'news',
+ 'title': '[자막뉴스] 배달앱도 ‘원산지 둔갑’…먹거리 불신 가중',
+ 'url': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010714096'}
+2019-06-21 19:57:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://entertain.naver.com/read?oid=449&aid=0000172779> from <GET http://entertain.naver.com/read?oid=449&aid=0000172779>
+2019-06-21 19:57:02 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=311&aid=0001007984
+2019-06-21 19:57:02 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=609&aid=0000127023
+2019-06-21 19:57:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://entertain.naver.com/read?oid=311&aid=0001007984> from <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=311&aid=0001007984>
+2019-06-21 19:57:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://entertain.naver.com/read?oid=609&aid=0000127023> from <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=106&oid=609&aid=0000127023>
+2019-06-21 19:57:02 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://entertain.naver.com/read?oid=311&aid=0001007984> from <GET http://entertain.naver.com/read?oid=311&aid=0001007984>
+2019-06-21 19:57:02 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://entertain.naver.com/read?oid=449&aid=0000172779"}
+2019-06-21 19:58:42 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 500 264
+2019-06-21 19:58:42 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:58:42 [scrapy.extensions.logstats] INFO: Crawled 12 pages (at 12 pages/min), scraped 4 items (at 4 items/min)
+2019-06-21 19:58:42 [scrapy.downloadermiddlewares.retry] DEBUG: Retrying <GET http://entertain.naver.com/read?oid=609&aid=0000127023> (failed 1 times): [<twisted.python.failure.Failure twisted.internet.error.ConnectionDone: Connection was closed cleanly.>]
+2019-06-21 19:58:42 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=41"}
+2019-06-21 19:58:43 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "POST /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 14
+2019-06-21 19:58:43 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:58:43 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source {}
+2019-06-21 19:58:43 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/source HTTP/1.1" 200 680636
+2019-06-21 19:58:43 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:58:43 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {}
+2019-06-21 19:58:43 [urllib3.connectionpool] DEBUG: http://127.0.0.1:18703 "GET /session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url HTTP/1.1" 200 175
+2019-06-21 19:58:43 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 19:58:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=41> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=%EB%B0%B0%EC%B6%94&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=2019.06.21&de=2019.06.21&qvt=0&start=31)
+2019-06-21 19:58:43 [scrapy.core.scraper] ERROR: Error downloading <GET https://entertain.naver.com/read?oid=449&aid=0000172779>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://entertain.naver.com/read?oid=449&aid=0000172779>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 333, in get
+    self.execute(Command.GET, {'url': url})
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: Timeout loading page after 100000ms
+
+2019-06-21 19:58:43 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET https://entertain.naver.com/read?oid=609&aid=0000127023> from <GET http://entertain.naver.com/read?oid=609&aid=0000127023>
+2019-06-21 19:58:43 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=103&oid=346&aid=0000026859
+2019-06-21 19:58:43 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=102&oid=056&aid=0010713960
+2019-06-21 19:58:43 [naver_news] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=101&oid=018&aid=0004407778
+2019-06-21 19:58:43 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:18703/session/19d6dd0d-832e-4d91-ab7b-10f6e2fb9b7f/url {"url": "https://entertain.naver.com/read?oid=311&aid=0001007984"}

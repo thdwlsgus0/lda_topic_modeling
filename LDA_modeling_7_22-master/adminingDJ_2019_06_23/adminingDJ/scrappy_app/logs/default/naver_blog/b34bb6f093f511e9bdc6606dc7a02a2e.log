@@ -1,0 +1,1149 @@
+2019-06-21 16:25:20 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: scrappy_app)
+2019-06-21 16:25:20 [scrapy.utils.log] INFO: Versions: lxml 4.2.5.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 18.9.0, Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Windows-10-10.0.17134-SP0
+2019-06-21 16:25:20 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrappy_app', 'LOG_FILE': 'logs\\default\\naver_blog\\b34bb6f093f511e9bdc6606dc7a02a2e.log', 'NEWSPIDER_MODULE': 'scrappy_app.spiders', 'SPIDER_MODULES': ['scrappy_app.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0'}
+2019-06-21 16:25:20 [scrapy.extensions.telnet] INFO: Telnet Password: e71fdb6657864575
+2019-06-21 16:25:20 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-06-21 16:25:20 [djongo.sql2mongo.query] DEBUG: params: ('f18d17dc-17ad-48bd-a656-1b04732cd0ae',)
+2019-06-21 16:25:20 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-21 16:25:20 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': 'f18d17dc-17ad-48bd-a656-1b04732cd0ae'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-21 16:25:20 [djongo.sql2mongo.query] DEBUG: params: ('f18d17dc-17ad-48bd-a656-1b04732cd0ae', 'b3410fdc93f511e98384606dc7a02a2e b34bb6f093f511e9bdc6606dc7a02a2e', 'agriculture,양파,옥총,onion,오니언', '뉴시스,SBS 뉴스,MBN,한국경제TV,MBC 뉴스,others', '연합뉴스,아시아경제,매일경제,머니투데이,레이디경향,others', 'daum,naver', 'twitter', datetime.datetime(2019, 6, 20, 15, 0), datetime.datetime(2019, 6, 20, 15, 0), '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0', 'finished', datetime.datetime(2019, 6, 21, 7, 25, 8, 228000), 360)
+2019-06-21 16:25:20 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: UPDATE "iCrawler_mycollection" SET "unique_id" = %(0)s, "jobids" = %(1)s, "search_keyword" = %(2)s, "channel_broadcast" = %(3)s, "channel_published" = %(4)s, "channel_blog" = %(5)s, "channel_sns" = %(6)s, "start_date" = %(7)s, "end_date" = %(8)s, "user_ip" = %(9)s, "user_agent" = %(10)s, "status" = %(11)s, "created_date" = %(12)s WHERE "iCrawler_mycollection"."id" = %(13)s
+2019-06-21 16:25:20 [djongo.sql2mongo.query] DEBUG: update_many: 1, matched: 1
+2019-06-21 16:25:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrappy_app.middlewares.SeleniumMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-06-21 16:25:23 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-06-21 16:25:23 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrappy_app.pipelines.NaverBlogPipeline']
+2019-06-21 16:25:23 [scrapy.core.engine] INFO: Spider opened
+2019-06-21 16:25:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-06-21 16:25:26 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:8830/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIACyD1U797RI2mAMAADkNAAAHAAAAdXNlci5qc6VWTW/bOBC9F9j/UOS0BWoi6celPaVpCixQNIsaQY8ERY4sxhTJJYdW/O93KFqtIVuWtnvTx3sc8s3MG6YIgfsA9Z9XVXAdvTHlWtZpq1zHVGo9AysqA+rq9UsMCV59/ONFOiUZgRBCskfoWpg4BbfQoahYCoaAV6JyCT9URtjt1UWCFxtYGCGiCJg8yxSCXs/AGtfCAbpkO2Madzs6vlbA2ojO9svojXUBplagT+rB/uh1jjfXTFsM7vH715kN5OS04pnLJlBoHmXQHjkJz1G3Oezb8UkHxkJoAO8CcmEMf4ocniV41M7G8+l/EjtRFmau4FhsXPeXvaNHZ+A8ywJ2LmyZFMTZwSpHFGZFgJ2WcwmOIFPQuGcyDrU5hRwnqQMjs2rzZXeJyoRSOp9VzK3SQaUCHTBwIbOOPFGSU0RQXELACU2PWDGmHPMnS9MHCHO0Igq3IovLYQd2KpSH0NKafd4U1CIZZLotbfBmhBXes+QV9TkTCd2E5keoZX2qdPRG7EHd31yvvzmkAiDGuym066xxQlFFW9pm6KvtRwN2nROm7WYm2v3j11s29OplR+uhb1nJ3Kz9abulDgBLHUNGWEpjrOApmFytOO0FtKtrIkzV+IAKIFTWBxAk7faLDhFvSRE51YM/nUzU0D+TeEut9ZjSCtOJsNiVQQTZHCpkFmvqmHw2h2FQTNoxlCJGMlySou+amgySyyBiMxenAWOYbEBuP5ce+FT+zPBoHkVGZ7cP9s64OHecI/gD5X4CTbqIYsFZ3AaEwaa8s2X2eGGB5HPr3P8ufYhf59r6nn7jBMZtNvmjLMPhv+zEO6PlnuWP61QdTOt/L/B3//H2V4ufXQd26JyJjFzDhcPeL9+K8iAlY+ttuG90RSPLbnjWfyJK9g1bnDjb6+fCXkuiZ/O+Gc/qI3xlnNwaHXGmNI4ofbXfudbTjKi0yePU6k2DZj/PXWTvp3hL3l7vH6f76ugucVHc4fZQRsDq4I8rGtmY4sTaA6dBpCtho2OzX+XfnkbsyoDdYHaJN+/fj3jD4jTWKC/GuI5Xe34YlRMzlXzHY8z9zlunhFl6n6m1AXpiLmjqEl4KNl/T5ggRg5bIx7yzwfKl1JJFttBWENb965Roueq3GtlBvGHkHgr7/OkHDoKhGBj2rOjRH3884k7Bl6U6xQd46ufd+c08e00zgdLG8rmpPGg0EOWfpMNkjF+crtEUKLfVOcq/UEsBAhQAFAAAAAgALIPVTv3tEjaYAwAAOQ0AAAcAAAAAAAAAAAAAALaBAAAAAHVzZXIuanNQSwUGAAAAAAEAAQA1AAAAvQMAAAAA"}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIACyD1U797RI2mAMAADkNAAAHAAAAdXNlci5qc6VWTW/bOBC9F9j/UOS0BWoi6celPaVpCixQNIsaQY8ERY4sxhTJJYdW/O93KFqtIVuWtnvTx3sc8s3MG6YIgfsA9Z9XVXAdvTHlWtZpq1zHVGo9AysqA+rq9UsMCV59/ONFOiUZgRBCskfoWpg4BbfQoahYCoaAV6JyCT9URtjt1UWCFxtYGCGiCJg8yxSCXs/AGtfCAbpkO2Madzs6vlbA2ojO9svojXUBplagT+rB/uh1jjfXTFsM7vH715kN5OS04pnLJlBoHmXQHjkJz1G3Oezb8UkHxkJoAO8CcmEMf4ocniV41M7G8+l/EjtRFmau4FhsXPeXvaNHZ+A8ywJ2LmyZFMTZwSpHFGZFgJ2WcwmOIFPQuGcyDrU5hRwnqQMjs2rzZXeJyoRSOp9VzK3SQaUCHTBwIbOOPFGSU0RQXELACU2PWDGmHPMnS9MHCHO0Igq3IovLYQd2KpSH0NKafd4U1CIZZLotbfBmhBXes+QV9TkTCd2E5keoZX2qdPRG7EHd31yvvzmkAiDGuym066xxQlFFW9pm6KvtRwN2nROm7WYm2v3j11s29OplR+uhb1nJ3Kz9abulDgBLHUNGWEpjrOApmFytOO0FtKtrIkzV+IAKIFTWBxAk7faLDhFvSRE51YM/nUzU0D+TeEut9ZjSCtOJsNiVQQTZHCpkFmvqmHw2h2FQTNoxlCJGMlySou+amgySyyBiMxenAWOYbEBuP5ce+FT+zPBoHkVGZ7cP9s64OHecI/gD5X4CTbqIYsFZ3AaEwaa8s2X2eGGB5HPr3P8ufYhf59r6nn7jBMZtNvmjLMPhv+zEO6PlnuWP61QdTOt/L/B3//H2V4ufXQd26JyJjFzDhcPeL9+K8iAlY+ttuG90RSPLbnjWfyJK9g1bnDjb6+fCXkuiZ/O+Gc/qI3xlnNwaHXGmNI4ofbXfudbTjKi0yePU6k2DZj/PXWTvp3hL3l7vH6f76ugucVHc4fZQRsDq4I8rGtmY4sTaA6dBpCtho2OzX+XfnkbsyoDdYHaJN+/fj3jD4jTWKC/GuI5Xe34YlRMzlXzHY8z9zlunhFl6n6m1AXpiLmjqEl4KNl/T5ggRg5bIx7yzwfKl1JJFttBWENb965Roueq3GtlBvGHkHgr7/OkHDoKhGBj2rOjRH3884k7Bl6U6xQd46ufd+c08e00zgdLG8rmpPGg0EOWfpMNkjF+crtEUKLfVOcq/UEsBAhQAFAAAAAgALIPVTv3tEjaYAwAAOQ0AAAcAAAAAAAAAAAAAALaBAAAAAHVzZXIuanNQSwUGAAAAAAEAAQA1AAAAvQMAAAAA"}}}
+2019-06-21 16:25:26 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:8830
+2019-06-21 16:25:28 [urllib3.connectionpool] DEBUG: http://127.0.0.1:8830 "POST /session HTTP/1.1" 500 81
+2019-06-21 16:25:28 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-21 16:25:28 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method SeleniumMiddleware.spider_opened of <scrappy_app.middlewares.SeleniumMiddleware object at 0x06207C70>>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 151, in maybeDeferred
+    result = f(*args, **kw)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 141, in spider_opened
+    firefox_profile=profile, executable_path='geckodriver.exe')
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\firefox\webdriver.py", line 174, in __init__
+    keep_alive=True)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 157, in __init__
+    self.start_session(capabilities, browser_profile)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 252, in start_session
+    response = self.execute(Command.NEW_SESSION, parameters)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.WebDriverException: Message: permission denied
+
+2019-06-21 16:25:28 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-06-21 16:25:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=%EC%98%A4%EB%8B%88%EC%96%B8&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1> (referer: None)
+2019-06-21 16:25:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1> (referer: None)
+2019-06-21 16:25:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=%EC%96%91%ED%8C%8C&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1> (referer: None)
+2019-06-21 16:25:28 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=%EC%98%A5%EC%B4%9D&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1> (referer: None)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=agriculture&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1> (referer: None)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=11> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/hiu01093?Redirect=Log&logNo=221567441192> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/imhongsi_?Redirect=Log&logNo=221567391842> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/zoom2love?Redirect=Log&logNo=221567231174> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/hshs7613?Redirect=Log&logNo=221567206861> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/njdh12?Redirect=Log&logNo=221567311682> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/eunchole?Redirect=Log&logNo=221567275239> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/karin_37?Redirect=Log&logNo=221567062967> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/derixuhohe7i?Redirect=Log&logNo=221567256578> (referer: https://search.naver.com/search.naver?where=post&query=onion&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=%EC%98%A5%EC%B4%9D&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=11> (referer: https://search.naver.com/search.naver?where=post&query=%EC%98%A5%EC%B4%9D&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://covi1521.blog.me/221567249071>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://covi1521.blog.me/221567249071>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/ddm_yupdduk?Redirect=Log&logNo=221567489813>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/ddm_yupdduk?Redirect=Log&logNo=221567489813>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/qkrtndusdla?Redirect=Log&logNo=221567486258>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/qkrtndusdla?Redirect=Log&logNo=221567486258>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/dgtongbeon?Redirect=Log&logNo=221567401550>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/dgtongbeon?Redirect=Log&logNo=221567401550>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://green307.blog.me/221558909583>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://green307.blog.me/221558909583>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/wjdtjgus0715?Redirect=Log&logNo=221567184627>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/wjdtjgus0715?Redirect=Log&logNo=221567184627>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/yaffpro?Redirect=Log&logNo=221567099525>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/yaffpro?Redirect=Log&logNo=221567099525>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/73rj4g?Redirect=Log&logNo=221566107635>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/73rj4g?Redirect=Log&logNo=221566107635>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/pm-10?Redirect=Log&logNo=221567457962>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/pm-10?Redirect=Log&logNo=221567457962>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/dsk3844?Redirect=Log&logNo=221567133159>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/dsk3844?Redirect=Log&logNo=221567133159>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://jjjg9348.blog.me/221565779235>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://jjjg9348.blog.me/221565779235>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/kgmpcom?Redirect=Log&logNo=221567216582>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/kgmpcom?Redirect=Log&logNo=221567216582>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/globalresearch?Redirect=Log&logNo=221567227138>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/globalresearch?Redirect=Log&logNo=221567227138>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/studyinnewzealand?Redirect=Log&logNo=221567304868>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/studyinnewzealand?Redirect=Log&logNo=221567304868>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/abraxasblog?Redirect=Log&logNo=221567046614>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/abraxasblog?Redirect=Log&logNo=221567046614>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/gmfocus1?Redirect=Log&logNo=221567318955>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/gmfocus1?Redirect=Log&logNo=221567318955>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=karin_37&logNo=221567062967&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=karin_37&logNo=221567062967&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=derixuhohe7i&logNo=221567256578&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=derixuhohe7i&logNo=221567256578&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=eunchole&logNo=221567275239&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=eunchole&logNo=221567275239&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=hshs7613&logNo=221567206861&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=hshs7613&logNo=221567206861&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/vuydekostep?Redirect=Log&logNo=221567456714>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/vuydekostep?Redirect=Log&logNo=221567456714>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET https://search.naver.com/search.naver?where=post&query=%EC%98%A5%EC%B4%9D&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=21>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://search.naver.com/search.naver?where=post&query=%EC%98%A5%EC%B4%9D&st=date&sm=tab_opt&date_from=20190621&date_to=20190621&date_option=8&srchby=all&dup_remove=1&qvt=0&start=21>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:29 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=hiu01093&logNo=221567441192&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=hiu01093&logNo=221567441192&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=zoom2love&logNo=221567231174&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=zoom2love&logNo=221567231174&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=njdh12&logNo=221567311682&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=njdh12&logNo=221567311682&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET http://blog.naver.com/PostView.nhn?blogId=imhongsi_&logNo=221567391842&redirect=Log&widgetTypeCall=false&directAccess=true>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://blog.naver.com/PostView.nhn?blogId=imhongsi_&logNo=221567391842&redirect=Log&widgetTypeCall=false&directAccess=true>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/osckms?Redirect=Log&logNo=221567353320>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/osckms?Redirect=Log&logNo=221567353320>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/khj0751?Redirect=Log&logNo=221567393624>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/khj0751?Redirect=Log&logNo=221567393624>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/abcdef7581?Redirect=Log&logNo=221567395545>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/abcdef7581?Redirect=Log&logNo=221567395545>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/ghyfor0526?Redirect=Log&logNo=221567448875>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/ghyfor0526?Redirect=Log&logNo=221567448875>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/kv62sy?Redirect=Log&logNo=221566083854>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/kv62sy?Redirect=Log&logNo=221566083854>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/pbk5634422?Redirect=Log&logNo=221567447319>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/pbk5634422?Redirect=Log&logNo=221567447319>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/dlpul1010?Redirect=Log&logNo=221567456310>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/dlpul1010?Redirect=Log&logNo=221567456310>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET http://when64town.shop/221567432498>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://when64town.shop/221567432498>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/1206sangwoo?Redirect=Log&logNo=221567448270>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/1206sangwoo?Redirect=Log&logNo=221567448270>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://lguplusmusic.blog.me/221567436888>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://lguplusmusic.blog.me/221567436888>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/gdhhs734rr?Redirect=Log&logNo=221567245331>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/gdhhs734rr?Redirect=Log&logNo=221567245331>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET http://yabandoju.com/221567459626>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://yabandoju.com/221567459626>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/ygsjbr?Redirect=Log&logNo=221567458916>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/ygsjbr?Redirect=Log&logNo=221567458916>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/sdvypkm2432?Redirect=Log&logNo=221567466715>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/sdvypkm2432?Redirect=Log&logNo=221567466715>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/sol_planner?Redirect=Log&logNo=221567485987>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/sol_planner?Redirect=Log&logNo=221567485987>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/osiuwgc7656?Redirect=Log&logNo=221567190165>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/osiuwgc7656?Redirect=Log&logNo=221567190165>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/ncpfdetdwx7a?Redirect=Log&logNo=221567481830>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/ncpfdetdwx7a?Redirect=Log&logNo=221567481830>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/9bq2cc7d5?Redirect=Log&logNo=221566855905>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/9bq2cc7d5?Redirect=Log&logNo=221566855905>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/tkdsiddl?Redirect=Log&logNo=221567486001>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/tkdsiddl?Redirect=Log&logNo=221567486001>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/ssodang89?Redirect=Log&logNo=221567486421>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/ssodang89?Redirect=Log&logNo=221567486421>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/cofls3434?Redirect=Log&logNo=221567487017>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/cofls3434?Redirect=Log&logNo=221567487017>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/rapido0346?Redirect=Log&logNo=221567486552>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/rapido0346?Redirect=Log&logNo=221567486552>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/yeil5533?Redirect=Log&logNo=221567488332>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/yeil5533?Redirect=Log&logNo=221567488332>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://blog.naver.com/68dentkims?Redirect=Log&logNo=221567487692>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://blog.naver.com/68dentkims?Redirect=Log&logNo=221567487692>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET http://labeauteflower.com/221567488182>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 http://labeauteflower.com/221567488182>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://younga104.blog.me/221567489836>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1362, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <200 https://younga104.blog.me/221567489836>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\scrapy\core\downloader\middleware.py", line 53, in process_response
+    spider=spider)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 131, in process_response
+    self.browser.get(request.url)
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-06-21 16:25:30 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method SeleniumMiddleware.spider_closed of <scrappy_app.middlewares.SeleniumMiddleware object at 0x06207C70>>
+Traceback (most recent call last):
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\twisted\internet\defer.py", line 151, in maybeDeferred
+    result = f(*args, **kw)
+  File "c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "C:\Users\Teo\Desktop\Coding\django\adminingDJ\scrappy_app\scrappy_app\middlewares.py", line 145, in spider_closed
+    self.browser.close()
+AttributeError: 'SeleniumMiddleware' object has no attribute 'browser'
+2019-06-21 16:25:30 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 39042,
+ 'downloader/request_count': 67,
+ 'downloader/request_method_count/GET': 67,
+ 'downloader/response_bytes': 735406,
+ 'downloader/response_count': 67,
+ 'downloader/response_status_count/200': 67,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 6, 21, 7, 25, 30, 758782),
+ 'log_count/DEBUG': 25,
+ 'log_count/ERROR': 54,
+ 'log_count/INFO': 9,
+ 'request_depth_max': 2,
+ 'response_received_count': 15,
+ 'scheduler/dequeued': 67,
+ 'scheduler/dequeued/memory': 67,
+ 'scheduler/enqueued': 67,
+ 'scheduler/enqueued/memory': 67,
+ 'start_time': datetime.datetime(2019, 6, 21, 7, 25, 23, 351322)}
+2019-06-21 16:25:30 [scrapy.core.engine] INFO: Spider closed (finished)

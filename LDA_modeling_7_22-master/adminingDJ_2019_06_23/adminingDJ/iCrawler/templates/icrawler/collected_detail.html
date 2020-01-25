@@ -1,0 +1,118 @@
+{% extends "layoutFull/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<section class="content-header">
+    <h1>데이터전처리</h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-database"></i> 데이터수집하기</li>
+        <li class="active"><i class="fa fa-circle-o"></i> 데이터전처리</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+
+        <div class="box-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <dl class="dl-horizontal">
+                        <dt>키워드</dt>
+                        <dd> {{collection.search_keyword}} </dd>
+                        <dt>기간</dt>
+                        <dd> {{ collection.start_date|date:'Y-m-d' }} / {{ collection.end_date|date:'Y-m-d' }} </dd>
+                        <dt>수집날짜</dt>
+                        <dd> {{ collection.created_date|date:'Y-m-d' }} </dd>
+                    </dl>
+                </div>
+                <div class="col-lg-9 col-md-6 col-sm-12">
+                    <dl class="dl-horizontal">
+                        {% if collection.channel_broadcast %}
+                        <dt>방송뉴스</dt>
+                        <dd> {{collection.channel_broadcast}} </dd>
+                        {% endif %}
+                        {% if collection.channel_published %}
+                        <dt>신문뉴스</dt>
+                        <dd> {{collection.channel_published}} </dd>
+                        {% endif %}
+                        {% if collection.channel_blog %}
+                        <dt>블로그</dt>
+                        <dd> {{collection.channel_blog}} </dd>
+                        {% endif %}
+                        {% if collection.channel_sns %}
+                        <dt>SNS</dt>
+                        <dd> {{collection.channel_sns}} </dd>
+                        {% endif %}
+                    </dl>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box-body">
+
+
+            <div class="">
+                <a href="{% url 'ic_collected' %}">뒤로</a>
+                <a href="{% url 'ic_xls' %}?uid={{ cid }}" class="btn btn-link download" title="Download XLS"><i
+                        class="fa fa-file-excel-o" aria-hidden="true"></i> 다운로드</a>
+                <a href="{% url 'ic_csv' %}?uid={{ cid }}" class="btn btn-link download" title="Download CSV"><i
+                        class="fa fa-file-text-o" aria-hidden="true"></i> 다운로드</a>
+            </div>
+            <table class="table">
+                <tr>
+                    <th>채널</th>
+                    <th>섹션</th>
+                    <th>행개수</th>
+                    <th>용량</th>
+                </tr>
+
+                {% for ob in blogs %}
+                <tr>
+                    <td>Blog</td>
+                    <td>{{ ob.name }}</td>
+                    <td>{{ ob.rows }}</td>
+                    <td>{{ ob.size }}</td>
+                </tr>
+                {% endfor %}
+
+                {% for ob in news %}
+                <tr>
+                    <td>News</td>
+                    <td>{{ ob.name }}</td>
+                    <td>{{ ob.rows }}</td>
+                    <td>{{ ob.size }}</td>
+                </tr>
+                {% endfor %}
+
+                {% for ob in sns %}
+                <tr>
+                    <td>News</td>
+                    <td>{{ ob.name }}</td>
+                    <td>{{ ob.rows }}</td>
+                    <td>{{ ob.size }}</td>
+                </tr>
+                {% endfor %}
+
+
+
+
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    $(document).ready(function () {
+
+
+    });
+</script>
+
+{% endblock js %}

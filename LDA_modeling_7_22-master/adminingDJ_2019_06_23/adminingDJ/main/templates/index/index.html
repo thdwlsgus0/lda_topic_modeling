@@ -1,0 +1,45 @@
+{% extends "layout/layout.html" %} 
+{% load staticfiles %} 
+{% block title %}| Home{% endblock %} 
+
+{% block css %}
+<link
+  rel="stylesheet"
+  href="{% static 'libs/fullcalendar-3.10.0/css/fullcalendar.min.css' %}"
+/>
+<link
+  rel="stylesheet"
+  href="{% static 'libs/fullcalendar-3.10.0/css/fullcalendar.print.min.css' %}"
+/>
+{% endblock css %} 
+{% block content %}
+<div class="container">
+  <section class="content-header">
+    <h1>About</h1>
+    <ol class="breadcrumb">
+      <li class="active"><i class="fa fa-dashboard"></i> Home</li>
+    </ol>
+  </section>
+
+  <section class="content">
+    {% include 'index/inc-about.html' %} {% include 'index/inc-news.html' %}
+
+    <div class="row">
+      {% include 'index/inc-sponsors.html' %} 
+      {% include 'index/inc-stats.html' %}
+    </div>
+
+    <div class="row">
+      {% include 'index/inc-faq.html' %} {% include 'index/inc-contact.html' %}
+    </div>
+  </section>
+</div>
+
+{% endblock content %} 
+
+{% block js %}
+<script src="{% static 'js/moment.min.js' %}"></script>
+<script src="{% static 'libs/fullcalendar-3.10.0/js/fullcalendar.min.js' %}"></script>
+<script src="{% static 'js/feedback.js' %}"></script>
+
+{% endblock %}

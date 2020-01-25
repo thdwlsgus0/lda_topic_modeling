@@ -1,0 +1,323 @@
+2019-04-17 23:26:25 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: scrappy_app)
+2019-04-17 23:26:25 [scrapy.utils.log] INFO: Versions: lxml 4.2.5.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 18.9.0, Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Windows-10-10.0.17134-SP0
+2019-04-17 23:26:25 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrappy_app', 'LOG_FILE': 'logs\\default\\naver_news_selenium\\c3fff882611c11e9a703606dc7a02a2e.log', 'NEWSPIDER_MODULE': 'scrappy_app.spiders', 'SPIDER_MODULES': ['scrappy_app.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0'}
+2019-04-17 23:26:25 [scrapy.extensions.telnet] INFO: Telnet Password: fec8bdd328d1405c
+2019-04-17 23:26:25 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-04-17 23:26:28 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:6754/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true}}
+2019-04-17 23:26:28 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:6754
+2019-04-17 23:26:34 [urllib3.connectionpool] DEBUG: http://127.0.0.1:6754 "POST /session HTTP/1.1" 200 704
+2019-04-17 23:26:34 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-04-17 23:26:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-04-17 23:26:34 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-04-17 23:26:34 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrappy_app.pipelines.NaverNewsPipeline']
+2019-04-17 23:26:34 [scrapy.core.engine] INFO: Spider opened
+2019-04-17 23:26:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-04-17 23:26:34 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-04-17 23:26:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?ie=utf8&where=news&query=onion&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=&de=&qvt=0&start=> (referer: None)
+2019-04-17 23:26:34 [naver_news_selenium] WARNING: http://news.mk.co.kr/v2/economy/view.php?year=2019&no=230321
+2019-04-17 23:26:34 [naver_news_selenium] WARNING: https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=077&aid=0004458494
+2019-04-17 23:26:34 [naver_news_selenium] WARNING: http://www.hankookilbo.com/news/npath/201904110744752595?did=NA
+2019-04-17 23:26:34 [naver_news_selenium] WARNING: http://news.donga.com/3/all/20190329/94799565/1
+2019-04-17 23:26:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.mk.co.kr/v2/economy/view.php?year=2019&no=230321> (referer: None)
+2019-04-17 23:26:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://news.donga.com/3/all/20190329/94799565/1> (referer: None)
+2019-04-17 23:26:34 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:6754/session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url {"url": "http://news.mk.co.kr/v2/economy/view.php?year=2019&no=230321"}
+2019-04-17 23:26:43 [urllib3.connectionpool] DEBUG: http://127.0.0.1:6754 "POST /session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url HTTP/1.1" 200 14
+2019-04-17 23:26:43 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-04-17 23:26:43 [naver_news_selenium] WARNING: None
+2019-04-17 23:26:43 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:6754/session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url {"url": "http://news.donga.com/3/all/20190329/94799565/1"}
+2019-04-17 23:26:52 [urllib3.connectionpool] DEBUG: http://127.0.0.1:6754 "POST /session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url HTTP/1.1" 200 14
+2019-04-17 23:26:52 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-04-17 23:26:52 [naver_news_selenium] WARNING: None
+2019-04-17 23:26:53 [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.mk.co.kr/v2/economy/view.php?year=2019&no=230321>
+{'category': 'Test',
+ 'content': '',
+ 'date': '',
+ 'itemType': 'Test',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 0,
+ 'originKeyword': 'onion',
+ 'originalLink': '',
+ 'publisher': '',
+ 'searchKeyword': 'onion',
+ 'subCategory': 'Test',
+ 'title': '[정윤아의 ‘컬렉터의 마음을 훔친 세기의 작품들’] 아시아 최대 미술축제 ‘아트바젤 홍콩’ 204억짜리 ‘양파 '
+          '껌’…그리고 이불·백남준',
+ 'url': 'http://news.mk.co.kr/v2/economy/view.php?year=2019&no=230321'}
+2019-04-17 23:26:54 [scrapy.core.scraper] DEBUG: Scraped from <200 http://news.donga.com/3/all/20190329/94799565/1>
+{'category': 'Test',
+ 'content': '',
+ 'date': '',
+ 'itemType': 'Test',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 0,
+ 'originKeyword': 'onion',
+ 'originalLink': '',
+ 'publisher': '',
+ 'searchKeyword': 'onion',
+ 'subCategory': 'Test',
+ 'title': '',
+ 'url': 'http://news.donga.com/3/all/20190329/94799565/1'}
+2019-04-17 23:26:54 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (302) to <GET http://www.hankookilbo.com/News/Read/201904110744752595?did=NA&dtype=&dtypecode=&prnewsid=> from <GET http://www.hankookilbo.com/news/npath/201904110744752595?did=NA>
+2019-04-17 23:26:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=077&aid=0004458494> (referer: https://search.naver.com/search.naver?ie=utf8&where=news&query=onion&sm=tab_pge&sort=1&photo=0&field=0&pd=3&ds=&de=&qvt=0&start=)
+2019-04-17 23:26:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://www.hankookilbo.com/News/Read/201904110744752595?did=NA&dtype=&dtypecode=&prnewsid=> (referer: None)
+2019-04-17 23:26:54 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:6754/session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url {"url": "https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=077&aid=0004458494"}
+2019-04-17 23:26:56 [urllib3.connectionpool] DEBUG: http://127.0.0.1:6754 "POST /session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url HTTP/1.1" 200 14
+2019-04-17 23:26:56 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-04-17 23:26:56 [naver_news_selenium] WARNING: None
+2019-04-17 23:26:56 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:6754/session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url {"url": "http://www.hankookilbo.com/News/Read/201904110744752595?did=NA&dtype=&dtypecode=&prnewsid="}
+2019-04-17 23:27:00 [urllib3.connectionpool] DEBUG: http://127.0.0.1:6754 "POST /session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/url HTTP/1.1" 200 14
+2019-04-17 23:27:00 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-04-17 23:27:00 [naver_news_selenium] WARNING: None
+2019-04-17 23:27:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=077&aid=0004458494>
+{'category': 'Test',
+ 'content': '// flash 오류를 우회하기 위한 함수 추가 function _flash_removeCallback() {} '
+            'This undated photo provided by Stratis Morfogen in April 2019 '
+            'shows the French onion soup dumplings at Brooklyn Chop House in '
+            'New York City. Morfogen, who is of Greek descent, doesn’t spend '
+            'time worrying about the cultural appropriation accusations his '
+            'steakhouse has received for its Chinese-inspired items. (Daniel '
+            'Kwak/Stratis Morfogen via AP)▶네이버 홈에서 [연합뉴스] 채널 구독하기▶뭐 하고 놀까? #흥 '
+            '▶쇼미더뉴스! 오늘 많이 본 뉴스영상 이 기사는 언론사에서 세계 섹션으로 분류했습니다. 기사 섹션 분류 안내 기사의 '
+            '섹션 정보는 해당 언론사의 분류를 따르고 있습니다. 언론사는 개별 기사를 2개 이상 섹션으로 중복 분류할 수 '
+            '있습니다. 닫기 좋아요 0 훈훈해요 0 슬퍼요 0 화나요 0 후속기사 원해요 0 이 기사를 모바일 메인으로 추천 '
+            '보내기 <p class="tomain_info_phrase"> <span '
+            'class="tomain_info_body"> <span class="tomain_info_text">이 기사는 '
+            '</span><strong class="tomain_info_point">사용자 추천</strong><span '
+            'class="tomain_info_text">으로 모바일 메인 뉴스판에 노출된 이력이 있습니다.</span> '
+            '</span> </p> <p class="tomain_info_phrase"> <span '
+            'class="tomain_info_body"> <span class="tomain_info_text">이 기사는 '
+            '</span><strong class="tomain_info_point">모바일 메인 뉴스판</strong><span '
+            'class="tomain_info_text">에 노출된 이력이 있습니다.</span> </span> </p> <p '
+            'class="tomain_info_layer"> <strong class="tomain_info_head">모두에게 '
+            '보여주고 싶은 기사라면<i>?</i><span '
+            'class="tomain_info_betaicon">beta</span></strong> <span '
+            'class="tomain_info_body"> <strong class="tomain_info_point">이 기사를 '
+            '메인으로 추천 </strong><span class="tomain_info_text">버튼을 눌러주세요. 집계 기간 '
+            '동안 추천을 많이 받은 기사는 네이버 메인 자동 기사배열 영역에 추천 요소로 활용됩니다.</span> </span> '
+            '<a href="#" class="tomain_info_close">레이어 닫기</a> </p> '
+            '(function(){ var currentDate = new Date(), yyyy = '
+            'currentDate.getFullYear(), mm = currentDate.getMonth() + 1, dd = '
+            'currentDate.getDate(); var currentDateParam = "" + yyyy + (mm < '
+            "10 ? '0' + mm : mm) + (dd < 10 ? '0' + dd : dd); var id = "
+            '"naver-splugin-sdk"; var s = document.createElement("script"); '
+            's.id = id; s.type = "text/javascript", s.charset = "utf-8", '
+            's.async = false; s.src = '
+            '("https://ssl.pstatic.net/spi/js/release/ko_KR/splugin.js?" + '
+            'currentDateParam); var d = '
+            "document.getElementsByTagName('head')[0]; d.appendChild(s, d); "
+            '})(); (function(oData) { var t = new Date(), yyyy = '
+            't.getFullYear(), mm = t.getMonth() + 1, dd = t.getDate(); var '
+            'currentDate = "" + yyyy + (mm < 10 ? \'0\' + mm : mm) + (dd < 10 '
+            '? \'0\' + dd : dd); var s = document.createElement("script"); '
+            's.type = "text/javascript"; s.charset = "utf-8"; s.src = '
+            '"https://news.like.naver.com/js/reaction/dist/reaction.min.js?"+ '
+            'currentDate; // (new Date()).toDateString().replace(/\\s/g,""); '
+            '(document.head || '
+            'document.getElementsByTagName("head")[0]).appendChild(s); })(); '
+            'window.onload = function() { '
+            'if(jindo.$Element("spiLayer").query("._reactionModule") !== null) '
+            '{ var toMainInfoLayerManager = { oCookieStorage : null, '
+            'sCookieKey : null, sTemplateType : null, '
+            'oTemplateType2TemplateMapping : null, welTomainInfoLayer : null, '
+            'init : function () { this.setCache(); this.setEvent(); var '
+            'dontShowAgainYn = this.oCookieStorage.get(this.sCookieKey); if '
+            "(this.sTemplateType != 'N' || !dontShowAgainYn) { "
+            'this.renderLayer(); } }, setCache : function () { '
+            'this.oCookieStorage = jindo.$Cookie(true); this.sCookieKey = '
+            "'pcTomainDontShow'; this.sTemplateType = 'N'; "
+            "this.oTemplateType2TemplateMapping = { 'R' : "
+            "'TOMAIN_DISPLAYED_BY_USER_RECOMMEND_TPL', 'E' : "
+            "'TOMAIN_DISPLAYED_BY_NEWS_EDIT_TPL', 'N' : "
+            "'TOMAIN_NOT_DISPLAYED_YET_TPL' }; this.welTomainInfoLayer = "
+            "jindo.$Element('tomain_info'); }, setEvent : function () { "
+            "this.welTomainInfoLayer.delegate('click', '.tomain_info_close', "
+            'jindo.$Fn(this.onCloseClick, this).bind()); }, renderLayer : '
+            'function () { var sTemplate = '
+            'this.oTemplateType2TemplateMapping[this.sTemplateType]; '
+            'this.welTomainInfoLayer.html(jindo.$Template(sTemplate).process({})); '
+            'this.welTomainInfoLayer.show(); }, onCloseClick : function (e) { '
+            'e.stopDefault(); this.welTomainInfoLayer.hide(); '
+            "this.oCookieStorage.set(this.sCookieKey, 'Y', 365); } }; var "
+            'toMainManager = { welContainer : null, welCount : null, welButton '
+            ': null, init : function () { this.welContainer = '
+            "jindo.$Element('toMainContainer'); this.welCount = "
+            "jindo.$Element(this.welContainer.query('._count')); "
+            "this.welButton = jindo.$Element(this.welContainer.query('a')); }, "
+            '// 추천 수가 0인 경우, 디자인이 달라서 is_first 클래스 추가 '
+            'addIsFirstClassIfZeroCount : function () { if '
+            "(this.welCount.text() == '0') { "
+            "this.welButton.removeClass('off').addClass('is_first'); } }, "
+            'removeIsFirstClass : function () { '
+            "this.welButton.removeClass('is_first'); }, onRecommend : function "
+            '() { this.removeIsFirstClass(); }, onCancel : function () { '
+            'this.addIsFirstClassIfZeroCount(); }, onRecommendReady : function '
+            '(element) { this.addIsFirstClassIfZeroCount(); } }; '
+            'toMainInfoLayerManager.init(); toMainManager.init(); '
+            'reaction.init({ type: "multi", domain : '
+            '"https://news.like.naver.com", dependentLibrary : "jquery", '
+            'cssId: "news", isMobile: false, isHiddenLabel : false, '
+            'isHiddenCount : false, isHiddenZeroCount : false, '
+            'isUsedLabelAsZeroCount : false, isDebugMode : false, '
+            'isHiddenLayerAfterSelection : true, callback : { clicked : '
+            "function(param) { // displayId 가 'NEWS_MAIN' 이면 '메인으로추천', 'NEWS'면 "
+            "'좋아요' if (param && param.content && param.content.displayId && "
+            "param.content.displayId == 'NEWS_MAIN') { "
+            'if(param.content.isReacted) { toMainManager.onRecommend(); '
+            'return; } toMainManager.onCancel(); } }, updated : '
+            'function(param) { if (param) { '
+            'jindo.$A(param.contents).filter(function (content) { if '
+            "(content.serviceId == 'NEWS_MAIN') { return true; } return false; "
+            '}).forEach(function (content) { toMainManager.onRecommendReady(); '
+            '}); } var autoSummaryFeedbackData = jindo.$A(param.contents) '
+            '.filter(function (contentsData) { return contentsData.serviceId '
+            "=== 'NEWS_SUMMARY'; }) .$value()[0] || {}; // export "
+            'if(autoSummaryFeedbackData.reactions){ window.autoSummary = new '
+            'AutoSummary() .init({ apiUrl: '
+            "'https://tts.news.naver.com/article/077/0004458494/summary', "
+            'feedbackDataList: autoSummaryFeedbackData.reactions }); } }, '
+            'click: function (param) { var triggeredWrapper = '
+            'jindo.$Element(param.target) .parent(function (wel) { return '
+            "wel.hasClass('_reactionModule'); })[0]; var isAutoSummaryFeedback "
+            "= (triggeredWrapper) ? triggeredWrapper.attr('data-sid') === "
+            "'NEWS_SUMMARY' : false; if (isAutoSummaryFeedback) { return "
+            'window.autoSummary.confirmApplyFeedback(); } } } }); } // for '
+            'social plugin window.__splugin = SocialPlugIn_Core({ // nEvent '
+            'Key "evKey" : "news", // 서비스명 "serviceName" : "뉴스", "sourceName" '
+            ': "AP연합뉴스", // 버튼 클릭후 호출되는 콜백함수 "onClick" : function(button) {}, '
+            '// 공유하기 레이어 노출 후 호출되는 콜백함수 "onShow" : function() {}, // 공유하기 레이어 '
+            '닫기 후 호출되는 콜백함수 "onHide" : function() {} }); } function '
+            'onSubscribe(elTarget) { return htParameter; } /* (function() { '
+            'init_socialplugin(); })(); */ jindo.$Fn(function() { '
+            "jindo.$Fn(function(){ var oid = '077'; var aid = '0004458494'; "
+            "new jindo.$Ajax('/main/ajax/series/list.nhn?oid=' + oid + '&aid=' "
+            "+ aid, { type : 'xhr', method : 'get', timeout : 10, async : "
+            'true, onload : function(res) { var oJson = res.json(); if '
+            '(oJson.message != null && oJson.message.result != null) { var '
+            "result = oJson.message.result; var contents = '<div "
+            'class="serialization_news"><h3 '
+            'class="serialization_news_title"><span '
+            'class="serialization_news_ico">연재</span>\' + \'<a '
+            'href="\'+result.linkUrl+\'" class="serialization_news_more '
+            'nclicks(ser.more)" id="seriesTitle" >\' + result.title + '
+            '\'</a><span class="blind">더보기</span></h3>\' + \'<ul '
+            'class="serialization_news_list">\'; '
+            'jindo.$A(result.seriesItemList).forEach(function(value) { if '
+            "(value) { if (aid == value.articleId) { contents += '<li><div "
+            'class="serialization_news_item"><span '
+            'class="serialization_news_time">\'+ value.articleDate '
+            '+\'</span><a href="\'+value.url+\'" '
+            'class="serialization_news_link is_selected nclicks(ser.art)">\' + '
+            "value.title + '</a></div></li>'; } else { contents += '<li><div "
+            'class="serialization_news_item"><span '
+            'class="serialization_news_time">\'+ value.articleDate '
+            '+\'</span><a href="\'+value.url+\'" '
+            'class="serialization_news_link nclicks(ser.art)">\' + value.title '
+            "+ '</a></div></li>'; } } }); contents += '</ul></div>'; "
+            "jindo.$Element('spiLayer').afterHTML(contents); var elLinkNews = "
+            "jindo.$$('.link_news'); if (elLinkNews.length > 0) { "
+            "jindo.$Element('link_news_more').first().text(result.title); "
+            "jindo.$Element('link_news_more').visible(true, 'block'); "
+            "jindo.$Element('link_news_more').attr('href', result.linkUrl); } "
+            '} } }).request(); }).delay(0.8); }).attach(window, "load"); '
+            'AP연합뉴스 관련뉴스해당 언론사에서 선정하며 언론사 페이지(아웃링크)로 이동해 볼 수 있습니다. 쇼핑몰 男화장실서 '
+            '20대 간호사 주삿바늘 꽂힌 채 숨져 "윤총경, 유인석 대표에게 골프 2번·식사 2번 대접받아" 깨어나는 백두산 '
+            '화산…1천여년 만에 분화징후 뚜렷 \'보복운전 혐의\' 최민수 "사실과 달라…합의 안해" 마지막 비행 마친 故 조양호 '
+            '회장의 유언 기사 모아보기',
+ 'date': '2019-04-13 02:04',
+ 'itemType': 'Test',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 1,
+ 'originKeyword': 'onion',
+ 'originalLink': '',
+ 'publisher': 'AP연합뉴스',
+ 'searchKeyword': 'onion',
+ 'subCategory': 'Test',
+ 'title': 'Cultural Appropriation Restaurants',
+ 'url': 'https://news.naver.com/main/read.nhn?mode=LSD&mid=sec&sid1=104&oid=077&aid=0004458494'}
+2019-04-17 23:27:01 [scrapy.core.scraper] DEBUG: Scraped from <200 http://www.hankookilbo.com/News/Read/201904110744752595?did=NA&dtype=&dtypecode=&prnewsid=>
+{'category': 'Test',
+ 'content': '',
+ 'date': '',
+ 'itemType': 'Test',
+ 'noComments': 0,
+ 'noEAngries': 0,
+ 'noELikes': 0,
+ 'noESads': 0,
+ 'noEWants': 0,
+ 'noEWarms': 0,
+ 'noEmotions': 0,
+ 'noImages': 0,
+ 'originKeyword': 'onion',
+ 'originalLink': '',
+ 'publisher': '',
+ 'searchKeyword': 'onion',
+ 'subCategory': 'Test',
+ 'title': '',
+ 'url': 'http://www.hankookilbo.com/News/Read/201904110744752595?did=NA&dtype=&dtypecode=&prnewsid='}
+2019-04-17 23:27:01 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-04-17 23:27:01 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2215,
+ 'downloader/request_count': 6,
+ 'downloader/request_method_count/GET': 6,
+ 'downloader/response_bytes': 186248,
+ 'downloader/response_count': 6,
+ 'downloader/response_status_count/200': 5,
+ 'downloader/response_status_count/302': 1,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 4, 17, 14, 27, 1, 351673),
+ 'item_scraped_count': 4,
+ 'log_count/DEBUG': 26,
+ 'log_count/INFO': 9,
+ 'log_count/WARNING': 8,
+ 'request_depth_max': 1,
+ 'response_received_count': 5,
+ 'scheduler/dequeued': 6,
+ 'scheduler/dequeued/memory': 6,
+ 'scheduler/enqueued': 6,
+ 'scheduler/enqueued/memory': 6,
+ 'start_time': datetime.datetime(2019, 4, 17, 14, 26, 34, 321567)}
+2019-04-17 23:27:01 [scrapy.core.engine] INFO: Spider closed (finished)
+2019-04-17 23:27:01 [selenium.webdriver.remote.remote_connection] DEBUG: DELETE http://127.0.0.1:6754/session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/window {}
+2019-04-17 23:27:08 [urllib3.connectionpool] DEBUG: http://127.0.0.1:6754 "DELETE /session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/window HTTP/1.1" 200 12
+2019-04-17 23:27:08 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-04-17 23:27:08 [selenium.webdriver.remote.remote_connection] DEBUG: DELETE http://127.0.0.1:6754/session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/window {}
+2019-04-17 23:27:08 [urllib3.connectionpool] DEBUG: http://127.0.0.1:6754 "DELETE /session/04445a40-6db7-4fc3-bb97-f6dc83103f5b/window HTTP/1.1" 404 123
+2019-04-17 23:27:08 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request

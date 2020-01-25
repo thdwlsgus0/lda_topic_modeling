@@ -1,0 +1,298 @@
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test-Main"></canvas>
+  </div>
+  </div>
+  <div id="chart-legend-Main" class="chart-legend"></div>
+  <canvas id="axis-Test-Main" class="yAxes" style="background: white"></canvas>
+</div>
+
+
+<p id="chartData" data="{{data_list}}"></p>
+<p id="serveMenuData" data="{{serveMenu}}"></p>
+<p id="mediaMenuData" data="{{media}}"></p>
+
+<script>
+    $(document).ready(function() {
+
+        var dataLength = 0;
+        var data_from_dj = [];
+        var media = [];
+        var serveMenu = [];
+        try {
+            data_from_dj = JSON.parse($('#chartData').attr('data'));
+            media = JSON.parse($('#mediaMenuData').attr('data'));
+            serveMenu = JSON.parse($('#serveMenuData').attr('data'));
+            dataLength = data_from_dj.length;
+        } catch (err)  {
+            console.log('catch 1', err);
+        } 
+        
+        if (dataLength === 0) {
+            $('.charts').hide();
+            return false;
+        }
+
+        if (media.length === 0 && serveMenu.length === 0) {
+            $('.charts').hide();
+            return false;
+        }
+        
+        var chartLabels = [];
+        var chartDataFreqOfMedia = [];
+        var chartDataRetailSale = [];
+        var chartDataWholeSale = [];
+        var chartDataPanelAvg = [];
+        var chartDataPanelSum = [];
+        var keywordlist = [];
+        var countlist = [];
+        var countvisuallist= [];
+        for (x = 0; x <= dataLength-1; x++) {
+            try {
+                const dt = data_from_dj[x];
+                var label = dt.year;
+                var keyword = dt.keyword;
+                var count = dt.count;
+                if (dt.week != undefined) {
+                    label = getDateOfWeek(dt.week, dt.year);
+                } else if (dt.month != undefined) {
+                    label += '-' + dt.month;
+                    if (dt.day != undefined) {
+                        label += '-' + dt.day;
+                    }
+                }
+                 var freqOfMedia = 0;
+               
+                keywordlist.push(keyword);
+                countlist.push(count);
+                if (x%3==0)
+                {
+                     chartLabels.push(label);//뭐지 이건
+                     countvisuallist.push(count);
+                }
+                if (media.length>0) {
+                    chartDataFreqOfMedia.push(freqOfMedia);
+                }
+            } catch(err) {
+                console.log('Catch 2', x, err);
+                continue;
+            }
+        }
+        dataLength = chartLabels.length; // 이걸 잘 모름
+        
+        $(function () {
+            var canvasMain = $('#chart-Test-Main');
+            if (chartMain) {
+                try {
+                    chartMain.destroy();
+                }
+                catch( err)  {
+                    console.log('catch 3', err);
+                }
+            }
+            var mainDatasets = [];
+            var mainYAxes = [];
+
+            if (chartDataFreqOfMedia.length) {
+                mainDatasets.push({
+                    yAxisID: 'numOfFreq',
+                    type: 'line',
+                    label: 'count of keyword',
+                    borderColor: window.chartColors.blue,
+                    backgroundColor: window.chartColors.blue,
+                    borderWidth: 2,
+                    fill: false,
+                    data: countvisuallist.slice(0,200),
+                    spanGaps: true
+                });
+                mainYAxes.push({
+                        id: 'numOfFreq',
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'count of keyword'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.blue
+                        }
+                    });
+            }
+            var rectangleMainSet = false;
+            
+            try {
+                var chartMain = new Chart(canvasMain, {
+            type: 'line',
+            data: {
+                labels: chartLabels.slice(0, 30),
+                datasets: mainDatasets,
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    enable:true,
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12,
+                    callbacks:{
+                        label:function(tooltipItem, data){
+                                rindex = countlist[tooltipItem.index*3];
+                                rindex2 = countlist[tooltipItem.index*3+1];
+                                rindex3 = countlist[tooltipItem.index*3+2];
+                                text = keywordlist[tooltipItem.index*3];
+                                text2 = keywordlist[tooltipItem.index*3+1];
+                                text3 = keywordlist[tooltipItem.index*3+2];
+                                return text + ":" + rindex +','+text2+":"+rindex2 +','+text3+":"+rindex3;
+                        }
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{ 
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: mainYAxes // y 그리드 선
+                },
+                
+                animation: {
+                    onComplete: function() {
+                        if(!rectangleMainSet) {
+                            var scale = window.devicePixelRatio;                       
+
+                            var sourceCanvas = chartMain.chart.canvas;
+                            
+                            const wh = getYAxisWidth(chartMain);
+                            var copyWidth = wh[0];
+                            var copyHeight = wh[1];
+
+                            var targetCtx = document.getElementById("axis-Test-Main").getContext("2d");
+
+                            targetCtx.scale(scale, scale);
+                            targetCtx.canvas.width = copyWidth * scale;
+                            targetCtx.canvas.height = copyHeight * scale;
+
+                            targetCtx.canvas.style.width = `${copyWidth}px`;
+                            targetCtx.canvas.style.height = `${copyHeight}px`;
+                            targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+                            
+                            var sourceCtx = sourceCanvas.getContext('2d');
+                            sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                            rectangleMainSet = true;
+                        }
+                    }
+                }
+            }
+        });
+
+        var mainLegendContainer = document.getElementById('chart-legend-Main');
+        if (mainLegendContainer !== undefined) {
+            mainLegendContainer.innerHTML = chartMain.generateLegend();
+            var legendItems = mainLegendContainer.getElementsByTagName('li');
+            if (legendItems.length > 1) {
+                for (var i = 0; i < legendItems.length; i += 1) {
+                    legendItems[i].addEventListener("click", legendClickCallback, false);
+                }   
+            }
+            
+        }
+        
+            }
+            catch (err) {
+                console.log('catch 4', err);
+            }
+            
+        function getYAxisWidth(chart) {
+            
+            var copyWidth = 0;
+            var copyHeight = 0;
+            try {
+                if ( chart.scales['numOfFreq'] !== undefined) {
+                 copyWidth += chart.scales['numOfFreq'].width;
+                 copyHeight = chart.scales['numOfFreq'].height + chart.scales['numOfFreq'].top + 10;
+            }
+            //copyHeight += chart.scales['x-axis-0'].height;
+            copyWidth = (copyWidth > 0) ? copyWidth - 10 : 0;
+            } catch(err) {
+                console.log('catch 5', err)
+            }
+            return [copyWidth, copyHeight];
+        }
+
+       
+
+        
+        
+
+        for(var x = 30; x < dataLength; x++) {
+            const label = chartLabels[x]; // chartLabel은 year의 정보가 들어감
+            
+            chartMain.data.labels.push(label); // chartMain은 Main의 캔버스를 그리는데 쓰이는 객체
+            
+            
+            
+
+            var newwidth = canvasMain.closest('.chartAreaWrapper2').width() + 60;
+            chartMain.canvas.parentNode.style.width = newwidth + 'px';
+
+            if (x % 30 == 0) {
+
+                if (chartMain) {
+                    chartMain.update();
+                }
+           
+            }
+        }
+        });
+        
+        function getDateOfWeek(w, y) {
+            try {
+                const d = (1 + (w - 1) * 7); // 1st of January + 7 days for each week
+            const aDate = new Date(y, 0, d);
+            
+            var mm = aDate.getMonth() + 1; // getMonth() is zero-based
+            var dd = aDate.getDate();
+            
+            return [aDate.getFullYear(),
+            (mm>9 ? '' : '0') + mm,
+            (dd>9 ? '' : '0') + dd
+            ].join('-');
+            } catch(err) {
+                console.log('Catch 7', err);
+                return '';
+            }
+            
+        }
+    });
+
+    function legendClickCallback(event) {
+        
+        event = event || window.event;
+
+        var target = event.target || event.srcElement;
+        while (target.nodeName !== 'LI') {
+            target = target.parentElement;
+        }
+        var parent = target.parentElement;
+        var chartId = parseInt(parent.classList[0].split("-")[0], 10);
+        var chart = Chart.instances[chartId];
+        var index = Array.prototype.slice.call(parent.children).indexOf(target);
+        var meta = chart.getDatasetMeta(index);
+
+        if (meta.hidden === null || meta.hidden === false) {
+            meta.hidden = true;
+            target.classList.add('hideit');
+        } else {
+            target.classList.remove('hideit');
+            meta.hidden = null;
+        }
+
+        chart.update();
+}
+</script>

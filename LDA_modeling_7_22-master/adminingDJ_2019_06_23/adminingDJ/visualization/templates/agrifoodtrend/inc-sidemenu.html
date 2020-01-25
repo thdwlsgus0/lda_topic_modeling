@@ -1,0 +1,24 @@
+
+          
+<ul class="sidebar-menu" data-widget="tree">
+  <li class="header">MAIN NAVIGATION</li>
+  <li>
+    <a href="{% url 'm_index' %}"><i class="fa fa-dashboard"></i> <span>Home</span></a>
+  </li>
+  <li class="header">Agri-Food</li>
+  <li {% if request.resolver_match.url_name == 'vis_af_trend' %}class="active"{% endif %}>
+    <a href="{% url 'vis_af_trend' %}"><i class="fa fa-line-chart"></i> <span>Trend Analysis</span></a>
+  </li>
+  <li>
+              <a href="{% url 'vis_af_predict' %}"
+              ><i class="fa fa-book"></i> <span>Prediction</span></a
+              >
+            </li>
+   <li>
+              <a href="{% url 'vis_af_topic' %}"
+                ><i class="fa fa-line-chart"></i> <span>topic</span></a
+              >
+            </li>
+             
+            
+</ul>

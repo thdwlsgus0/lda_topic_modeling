@@ -1,0 +1,700 @@
+2019-06-22 14:45:38 [scrapy.utils.log] INFO: Scrapy 1.6.0 started (bot: scrappy_app)
+2019-06-22 14:45:38 [scrapy.utils.log] INFO: Versions: lxml 4.2.5.0, libxml2 2.9.5, cssselect 1.0.3, parsel 1.5.1, w3lib 1.20.0, Twisted 18.9.0, Python 3.7.3 (v3.7.3:ef4ec6ed12, Mar 25 2019, 21:26:53) [MSC v.1916 32 bit (Intel)], pyOpenSSL 19.0.0 (OpenSSL 1.1.1b  26 Feb 2019), cryptography 2.6.1, Platform Windows-10-10.0.17134-SP0
+2019-06-22 14:45:38 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'scrappy_app', 'LOG_FILE': 'logs\\default\\naver_blog\\f32db7d294b011e9b82c606dc7a02a2e.log', 'NEWSPIDER_MODULE': 'scrappy_app.spiders', 'SPIDER_MODULES': ['scrappy_app.spiders'], 'USER_AGENT': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0'}
+2019-06-22 14:45:38 [scrapy.extensions.telnet] INFO: Telnet Password: ce30d430be7c88c0
+2019-06-22 14:45:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2019-06-22 14:45:38 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:45:38 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:45:38 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:45:38 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc', 'f2ebd2d494b011e98112606dc7a02a2e f32db7d294b011e9b82c606dc7a02a2e', 'Mongolia', '뉴시스,SBS 뉴스,MBN,한국경제TV,MBC 뉴스,others', '연합뉴스,아시아경제,매일경제,머니투데이,레이디경향,others', 'daum,naver', 'twitter', datetime.datetime(2019, 6, 21, 15, 0), datetime.datetime(2019, 6, 21, 15, 0), '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0', 'finished', datetime.datetime(2019, 6, 22, 5, 45, 26, 308000), 367)
+2019-06-22 14:45:38 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: UPDATE "iCrawler_mycollection" SET "unique_id" = %(0)s, "jobids" = %(1)s, "search_keyword" = %(2)s, "channel_broadcast" = %(3)s, "channel_published" = %(4)s, "channel_blog" = %(5)s, "channel_sns" = %(6)s, "start_date" = %(7)s, "end_date" = %(8)s, "user_ip" = %(9)s, "user_agent" = %(10)s, "status" = %(11)s, "created_date" = %(12)s WHERE "iCrawler_mycollection"."id" = %(13)s
+2019-06-22 14:45:38 [djongo.sql2mongo.query] DEBUG: update_many: 1, matched: 1
+2019-06-22 14:45:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrappy_app.middlewares.SeleniumMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-06-22 14:45:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-06-22 14:45:40 [scrapy.middleware] INFO: Enabled item pipelines:
+['scrappy_app.pipelines.NaverBlogPipeline']
+2019-06-22 14:45:40 [scrapy.core.engine] INFO: Spider opened
+2019-06-22 14:45:40 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-06-22 14:45:43 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIALR11k797RI2mAMAADkNAAAHAAAAdXNlci5qc6VWTW/bOBC9F9j/UOS0BWoi6celPaVpCixQNIsaQY8ERY4sxhTJJYdW/O93KFqtIVuWtnvTx3sc8s3MG6YIgfsA9Z9XVXAdvTHlWtZpq1zHVGo9AysqA+rq9UsMCV59/ONFOiUZgRBCskfoWpg4BbfQoahYCoaAV6JyCT9URtjt1UWCFxtYGCGiCJg8yxSCXs/AGtfCAbpkO2Madzs6vlbA2ojO9svojXUBplagT+rB/uh1jjfXTFsM7vH715kN5OS04pnLJlBoHmXQHjkJz1G3Oezb8UkHxkJoAO8CcmEMf4ocniV41M7G8+l/EjtRFmau4FhsXPeXvaNHZ+A8ywJ2LmyZFMTZwSpHFGZFgJ2WcwmOIFPQuGcyDrU5hRwnqQMjs2rzZXeJyoRSOp9VzK3SQaUCHTBwIbOOPFGSU0RQXELACU2PWDGmHPMnS9MHCHO0Igq3IovLYQd2KpSH0NKafd4U1CIZZLotbfBmhBXes+QV9TkTCd2E5keoZX2qdPRG7EHd31yvvzmkAiDGuym066xxQlFFW9pm6KvtRwN2nROm7WYm2v3j11s29OplR+uhb1nJ3Kz9abulDgBLHUNGWEpjrOApmFytOO0FtKtrIkzV+IAKIFTWBxAk7faLDhFvSRE51YM/nUzU0D+TeEut9ZjSCtOJsNiVQQTZHCpkFmvqmHw2h2FQTNoxlCJGMlySou+amgySyyBiMxenAWOYbEBuP5ce+FT+zPBoHkVGZ7cP9s64OHecI/gD5X4CTbqIYsFZ3AaEwaa8s2X2eGGB5HPr3P8ufYhf59r6nn7jBMZtNvmjLMPhv+zEO6PlnuWP61QdTOt/L/B3//H2V4ufXQd26JyJjFzDhcPeL9+K8iAlY+ttuG90RSPLbnjWfyJK9g1bnDjb6+fCXkuiZ/O+Gc/qI3xlnNwaHXGmNI4ofbXfudbTjKi0yePU6k2DZj/PXWTvp3hL3l7vH6f76ugucVHc4fZQRsDq4I8rGtmY4sTaA6dBpCtho2OzX+XfnkbsyoDdYHaJN+/fj3jD4jTWKC/GuI5Xe34YlRMzlXzHY8z9zlunhFl6n6m1AXpiLmjqEl4KNl/T5ggRg5bIx7yzwfKl1JJFttBWENb965Roueq3GtlBvGHkHgr7/OkHDoKhGBj2rOjRH3884k7Bl6U6xQd46ufd+c08e00zgdLG8rmpPGg0EOWfpMNkjF+crtEUKLfVOcq/UEsBAhQAFAAAAAgAtHXWTv3tEjaYAwAAOQ0AAAcAAAAAAAAAAAAAALaBAAAAAHVzZXIuanNQSwUGAAAAAAEAAQA1AAAAvQMAAAAA"}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIALR11k797RI2mAMAADkNAAAHAAAAdXNlci5qc6VWTW/bOBC9F9j/UOS0BWoi6celPaVpCixQNIsaQY8ERY4sxhTJJYdW/O93KFqtIVuWtnvTx3sc8s3MG6YIgfsA9Z9XVXAdvTHlWtZpq1zHVGo9AysqA+rq9UsMCV59/ONFOiUZgRBCskfoWpg4BbfQoahYCoaAV6JyCT9URtjt1UWCFxtYGCGiCJg8yxSCXs/AGtfCAbpkO2Madzs6vlbA2ojO9svojXUBplagT+rB/uh1jjfXTFsM7vH715kN5OS04pnLJlBoHmXQHjkJz1G3Oezb8UkHxkJoAO8CcmEMf4ocniV41M7G8+l/EjtRFmau4FhsXPeXvaNHZ+A8ywJ2LmyZFMTZwSpHFGZFgJ2WcwmOIFPQuGcyDrU5hRwnqQMjs2rzZXeJyoRSOp9VzK3SQaUCHTBwIbOOPFGSU0RQXELACU2PWDGmHPMnS9MHCHO0Igq3IovLYQd2KpSH0NKafd4U1CIZZLotbfBmhBXes+QV9TkTCd2E5keoZX2qdPRG7EHd31yvvzmkAiDGuym066xxQlFFW9pm6KvtRwN2nROm7WYm2v3j11s29OplR+uhb1nJ3Kz9abulDgBLHUNGWEpjrOApmFytOO0FtKtrIkzV+IAKIFTWBxAk7faLDhFvSRE51YM/nUzU0D+TeEut9ZjSCtOJsNiVQQTZHCpkFmvqmHw2h2FQTNoxlCJGMlySou+amgySyyBiMxenAWOYbEBuP5ce+FT+zPBoHkVGZ7cP9s64OHecI/gD5X4CTbqIYsFZ3AaEwaa8s2X2eGGB5HPr3P8ufYhf59r6nn7jBMZtNvmjLMPhv+zEO6PlnuWP61QdTOt/L/B3//H2V4ufXQd26JyJjFzDhcPeL9+K8iAlY+ttuG90RSPLbnjWfyJK9g1bnDjb6+fCXkuiZ/O+Gc/qI3xlnNwaHXGmNI4ofbXfudbTjKi0yePU6k2DZj/PXWTvp3hL3l7vH6f76ugucVHc4fZQRsDq4I8rGtmY4sTaA6dBpCtho2OzX+XfnkbsyoDdYHaJN+/fj3jD4jTWKC/GuI5Xe34YlRMzlXzHY8z9zlunhFl6n6m1AXpiLmjqEl4KNl/T5ggRg5bIx7yzwfKl1JJFttBWENb965Roueq3GtlBvGHkHgr7/OkHDoKhGBj2rOjRH3884k7Bl6U6xQd46ufd+c08e00zgdLG8rmpPGg0EOWfpMNkjF+crtEUKLfVOcq/UEsBAhQAFAAAAAgAtHXWTv3tEjaYAwAAOQ0AAAcAAAAAAAAAAAAAALaBAAAAAHVzZXIuanNQSwUGAAAAAAEAAQA1AAAAvQMAAAAA"}}}
+2019-06-22 14:45:43 [urllib3.connectionpool] DEBUG: Starting new HTTP connection (1): 127.0.0.1:3332
+2019-06-22 14:45:50 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session HTTP/1.1" 200 735
+2019-06-22 14:45:50 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:50 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/timeouts {"pageLoad": 100000}
+2019-06-22 14:45:50 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/timeouts HTTP/1.1" 200 14
+2019-06-22 14:45:50 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:50 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1> (referer: None)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990587> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990574> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990573> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/papertailor?Redirect=Log&logNo=221567242474> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/njxivbt329?Redirect=Log&logNo=221568024313> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/act_test?Redirect=Log&logNo=221568023193> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990583> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567993813> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990600> (referer: https://search.naver.com/search.naver?where=post&query=Mongolia&st=date&sm=tab_opt&date_from=20190622&date_to=20190622&date_option=8&srchby=all&dup_remove=1&qvt=0&start=1)
+2019-06-22 14:45:50 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=njxivbt329&logNo=221568024313&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:45:52 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:45:52 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:52 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:45:52 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 187192
+2019-06-22 14:45:52 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:52 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:45:52 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 135
+2019-06-22 14:45:52 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=njxivbt329&logNo=221568024313&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/njxivbt329?Redirect=Log&logNo=221568024313)
+2019-06-22 14:45:52 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990573&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:45:53 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:45:53 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:53 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:45:53 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 383789
+2019-06-22 14:45:53 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:53 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:45:53 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 137
+2019-06-22 14:45:53 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990573&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990573)
+2019-06-22 14:45:53 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990587&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:45:54 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:45:54 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:54 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:45:54 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 390697
+2019-06-22 14:45:54 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:54 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:45:54 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 137
+2019-06-22 14:45:54 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990587&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990587)
+2019-06-22 14:45:54 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=papertailor&logNo=221567242474&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:45:56 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:45:56 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:56 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:45:56 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 297992
+2019-06-22 14:45:56 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:56 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:45:56 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 136
+2019-06-22 14:45:56 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=papertailor&logNo=221567242474&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/papertailor?Redirect=Log&logNo=221567242474)
+2019-06-22 14:45:56 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=act_test&logNo=221568023193&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:45:58 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:45:58 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:58 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:45:58 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 311936
+2019-06-22 14:45:58 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:58 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:45:58 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 133
+2019-06-22 14:45:58 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=act_test&logNo=221568023193&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/act_test?Redirect=Log&logNo=221568023193)
+2019-06-22 14:45:58 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990574&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:45:59 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:45:59 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:59 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:45:59 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 375169
+2019-06-22 14:45:59 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:59 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:45:59 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 137
+2019-06-22 14:45:59 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:45:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990574&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990574)
+2019-06-22 14:45:59 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:45:59 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:45:59 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:45:59 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=njxivbt329&logNo=221568024313&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:45:59 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:45:59 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=njxivbt329&logNo=221568024313&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:45:59 [py.warnings] WARNING: c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\django\db\models\fields\__init__.py:1421: RuntimeWarning: DateTimeField NaverBlog.date received a naive datetime (2019-06-22 10:45:59.929620) while time zone support is active.
+  RuntimeWarning)
+
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=njxivbt329&logNo=221568024313&redirect=Log&widgetTypeCall=false&directAccess=true', '\n                            ', datetime.datetime(2019, 6, 22, 1, 45, 59, 929620), '', 0, 0, 0, datetime.datetime(2019, 6, 22, 5, 45, 59, 949569)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97c7')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 339, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 240788)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97c8')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 339, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 246772)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97c9')]
+2019-06-22 14:46:00 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=njxivbt329&logNo=221568024313&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '',
+ 'date': datetime.datetime(2019, 6, 22, 10, 45, 59, 929620),
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 0,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '\n                            ',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=njxivbt329&logNo=221568024313&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990573&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990573&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990573&redirect=Log&widgetTypeCall=false&directAccess=true', '', None, '', 0, 0, 0, datetime.datetime(2019, 6, 22, 5, 46, 0, 296639)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97ca')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 340, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 305616)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97cb')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 340, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 311599)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97cc')]
+2019-06-22 14:46:00 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990573&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '',
+ 'date': None,
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 0,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990573&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=papertailor&logNo=221567242474&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=papertailor&logNo=221567242474&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:00 [py.warnings] WARNING: c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\django\db\models\fields\__init__.py:1421: RuntimeWarning: DateTimeField NaverBlog.date received a naive datetime (2019-06-22 10:46:00.406347) while time zone support is active.
+  RuntimeWarning)
+
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=papertailor&logNo=221567242474&redirect=Log&widgetTypeCall=false&directAccess=true', '[MONGOLIA] 몽골 여행 2일차 _ 바얀고비 _ 바얀고비게르캠프 _ 몽골에서 낙타타기 _ 6월 몽골여행 _ 몽골여행 _ 유아동반몽골여행_몽골6월날씨_몽골밤기온', datetime.datetime(2019, 6, 22, 1, 46, 0, 406347), '\u200b언제그렇게 구름을 잔뜩 품고있었나 싶게 하늘이 맑게 개었다\u200b 캬아 구름이 사라진 몽골하늘은 정말 파랗고 파랗다 미세먼지따위 꺼져버령 ㅋㅋㅋ\u200b 귀엽게 모여있는 게르촌 위로 둥글둥글 구름들이 정말 그림처럼 놓여있다 \u200b이제 날씨도 좋아졌으니 원래의 계획대로 움직여보기로 한다\u200b이렇게 또 하나 배워간다다른 여행지였다면 날씨가 안좋았으면 그 안좋은 날씨에도 할수있는 다른 스케쥴을 찾아서 뭐라고 그 남은 시간에 하려고 했을것 같다 여행은 시간이 한정적이라는 생각에 마음이 급해지니까하지만 몽골은 거리가 거리이니만큼 지금 이걸 못한다고 해도 어디 갈곳도 없고 어쩔수없이 + 매력적인 주변 관경 덕분에 조금 여유롭게 즐기며 기다리고 있으니 이렇게 또 기회가 찾아왔다돌아가서 생활할때도 이렇게 조금씩 한템포씩 여유를 가져야지 생각했었는데지금의 나는 여전히 빨리! 를 외치고있다 예쁜 하늘을 배경으로 사진도 몇장 남겨보고 \u200b들어올때 보던 몽골국기와는 다른 느낌으로 반짝이고 있다역시 여행에는 날씨가 많이 도와줘야한다 이제 몽골 낙타들을 만나보러 출발한다\u200b\u200b숙소에서 가까운곳에도 낙타 타는 곳이 있었는데 박이 가이드님이 보더니 낙타가 잘 못먹었는지 혹이 너무 작다고 해서 다른곳을 찾아가본다 \u200b 여기는 좀 낙타 컨디션들이 괜찮은가보다 \u200b낙타를 타기전에 잠시 낙타주인(?)님으로 생각되는 현지인 집으로 들어간다 ㅋ환영의 의미? 뭐 그런걸로 가루 같은걸 손등에 덜어주고코로 빨아마시고 에취! 그렇게 재채기를 하라고 한다악귀를 쫓아내는 그런 의식이려나 흠\u200b암튼 따라해봤다가 눈물날뻔했다 따가워따가워 ㅋ 진짜 이 게르안에서 살고있다고 했다우리 2호보다도 더 어린 여자아기도 있었는데 사진에서 막 튀어나온듯한 그런 아이였다볼은 빠알갛고 귀여운 우리 1호만해보이던 저 아이는 낙타를 아주 능숙하게 다루고 있었다\u200b몽골낙타는 쌍봉낙타 중동낙타는 단봉낙타 라고 한다이집트에서 단봉낙타 한번 타봤으니 이번에는 쌍봉낙타도 타줘봐야징 이집트에서는 낙타 혹이 아닌 나무로 만든 말뚝? 같은게 안장위에 있어서 그걸 잡았던거 같은데이번에는 낙타의 앞에 혹을 잡아야한다 꺄아 처음에는 무섭다고 안타겠다고 해서 가이드아저씨한테 안겨서 걸어오다가돌아오는길에는 재밌어보였는지 다시 타겠다고해서 낙타에 올라탄 우리 2호 \u200b 이렇게 또 낙타와의 셀카더블샷을 하나 남기고 \u200b 더이상 우리 가족과 낙타와의 만남은 없는걸로?낙타 바이바이중동도 바이바이? \u200b \u200b첨엔 무섭다고 타지도 않더니 나중에는 쓰담쓰담도 해주고싶댄다\u200b 얼굴이 잘 보이지는 않는데 아기낙타가 밑에와서 엄마 젖을 먹고있다사람이나 동물이나 엄마가 피딩하는 모습은 참 따뜻하고 아름답다 \u200b \u200b이렇게 낙타체험을 마치고 다시 숙소로 돌아간다이미 시간이 꽤나 늦었다 아이고 게르캠프내 식당에 있던 어마어마한 곰 님옆에는 여우, 늑대들이 옹기종기 매달려있다예전에 엄마들 사이에서 통밍 크, 통 여우목도리 이런게 유행이었는지 우리 엄마도 몇마리 있었는데요즘엔 너무 무서워서 못하고 다니신다 \u200b 이날 식사는 전통 몽골식은 아닌 맛있는 닭고기와 감자요리 였다아이들도 엄청 신나게 잘 먹었다 \u200b\u200b밥을 먹고 나오니 해가 지고있었다불타듯 빨갛게 변한 하늘이 너무 멋졌다 해가 금방 진다고 하더니 정말 몇분 지나지않아 쏘옥 그 모습을 감추었다\u200b이제 오늘의 밤을 위한 준비차례잘때가 되면 게르 숙소로 와서 불을 켜준다 활활 타오르고있는 난로안꺼뜨리게 두어시간 마다 한번씩 장작을 더 넣어주는게 중요하다우리도 새벽에 한번 꺼뜨렸다가 추웠음 ㅋ\u200b몽골의 6월초 날씨는 반팔까지는 좀 무리이고얇은 긴팔하나정도면 괜찮을듯 하다 거기에 바람이 많이부는 날에는 얇은 점퍼 하나 더 입는 정도랄까대신 밤에는 좀 춥다 일교차가 크다더니 진짜 그런듯 \u200b밤에는 게르 안에서 난로불을 안꺼뜨리고 잘 유지한다면 반팔도 입고 자도 괜찮을정도로 후끈후끈하다다들 더워서 얼굴이 뻐얼게짐 ㅋㅋ근데 몽골하면 또 별보러 온것도 있을터밤에 별보러 나가려고 한다면 히트텍 하나정도는 더 입어줘야 한다히트텍 입고 긴팔긴바지 입고 위에 경량패딩이나 후리스 하나 더 입었더니그렇게 추운 느낌 없이 별구경 할 수 있었다\u200b\u200b 덥다고 얼굴로 말하는중 ㅋㅋ\u200b이렇게 몽골에서의 두번째 밤이 저물어간다 아 물론 잠좀 자다가 새벽에 일어나서 만나야할게 있다몽골의 별 기다려 언니가 곧 만나러 갈께 \u200b', 0, 36, 1, datetime.datetime(2019, 6, 22, 5, 46, 0, 427291)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97cd')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 341, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 451227)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97ce')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 341, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 457211)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97cf')]
+2019-06-22 14:46:00 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=papertailor&logNo=221567242474&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '\u200b언제그렇게 구름을 잔뜩 품고있었나 싶게 하늘이 맑게 개었다\u200b 캬아 구름이 사라진 몽골하늘은 정말 '
+            '파랗고 파랗다 미세먼지따위 꺼져버령 ㅋㅋㅋ\u200b 귀엽게 모여있는 게르촌 위로 둥글둥글 구름들이 정말 그림처럼 '
+            '놓여있다 \u200b이제 날씨도 좋아졌으니 원래의 계획대로 움직여보기로 한다\u200b이렇게 또 하나 배워간다다른 '
+            '여행지였다면 날씨가 안좋았으면 그 안좋은 날씨에도 할수있는 다른 스케쥴을 찾아서 뭐라고 그 남은 시간에 하려고 했을것 '
+            '같다 여행은 시간이 한정적이라는 생각에 마음이 급해지니까하지만 몽골은 거리가 거리이니만큼 지금 이걸 못한다고 해도 '
+            '어디 갈곳도 없고 어쩔수없이 + 매력적인 주변 관경 덕분에 조금 여유롭게 즐기며 기다리고 있으니 이렇게 또 기회가 '
+            '찾아왔다돌아가서 생활할때도 이렇게 조금씩 한템포씩 여유를 가져야지 생각했었는데지금의 나는 여전히 빨리! 를 외치고있다 '
+            '예쁜 하늘을 배경으로 사진도 몇장 남겨보고 \u200b들어올때 보던 몽골국기와는 다른 느낌으로 반짝이고 있다역시 '
+            '여행에는 날씨가 많이 도와줘야한다 이제 몽골 낙타들을 만나보러 출발한다\u200b\u200b숙소에서 가까운곳에도 낙타 '
+            '타는 곳이 있었는데 박이 가이드님이 보더니 낙타가 잘 못먹었는지 혹이 너무 작다고 해서 다른곳을 찾아가본다 '
+            '\u200b 여기는 좀 낙타 컨디션들이 괜찮은가보다 \u200b낙타를 타기전에 잠시 낙타주인(?)님으로 생각되는 '
+            '현지인 집으로 들어간다 ㅋ환영의 의미? 뭐 그런걸로 가루 같은걸 손등에 덜어주고코로 빨아마시고 에취! 그렇게 재채기를 '
+            '하라고 한다악귀를 쫓아내는 그런 의식이려나 흠\u200b암튼 따라해봤다가 눈물날뻔했다 따가워따가워 ㅋ 진짜 이 '
+            '게르안에서 살고있다고 했다우리 2호보다도 더 어린 여자아기도 있었는데 사진에서 막 튀어나온듯한 그런 아이였다볼은 '
+            '빠알갛고 귀여운 우리 1호만해보이던 저 아이는 낙타를 아주 능숙하게 다루고 있었다\u200b몽골낙타는 쌍봉낙타 '
+            '중동낙타는 단봉낙타 라고 한다이집트에서 단봉낙타 한번 타봤으니 이번에는 쌍봉낙타도 타줘봐야징 이집트에서는 낙타 혹이 '
+            '아닌 나무로 만든 말뚝? 같은게 안장위에 있어서 그걸 잡았던거 같은데이번에는 낙타의 앞에 혹을 잡아야한다 꺄아 '
+            '처음에는 무섭다고 안타겠다고 해서 가이드아저씨한테 안겨서 걸어오다가돌아오는길에는 재밌어보였는지 다시 타겠다고해서 '
+            '낙타에 올라탄 우리 2호 \u200b 이렇게 또 낙타와의 셀카더블샷을 하나 남기고 \u200b 더이상 우리 가족과 '
+            '낙타와의 만남은 없는걸로?낙타 바이바이중동도 바이바이? \u200b \u200b첨엔 무섭다고 타지도 않더니 나중에는 '
+            '쓰담쓰담도 해주고싶댄다\u200b 얼굴이 잘 보이지는 않는데 아기낙타가 밑에와서 엄마 젖을 먹고있다사람이나 동물이나 '
+            '엄마가 피딩하는 모습은 참 따뜻하고 아름답다 \u200b \u200b이렇게 낙타체험을 마치고 다시 숙소로 돌아간다이미 '
+            '시간이 꽤나 늦었다 아이고 게르캠프내 식당에 있던 어마어마한 곰 님옆에는 여우, 늑대들이 옹기종기 매달려있다예전에 '
+            '엄마들 사이에서 통밍 크, 통 여우목도리 이런게 유행이었는지 우리 엄마도 몇마리 있었는데요즘엔 너무 무서워서 못하고 '
+            '다니신다 \u200b 이날 식사는 전통 몽골식은 아닌 맛있는 닭고기와 감자요리 였다아이들도 엄청 신나게 잘 먹었다 '
+            '\u200b\u200b밥을 먹고 나오니 해가 지고있었다불타듯 빨갛게 변한 하늘이 너무 멋졌다 해가 금방 진다고 하더니 '
+            '정말 몇분 지나지않아 쏘옥 그 모습을 감추었다\u200b이제 오늘의 밤을 위한 준비차례잘때가 되면 게르 숙소로 와서 '
+            '불을 켜준다 활활 타오르고있는 난로안꺼뜨리게 두어시간 마다 한번씩 장작을 더 넣어주는게 중요하다우리도 새벽에 한번 '
+            '꺼뜨렸다가 추웠음 ㅋ\u200b몽골의 6월초 날씨는 반팔까지는 좀 무리이고얇은 긴팔하나정도면 괜찮을듯 하다 거기에 '
+            '바람이 많이부는 날에는 얇은 점퍼 하나 더 입는 정도랄까대신 밤에는 좀 춥다 일교차가 크다더니 진짜 그런듯 '
+            '\u200b밤에는 게르 안에서 난로불을 안꺼뜨리고 잘 유지한다면 반팔도 입고 자도 괜찮을정도로 후끈후끈하다다들 더워서 '
+            '얼굴이 뻐얼게짐 ㅋㅋ근데 몽골하면 또 별보러 온것도 있을터밤에 별보러 나가려고 한다면 히트텍 하나정도는 더 입어줘야 '
+            '한다히트텍 입고 긴팔긴바지 입고 위에 경량패딩이나 후리스 하나 더 입었더니그렇게 추운 느낌 없이 별구경 할 수 '
+            '있었다\u200b\u200b 덥다고 얼굴로 말하는중 ㅋㅋ\u200b이렇게 몽골에서의 두번째 밤이 저물어간다 아 물론 '
+            '잠좀 자다가 새벽에 일어나서 만나야할게 있다몽골의 별 기다려 언니가 곧 만나러 갈께 \u200b',
+ 'date': datetime.datetime(2019, 6, 22, 10, 46, 0, 406347),
+ 'itemType': 'blog',
+ 'noComments': 1,
+ 'noImages': 36,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '[MONGOLIA] 몽골 여행 2일차 _ 바얀고비 _ 바얀고비게르캠프 _ 몽골에서 낙타타기 _ 6월 몽골여행 _ 몽골여행 '
+          '_ 유아동반몽골여행_몽골6월날씨_몽골밤기온',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=papertailor&logNo=221567242474&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990587&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990587&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990587&redirect=Log&widgetTypeCall=false&directAccess=true', '', None, '', 0, 0, 0, datetime.datetime(2019, 6, 22, 5, 46, 0, 506080)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d0')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 342, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 515054)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d1')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 342, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 521039)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d2')]
+2019-06-22 14:46:00 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990587&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '',
+ 'date': None,
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 0,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990587&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=act_test&logNo=221568023193&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=act_test&logNo=221568023193&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:00 [py.warnings] WARNING: c:\users\teo\appdata\local\programs\python\python37-32\lib\site-packages\django\db\models\fields\__init__.py:1421: RuntimeWarning: DateTimeField NaverBlog.date received a naive datetime (2019-06-22 10:46:00.553951) while time zone support is active.
+  RuntimeWarning)
+
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=act_test&logNo=221568023193&redirect=Log&widgetTypeCall=false&directAccess=true', '미국 SAT 시험 응시비용(Test Fees) 알아보기', datetime.datetime(2019, 6, 22, 1, 46, 0, 553951), "\u200b\u200b\u200b미국 SAT 시험 응시비용(Test Fees) 알아보기\u200b\u200b\u200b\u200b \u200b SAT Test Fees for U.S. test takers \u200b SAT Registration FeesTestFeeSAT$ 49.50SAT with Essay$ 64.50 \u200b \u200b Other Registration-Linked FeesItemMore InformationFeeRegister by Phone이전에 시험 등록 이력이 있는 경우에만 가능$ 15Change Fee시험장소를 변경하거나, 시험응시일을 변경하거나, SAT <-> SAT Subject Test 변경할 경우에 해당함.SAT <-> SAT with Essay 의 변경은 해당하지 않음.단, Essay를 추가하는 경우에는 차액을 기불하고 변경 가능. $ 30Late Registration Fee정규등록 마감일이 지난 후부터 추가등록 마감일 전까지의 등록 수수료$ 30Waitlist Fee시험응시일에 시험장에서 응시 허용된 경우에만 부과됨$ 53 \u200b \u200b Fees for Additional Score ServicesServiceMore InformationFeeRegistration Score ReportsFour registration score reports are available up to nine days after the test date.$ 0Additional Score Report RequestAdditional score reports (outside of the above four), or score reports ordered outside of the above time period are subject to this fee per report)$ 12Rush OrderIf you request rush service, your score reports will typically br sent to colleges within one to two business days (not counting holidays and weekends).Additional score report fees (as described above) still aplly on rush orders.$ 31Scores by PhoneScores by phone are released according to the same schedule as online scores.This service does not send scores to colleges any earlier.To get your score by phone, call Customer Service.You'll need your test registration number (printed on your admission ticket), your birth date, a credit card number, and the card's expiration date.$ 15(per call)Archived(older) Score OrderIf you want your old test scores, you should request archived scores.You can request them by phone or mail.The standard fee for additional score report requests applies to each score report you'd like to include with your order.$ 31SAT Question-and-Answer Service*This service provides the test questions from the specified test you took, the correct answers, scoring instructions, and a form you can use to order a copy of your answer sheet.The QAS service is not available for every SAT administration.$ 18SAT Student Answer Service*This service provides a list of question types from the specified test you took; whether you answered the question correctly or incorrectly, or omitted the answer; and the level of difficulty.$ 13.50Multiple-Choice hand Score VerificationWhen hand scoring of a multiple-choice score is requested, your entire answer sheet will be manually reviewed—you can't request verification of scores for a single section on the SAT or just one of several SAT Subject Tests taken on the same date.For SAT only: If you order hand score verification, you will no longer see the full online score report, and you won't have access to the Student Answer Service or Question-and-Answer Service for your hand scored answer sheet.$ 55Essay hand Score verificationThis verification determines whether there was an error made in the scanning or processing of the essay scores assigned by essay readers.If an error is found, your adjusted score is automatically reported and your fee is refunded.$ 55*These are refundable only if your order has not yet been fulfilled or if you missed your test date (for example, if you canceled your test, were absent, or had to take a makeup test). \u200b\u200b\u200b \u200b\u200b\u200b SAT Test Fees for international test takers \u200b International SAT Registration FeesTestFeeSAT$ 49.50 + Non-U.S. Regional FeeSAT with Essay$ 64.50 + Non-U.S. Regional Fee RegionCountries in RegionFeeAfrica (Sub-Saharan)Angola, Benin, Botswana, Burkina Faso, Burundi, Cameroon, Cape Verde, Central African Republic, Chad, Comoros, Congo, The Democratic Republic of the Congo, Cote D'Ivoire, Djibouti, Equatorial Guinea, Eritrea, Ethiopia , French Southern Territories, Gabon, Gambia, Ghana, Guinea, Guinea-Bissau, Heard Island and McDonald Islands, Kenya, Lesotho, Liberia, Madagascar, Malawi, Mali, Mauritania, Mauritius, Mayotte, Mozambique, Namibia, Niger, Nigeria, Reunion, Rwanda, Saint Helena, Ascension and Tristan da Cunha, Sao Tome and Principe, Senegal, Seychelles, Sierra Leone, Somalia, South Africa, South Sudan, Sudan, Swaziland, United Republic of Tanzania, Togo, Uganda, Zambia, Zimbabwe$ 43AmericasAnguilla, Antarctica, Antigua and Barbuda, Argentina, Aruba, Bahamas, Barbados, Belize, Bermuda, Bolivia, Bonaire, Sint Eustatius and Saba, Bouvet Island, Brazil, Canada, Cayman Islands, Chile, Colombia, Costa Rica, Cuba, Curaçao, Dominica, Dominican Republic, Ecuador, El Salvador, Falkland Islands (Malvinas), French Guiana, Grenada, Guadeloupe, Guatemala, Guyana, Haiti, Honduras, Jamaica, Martinique, Mexico, Montserrat, Nicaragua, Panama, Paraguay, Peru, Saint Barthelemy, Saint Kitts and Nevis, Saint Lucia, Saint Martin (French part), Saint Pierre and Miquelon, Saint Vincent and the Grenadines, Sint Maarten (Dutch part), South Georgia and the South Sandwich Islands, Suriname, Trinidad and Tobago, Turks and Caicos Islands, Uruguay, Venezuela, Virgin Islands (British)$ 43East Asia/PacificAustralia, Brunei Darussalam, Cambodia, China, Christmas Island, Cocos (Keeling) Islands, Cook Islands, Fiji, French Polynesia, Hong Kong, Indonesia, Japan, Kiribati, Korea, North (DPR), Korea, South (ROK), Lao People's Democratic Republic, Macao, Malaysia, Marshall Islands*, Micronesia Federated States of*, Mongolia, Myanmar (Burma), Nauru, New Caledonia, New Zealand, Niue, Norfolk Island, Palau*, Papua New Guinea, Philippines, Pitcairn, Samoa, Singapore, Solomon Islands, Taiwan, Thailand, Timor-Leste, Tokelau, Tonga, Tuvalu, Vanuatu, Vietnam, Wallis and Futuna$ 53Europe and EurasiaAaland Islands, Albania, Andorra, Armenia, Austria, Azerbaijan, Belarus, Belgium, Bosnia and Herzegovina, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Faroe Islands, Finland, France, Georgia, Germany, Gibraltar, Greece, Greenland, Guernsey, Holy See (Vatican City State), Hungary, Iceland, Ireland, Isle of Man, Italy, Jersey, Kosovo, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Republic of Moldova, Monaco, Montenegro, Netherlands, Norway, Poland, Portugal, The Republic of North Macedonia, Romania, Russian Federation, San Marino, Serbia, Slovakia, Slovenia, Spain, Svalbard and Jan Mayen, Sweden, Switzerland, Turkey, Ukraine, United Kingdom$ 47Middle East/North AfricaAlgeria, Bahrain, Egypt, Islamic Republic of Iran, Iraq, Israel, Jordan, Kuwait, Lebanon, Libya, Morocco, Oman, Qatar, Saudi Arabia, State of Palestine, Syrian Arab Republic, Tunisia, United Arab Emirates, Yemen, Western Sahara$ 47South and Central AsiaAfghanistan, Bangladesh, Bhutan, British Indian Ocean Territory, India, Kazakhstan, Kyrgyzstan, Maldives, Nepal, Pakistan, Sri Lanka, Tajikistan, Turkmenistan, Uzbekistan$ 49 *Marshall Islands, Micronesia Federated States of, and Palau are exempted from international processing fees due to their Compact of Free Association with the U.S.\u200b\u200b Other Registration-Linked FeesItemMore InformationFeeRegister by Phone이전에 시험 등록 이력이 있는 경우에만 가능$ 15Change Fee시험장소를 변경하거나, 시험응시일을 변경하거나, SAT <-> SAT Subject Test 변경할 경우에 해당함.SAT <-> SAT with Essay 의 변경은 해당하지 않음.단, Essay를 추가하는 경우에는 차액을 기불하고 변경 가능. $ 30Test Center Fee일부 시험장은 추가 수수료가 발생할 수 있음$ 24Waitlist Fee시험응시일에 시험장에서 응시 허용된 경우에만 부과됨$ 53 \u200bThere's a $24 additional fee for the following test centers: City, CountryTest CenterTest Center CodeHong Kong, Hong KongAsia World ExpoAll zones/Codes*Islamabad, PakistanEmbassy Lodge74731Karachi, PakistanRegent Plaza74737Karachi, PakistanPearl Continental Hotel73746Karachi, PakistanLiberty Castle Banquet Hall74747Tel Aviv, IsraelZoa House74450Singapore, SingaporeE2175158Colombo, SrilankaCinnamon Lakeside75305Hanoi, VietnamInternational Convention Center65362*Asia World Expo is divided into multiple zones with multiple test center codes. For paper registration, use test center code 62250. \u200b \u200b Fees for Additional Score ServicesServiceMore InformationFeeRegistration Score ReportsFour registration score reports are available up to nine days after the test date.$ 0Additional Score Report RequestAdditional score reports (outside of the above four), or score reports ordered outside of the above time period are subject to this fee per report)$ 12Rush OrderIf you request rush service, your score reports will typically br sent to colleges within one to two business days (not counting holidays and weekends).Additional score report fees (as described above) still aplly on rush orders.$ 31Scores by PhoneScores by phone are released according to the same schedule as online scores.This service does not send scores to colleges any earlier.To get your score by phone, call Customer Service.You'll need your test registration number (printed on your admission ticket), your birth date, a credit card number, and the card's expiration date.$ 15(per call)Archived(older) Score OrderIf you want your old test scores, you should request archived scores.You can request them by phone or mail.The standard fee for additional score report requests applies to each score report you'd like to include with your order.$ 31SAT Question-and-Answer Service*This service provides the test questions from the specified test you took, the correct answers, scoring instructions, and a form you can use to order a copy of your answer sheet.The QAS service is not available for every SAT administration.$ 18SAT Student Answer Service*This service provides a list of question types from the specified test you took; whether you answered the question correctly or incorrectly, or omitted the answer; and the level of difficulty.$ 13.50Multiple-Choice hand Score VerificationWhen hand scoring of a multiple-choice score is requested, your entire answer sheet will be manually reviewed—you can't request verification of scores for a single section on the SAT or just one of several SAT Subject Tests taken on the same date.For SAT only: If you order hand score verification, you will no longer see the full online score report, and you won't have access to the Student Answer Service or Question-and-Answer Service for your hand scored answer sheet.$ 55Essay hand Score verificationThis verification determines whether there was an error made in the scanning or processing of the essay scores assigned by essay readers.If an error is found, your adjusted score is automatically reported and your fee is refunded.$ 55*These are refundable only if your order has not yet been fulfilled or if you missed your test date (for example, if you canceled your test, were absent, or had to take a makeup test). \u200b\u200b\u200b\u200b\u200b", 0, 2, 0, datetime.datetime(2019, 6, 22, 5, 46, 0, 571903)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d3')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 343, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 582873)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d4')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 343, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 588860)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d5')]
+2019-06-22 14:46:00 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=act_test&logNo=221568023193&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '\u200b\u200b\u200b미국 SAT 시험 응시비용(Test Fees) '
+            '알아보기\u200b\u200b\u200b\u200b \u200b SAT Test Fees for U.S. test '
+            'takers \u200b SAT Registration FeesTestFeeSAT$ 49.50SAT with '
+            'Essay$ 64.50 \u200b \u200b Other Registration-Linked FeesItemMore '
+            'InformationFeeRegister by Phone이전에 시험 등록 이력이 있는 경우에만 가능$ 15Change '
+            'Fee시험장소를 변경하거나, 시험응시일을 변경하거나, SAT <-> SAT Subject Test 변경할 경우에 '
+            '해당함.SAT <-> SAT with Essay 의 변경은 해당하지 않음.단, Essay를 추가하는 경우에는 차액을 '
+            '기불하고 변경 가능. $ 30Late Registration Fee정규등록 마감일이 지난 후부터 추가등록 마감일 '
+            '전까지의 등록 수수료$ 30Waitlist Fee시험응시일에 시험장에서 응시 허용된 경우에만 부과됨$ 53 '
+            '\u200b \u200b Fees for Additional Score ServicesServiceMore '
+            'InformationFeeRegistration Score ReportsFour registration score '
+            'reports are available up to nine days after the test date.$ '
+            '0Additional Score Report RequestAdditional score reports (outside '
+            'of the above four), or score reports ordered outside of the above '
+            'time period are subject to this fee per report)$ 12Rush OrderIf '
+            'you request rush service, your score reports will typically br '
+            'sent to colleges within one to two business days (not counting '
+            'holidays and weekends).Additional score report fees (as described '
+            'above) still aplly on rush orders.$ 31Scores by PhoneScores by '
+            'phone are released according to the same schedule as online '
+            'scores.This service does not send scores to colleges any '
+            "earlier.To get your score by phone, call Customer Service.You'll "
+            'need your test registration number (printed on your admission '
+            "ticket), your birth date, a credit card number, and the card's "
+            'expiration date.$ 15(per call)Archived(older) Score OrderIf you '
+            'want your old test scores, you should request archived scores.You '
+            'can request them by phone or mail.The standard fee for additional '
+            "score report requests applies to each score report you'd like to "
+            'include with your order.$ 31SAT Question-and-Answer Service*This '
+            'service provides the test questions from the specified test you '
+            'took, the correct answers, scoring instructions, and a form you '
+            'can use to order a copy of your answer sheet.The QAS service is '
+            'not available for every SAT administration.$ 18SAT Student Answer '
+            'Service*This service provides a list of question types from the '
+            'specified test you took; whether you answered the question '
+            'correctly or incorrectly, or omitted the answer; and the level of '
+            'difficulty.$ 13.50Multiple-Choice hand Score VerificationWhen '
+            'hand scoring of a multiple-choice score is requested, your entire '
+            "answer sheet will be manually reviewed—you can't request "
+            'verification of scores for a single section on the SAT or just '
+            'one of several SAT Subject Tests taken on the same date.For SAT '
+            'only: If you order hand score verification, you will no longer '
+            "see the full online score report, and you won't have access to "
+            'the Student Answer Service or Question-and-Answer Service for '
+            'your hand scored answer sheet.$ 55Essay hand Score '
+            'verificationThis verification determines whether there was an '
+            'error made in the scanning or processing of the essay scores '
+            'assigned by essay readers.If an error is found, your adjusted '
+            'score is automatically reported and your fee is refunded.$ '
+            '55*These are refundable only if your order has not yet been '
+            'fulfilled or if you missed your test date (for example, if you '
+            'canceled your test, were absent, or had to take a makeup test). '
+            '\u200b\u200b\u200b \u200b\u200b\u200b SAT Test Fees for '
+            'international test takers \u200b International SAT Registration '
+            'FeesTestFeeSAT$ 49.50 + Non-U.S. Regional FeeSAT with Essay$ '
+            '64.50 + Non-U.S. Regional Fee RegionCountries in RegionFeeAfrica '
+            '(Sub-Saharan)Angola, Benin, Botswana, Burkina Faso, Burundi, '
+            'Cameroon, Cape Verde, Central African Republic, Chad, Comoros, '
+            "Congo, The Democratic Republic of the Congo, Cote D'Ivoire, "
+            'Djibouti, Equatorial Guinea, Eritrea, Ethiopia , French Southern '
+            'Territories, Gabon, Gambia, Ghana, Guinea, Guinea-Bissau, Heard '
+            'Island and McDonald Islands, Kenya, Lesotho, Liberia, Madagascar, '
+            'Malawi, Mali, Mauritania, Mauritius, Mayotte, Mozambique, '
+            'Namibia, Niger, Nigeria, Reunion, Rwanda, Saint Helena, Ascension '
+            'and Tristan da Cunha, Sao Tome and Principe, Senegal, Seychelles, '
+            'Sierra Leone, Somalia, South Africa, South Sudan, Sudan, '
+            'Swaziland, United Republic of Tanzania, Togo, Uganda, Zambia, '
+            'Zimbabwe$ 43AmericasAnguilla, Antarctica, Antigua and Barbuda, '
+            'Argentina, Aruba, Bahamas, Barbados, Belize, Bermuda, Bolivia, '
+            'Bonaire, Sint Eustatius and Saba, Bouvet Island, Brazil, Canada, '
+            'Cayman Islands, Chile, Colombia, Costa Rica, Cuba, Curaçao, '
+            'Dominica, Dominican Republic, Ecuador, El Salvador, Falkland '
+            'Islands (Malvinas), French Guiana, Grenada, Guadeloupe, '
+            'Guatemala, Guyana, Haiti, Honduras, Jamaica, Martinique, Mexico, '
+            'Montserrat, Nicaragua, Panama, Paraguay, Peru, Saint Barthelemy, '
+            'Saint Kitts and Nevis, Saint Lucia, Saint Martin (French part), '
+            'Saint Pierre and Miquelon, Saint Vincent and the Grenadines, Sint '
+            'Maarten (Dutch part), South Georgia and the South Sandwich '
+            'Islands, Suriname, Trinidad and Tobago, Turks and Caicos Islands, '
+            'Uruguay, Venezuela, Virgin Islands (British)$ 43East '
+            'Asia/PacificAustralia, Brunei Darussalam, Cambodia, China, '
+            'Christmas Island, Cocos (Keeling) Islands, Cook Islands, Fiji, '
+            'French Polynesia, Hong Kong, Indonesia, Japan, Kiribati, Korea, '
+            "North (DPR), Korea, South (ROK), Lao People's Democratic "
+            'Republic, Macao, Malaysia, Marshall Islands*, Micronesia '
+            'Federated States of*, Mongolia, Myanmar (Burma), Nauru, New '
+            'Caledonia, New Zealand, Niue, Norfolk Island, Palau*, Papua New '
+            'Guinea, Philippines, Pitcairn, Samoa, Singapore, Solomon Islands, '
+            'Taiwan, Thailand, Timor-Leste, Tokelau, Tonga, Tuvalu, Vanuatu, '
+            'Vietnam, Wallis and Futuna$ 53Europe and EurasiaAaland Islands, '
+            'Albania, Andorra, Armenia, Austria, Azerbaijan, Belarus, Belgium, '
+            'Bosnia and Herzegovina, Croatia, Cyprus, Czech Republic, Denmark, '
+            'Estonia, Faroe Islands, Finland, France, Georgia, Germany, '
+            'Gibraltar, Greece, Greenland, Guernsey, Holy See (Vatican City '
+            'State), Hungary, Iceland, Ireland, Isle of Man, Italy, Jersey, '
+            'Kosovo, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, '
+            'Republic of Moldova, Monaco, Montenegro, Netherlands, Norway, '
+            'Poland, Portugal, The Republic of North Macedonia, Romania, '
+            'Russian Federation, San Marino, Serbia, Slovakia, Slovenia, '
+            'Spain, Svalbard and Jan Mayen, Sweden, Switzerland, Turkey, '
+            'Ukraine, United Kingdom$ 47Middle East/North AfricaAlgeria, '
+            'Bahrain, Egypt, Islamic Republic of Iran, Iraq, Israel, Jordan, '
+            'Kuwait, Lebanon, Libya, Morocco, Oman, Qatar, Saudi Arabia, State '
+            'of Palestine, Syrian Arab Republic, Tunisia, United Arab '
+            'Emirates, Yemen, Western Sahara$ 47South and Central '
+            'AsiaAfghanistan, Bangladesh, Bhutan, British Indian Ocean '
+            'Territory, India, Kazakhstan, Kyrgyzstan, Maldives, Nepal, '
+            'Pakistan, Sri Lanka, Tajikistan, Turkmenistan, Uzbekistan$ 49 '
+            '*Marshall Islands, Micronesia Federated States of, and Palau are '
+            'exempted from international processing fees due to their Compact '
+            'of Free Association with the U.S.\u200b\u200b Other '
+            'Registration-Linked FeesItemMore InformationFeeRegister by '
+            'Phone이전에 시험 등록 이력이 있는 경우에만 가능$ 15Change Fee시험장소를 변경하거나, 시험응시일을 '
+            '변경하거나, SAT <-> SAT Subject Test 변경할 경우에 해당함.SAT <-> SAT with '
+            'Essay 의 변경은 해당하지 않음.단, Essay를 추가하는 경우에는 차액을 기불하고 변경 가능. $ 30Test '
+            'Center Fee일부 시험장은 추가 수수료가 발생할 수 있음$ 24Waitlist Fee시험응시일에 시험장에서 응시 '
+            "허용된 경우에만 부과됨$ 53 \u200bThere's a $24 additional fee for the "
+            'following test centers: City, CountryTest CenterTest Center '
+            'CodeHong Kong, Hong KongAsia World ExpoAll zones/Codes*Islamabad, '
+            'PakistanEmbassy Lodge74731Karachi, PakistanRegent '
+            'Plaza74737Karachi, PakistanPearl Continental Hotel73746Karachi, '
+            'PakistanLiberty Castle Banquet Hall74747Tel Aviv, IsraelZoa '
+            'House74450Singapore, SingaporeE2175158Colombo, SrilankaCinnamon '
+            'Lakeside75305Hanoi, VietnamInternational Convention '
+            'Center65362*Asia World Expo is divided into multiple zones with '
+            'multiple test center codes. For paper registration, use test '
+            'center code 62250. \u200b \u200b Fees for Additional Score '
+            'ServicesServiceMore InformationFeeRegistration Score ReportsFour '
+            'registration score reports are available up to nine days after '
+            'the test date.$ 0Additional Score Report RequestAdditional score '
+            'reports (outside of the above four), or score reports ordered '
+            'outside of the above time period are subject to this fee per '
+            'report)$ 12Rush OrderIf you request rush service, your score '
+            'reports will typically br sent to colleges within one to two '
+            'business days (not counting holidays and weekends).Additional '
+            'score report fees (as described above) still aplly on rush '
+            'orders.$ 31Scores by PhoneScores by phone are released according '
+            'to the same schedule as online scores.This service does not send '
+            'scores to colleges any earlier.To get your score by phone, call '
+            "Customer Service.You'll need your test registration number "
+            '(printed on your admission ticket), your birth date, a credit '
+            "card number, and the card's expiration date.$ 15(per "
+            'call)Archived(older) Score OrderIf you want your old test scores, '
+            'you should request archived scores.You can request them by phone '
+            'or mail.The standard fee for additional score report requests '
+            "applies to each score report you'd like to include with your "
+            'order.$ 31SAT Question-and-Answer Service*This service provides '
+            'the test questions from the specified test you took, the correct '
+            'answers, scoring instructions, and a form you can use to order a '
+            'copy of your answer sheet.The QAS service is not available for '
+            'every SAT administration.$ 18SAT Student Answer Service*This '
+            'service provides a list of question types from the specified test '
+            'you took; whether you answered the question correctly or '
+            'incorrectly, or omitted the answer; and the level of difficulty.$ '
+            '13.50Multiple-Choice hand Score VerificationWhen hand scoring of '
+            'a multiple-choice score is requested, your entire answer sheet '
+            "will be manually reviewed—you can't request verification of "
+            'scores for a single section on the SAT or just one of several SAT '
+            'Subject Tests taken on the same date.For SAT only: If you order '
+            'hand score verification, you will no longer see the full online '
+            "score report, and you won't have access to the Student Answer "
+            'Service or Question-and-Answer Service for your hand scored '
+            'answer sheet.$ 55Essay hand Score verificationThis verification '
+            'determines whether there was an error made in the scanning or '
+            'processing of the essay scores assigned by essay readers.If an '
+            'error is found, your adjusted score is automatically reported and '
+            'your fee is refunded.$ 55*These are refundable only if your order '
+            'has not yet been fulfilled or if you missed your test date (for '
+            'example, if you canceled your test, were absent, or had to take a '
+            'makeup test). \u200b\u200b\u200b\u200b\u200b',
+ 'date': datetime.datetime(2019, 6, 22, 10, 46, 0, 553951),
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 2,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '미국 SAT 시험 응시비용(Test Fees) 알아보기',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=act_test&logNo=221568023193&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990574&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990574&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990574&redirect=Log&widgetTypeCall=false&directAccess=true', '', None, '', 0, 0, 0, datetime.datetime(2019, 6, 22, 5, 46, 0, 654686)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d6')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 344, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 662662)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d7')]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 344, None, datetime.datetime(2019, 6, 22, 5, 46, 0, 668647)]
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:00 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc098bebf7b34789d97d8')]
+2019-06-22 14:46:00 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990574&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '',
+ 'date': None,
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 0,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990574&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:00 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990583&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:46:01 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:46:01 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:01 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:46:01 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 375371
+2019-06-22 14:46:01 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:01 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:46:01 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 137
+2019-06-22 14:46:01 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990583&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990583)
+2019-06-22 14:46:01 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567993813&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:46:02 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:46:02 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:02 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:46:02 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 390731
+2019-06-22 14:46:02 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:02 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:46:02 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 137
+2019-06-22 14:46:02 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567993813&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567993813)
+2019-06-22 14:46:02 [selenium.webdriver.remote.remote_connection] DEBUG: POST http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {"url": "http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990600&redirect=Log&widgetTypeCall=false&directAccess=true"}
+2019-06-22 14:46:03 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "POST /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 14
+2019-06-22 14:46:03 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:03 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/source {}
+2019-06-22 14:46:03 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/source HTTP/1.1" 200 419396
+2019-06-22 14:46:03 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:03 [selenium.webdriver.remote.remote_connection] DEBUG: GET http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/url {}
+2019-06-22 14:46:03 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "GET /session/285841b5-601e-491b-9f03-201d9ce2f44d/url HTTP/1.1" 200 137
+2019-06-22 14:46:03 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990600&redirect=Log&widgetTypeCall=false&directAccess=true> (referer: https://blog.naver.com/leicam102016?Redirect=Log&logNo=221567990600)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990583&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990583&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990583&redirect=Log&widgetTypeCall=false&directAccess=true', '', None, '', 0, 0, 0, datetime.datetime(2019, 6, 22, 5, 46, 3, 606791)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97d9')]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 345, None, datetime.datetime(2019, 6, 22, 5, 46, 3, 615766)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97da')]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 345, None, datetime.datetime(2019, 6, 22, 5, 46, 3, 622748)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97db')]
+2019-06-22 14:46:03 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990583&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '',
+ 'date': None,
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 0,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990583&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567993813&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567993813&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567993813&redirect=Log&widgetTypeCall=false&directAccess=true', '', None, '', 0, 0, 0, datetime.datetime(2019, 6, 22, 5, 46, 3, 669622)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97dc')]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 346, None, datetime.datetime(2019, 6, 22, 5, 46, 3, 677601)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97dd')]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 346, None, datetime.datetime(2019, 6, 22, 5, 46, 3, 682587)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97de')]
+2019-06-22 14:46:03 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567993813&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '',
+ 'date': None,
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 0,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567993813&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: ('69dca31b-3a86-4bd3-9773-c4c87254a0cc',)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_mycollection"."id", "iCrawler_mycollection"."unique_id", "iCrawler_mycollection"."jobids", "iCrawler_mycollection"."search_keyword", "iCrawler_mycollection"."channel_broadcast", "iCrawler_mycollection"."channel_published", "iCrawler_mycollection"."channel_blog", "iCrawler_mycollection"."channel_sns", "iCrawler_mycollection"."start_date", "iCrawler_mycollection"."end_date", "iCrawler_mycollection"."user_ip", "iCrawler_mycollection"."user_agent", "iCrawler_mycollection"."status", "iCrawler_mycollection"."created_date" FROM "iCrawler_mycollection" WHERE "iCrawler_mycollection"."unique_id" = %(0)s
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'unique_id': {'$eq': '69dca31b-3a86-4bd3-9773-c4c87254a0cc'}}, 'projection': ['id', 'unique_id', 'jobids', 'search_keyword', 'channel_broadcast', 'channel_published', 'channel_blog', 'channel_sns', 'start_date', 'end_date', 'user_ip', 'user_agent', 'status', 'created_date']}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: ('http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990600&redirect=Log&widgetTypeCall=false&directAccess=true',)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: SELECT "iCrawler_twitter"."id", "iCrawler_twitter"."unique_id", "iCrawler_twitter"."search_keyword", "iCrawler_twitter"."origin_keyword", "iCrawler_twitter"."item_type", "iCrawler_twitter"."category", "iCrawler_twitter"."sub_category", "iCrawler_twitter"."url", "iCrawler_twitter"."username", "iCrawler_twitter"."twitter_id", "iCrawler_twitter"."date", "iCrawler_twitter"."content", "iCrawler_twitter"."no_replies", "iCrawler_twitter"."no_favorites", "iCrawler_twitter"."no_retweets", "iCrawler_twitter"."hash_tag", "iCrawler_twitter"."mention", "iCrawler_twitter"."geo_location", "iCrawler_twitter"."created_date", "iCrawler_twitter"."updated_date" FROM "iCrawler_twitter" WHERE "iCrawler_twitter"."url" = %(0)s
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: Find query: {'filter': {'url': {'$eq': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990600&redirect=Log&widgetTypeCall=false&directAccess=true'}}, 'projection': ['id', 'unique_id', 'search_keyword', 'origin_keyword', 'item_type', 'category', 'sub_category', 'url', 'username', 'twitter_id', 'date', 'content', 'no_replies', 'no_favorites', 'no_retweets', 'hash_tag', 'mention', 'geo_location', 'created_date', 'updated_date']}
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [None, 'Mongolia', 'Mongolia', 'blog', 'blog', 'naver', 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990600&redirect=Log&widgetTypeCall=false&directAccess=true', '', None, '', 0, 0, 0, datetime.datetime(2019, 6, 22, 5, 46, 3, 735446)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_naverblog" ("unique_id", "search_keyword", "origin_keyword", "item_type", "category", "sub_category", "url", "title", "date", "content", "no_likes", "no_images", "no_comments", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s, %(6)s, %(7)s, %(8)s, %(9)s, %(10)s, %(11)s, %(12)s, %(13)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97df')]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 347, None, datetime.datetime(2019, 6, 22, 5, 46, 3, 743425)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97e0')]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: params: [367, None, None, 347, None, datetime.datetime(2019, 6, 22, 5, 46, 3, 748412)]
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: 
+ sql_command: INSERT INTO "iCrawler_mycollectiondetail" ("collection_id", "twitter_id", "naver_news_id", "naver_blog_id", "daum_blog_id", "created_date") VALUES (%(0)s, %(1)s, %(2)s, %(3)s, %(4)s, %(5)s)
+2019-06-22 14:46:03 [djongo.sql2mongo.query] DEBUG: insert ids [ObjectId('5d0dc09bbebf7b34789d97e1')]
+2019-06-22 14:46:03 [scrapy.core.scraper] DEBUG: Scraped from <200 http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990600&redirect=Log&widgetTypeCall=false&directAccess=true>
+{'category': 'blog',
+ 'channel': 'blogs',
+ 'channel_sub': 'naver',
+ 'content': '',
+ 'date': None,
+ 'itemType': 'blog',
+ 'noComments': 0,
+ 'noImages': 0,
+ 'noLikes': 0,
+ 'originKeyword': 'Mongolia',
+ 'searchKeyword': 'Mongolia',
+ 'subCategory': 'naver',
+ 'title': '',
+ 'url': 'http://blog.naver.com/PostView.nhn?blogId=leicam102016&logNo=221567990600&redirect=Log&widgetTypeCall=false&directAccess=true'}
+2019-06-22 14:46:03 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-06-22 14:46:03 [selenium.webdriver.remote.remote_connection] DEBUG: DELETE http://127.0.0.1:3332/session/285841b5-601e-491b-9f03-201d9ce2f44d/window {}
+2019-06-22 14:46:05 [urllib3.connectionpool] DEBUG: http://127.0.0.1:3332 "DELETE /session/285841b5-601e-491b-9f03-201d9ce2f44d/window HTTP/1.1" 200 12
+2019-06-22 14:46:05 [selenium.webdriver.remote.remote_connection] DEBUG: Finished Request
+2019-06-22 14:46:05 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 11075,
+ 'downloader/request_count': 19,
+ 'downloader/request_method_count/GET': 19,
+ 'downloader/response_bytes': 401898,
+ 'downloader/response_count': 19,
+ 'downloader/response_status_count/200': 19,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 6, 22, 5, 46, 3, 757388),
+ 'item_scraped_count': 9,
+ 'log_count/DEBUG': 260,
+ 'log_count/INFO': 9,
+ 'log_count/WARNING': 3,
+ 'request_depth_max': 2,
+ 'response_received_count': 19,
+ 'scheduler/dequeued': 19,
+ 'scheduler/dequeued/memory': 19,
+ 'scheduler/enqueued': 19,
+ 'scheduler/enqueued/memory': 19,
+ 'start_time': datetime.datetime(2019, 6, 22, 5, 45, 40, 411796)}
+2019-06-22 14:46:05 [scrapy.core.engine] INFO: Spider closed (finished)

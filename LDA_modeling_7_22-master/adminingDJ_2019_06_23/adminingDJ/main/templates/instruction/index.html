@@ -1,0 +1,95 @@
+{% extends "layout/layout.html" %}
+{% block title %}| Instruction{% endblock %} 
+{% block content %}
+    <div class="container">
+        <section class="content-header">
+            <h1>Instruction</h1>
+            <ol class="breadcrumb">
+                <li><a href="index.html"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li class="active">Instruction</li>
+            </ol>
+            </ol>
+        </section>
+
+        <section class="content">
+            <div class="col-md-3 scrollspy">
+              <ul
+                id="nav-left"
+                class="nav hidden-xs hidden-sm"
+                data-spy="affix"
+              >
+                <li><a href="#collecting">Collecting</a></li>
+                <li><a href="#preprocessing">Preprocessing</a></li>
+                <li><a href="#analysis">Analysis List</a></li>
+                <li><a href="#visualization">Visualization</a></li>
+              </ul>
+            </div>
+            <div class="col-md-9">
+              <section id="collecting">
+                <h2><span class="fa fa-edit"></span> Collecting</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe
+                    class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/CDXOcvUNBaA"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <p>
+                  A Web crawler, sometimes called a spider or spiderbot and
+                  often shortened to crawler, is an Internet bot that
+                  systematically browses the World Wide Web, typically for the
+                  purpose of Web indexing (web spidering).
+                </p>
+                <p>
+                  A Web crawler starts with a list of URLs to visit, called the
+                  seeds. As the crawler visits these URLs, it identifies all the
+                  hyperlinks in the page and adds them to the list of URLs to
+                  visit, called the crawl frontier. URLs from the frontier are
+                  recursively visited according to a set of policies. If the
+                  crawler is performing archiving of websites it copies and
+                  saves the information as it goes.
+                </p>
+              </section>
+
+              <section id="preprocessing">
+                <h2><span class="fa fa-edit"></span> Preprocessing</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe
+                    class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/2e4fgSgn64Q"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </section>
+
+              <section id="analysis">
+                <h2><span class="fa fa-edit"></span> Analysis</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe
+                    class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/LtScY2guZpo"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </section>
+
+              <section id="visualization">
+                <h2><span class="fa fa-edit"></span> Visualization</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                  <iframe
+                    class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/MiiANxRHSv4"
+                    frameborder="0"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </section>
+            </div>
+          </section>
+        
+    </div>
+    
+{% endblock content %}

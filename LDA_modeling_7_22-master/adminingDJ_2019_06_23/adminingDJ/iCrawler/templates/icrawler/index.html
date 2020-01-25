@@ -1,0 +1,187 @@
+{% extends "layoutFull/layout.html" %} 
+{% load staticfiles %}
+{% block css %}
+
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'libs/bootstrap-daterangepicker/daterangepicker.css' %}"
+    />
+
+    <link rel="stylesheet" href="{% static 'libs/iCheck/square/green.css' %}" />
+    <link rel="stylesheet" href="{% static 'libs/iCheck/flat/green.css' %}" />
+
+    <style>
+      .bootstrap-tagsinput {
+        width: 100%;
+      }
+
+    
+    </style>
+{% endblock css %}
+
+{% block content %}
+
+<section class="content-header">
+          <h1>수집하기</h1>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-database"></i> 데이터수집하기</li>
+            <li class="active"><i class="fa fa-circle-o"></i> 수집하기</li>
+          </ol>
+        </section>
+
+<section class="content">
+  <div class="box box-success">
+    <div class="box-body">
+      <form action={% url "ic_crawl" %} method="post" class="form-horizontal">
+        {% csrf_token %}
+
+        {% for field in form.visible_fields %}
+          <div class="form-group">
+            <label for="{{ field.name }}" class="col-sm-2 control-label">{{ field.label }}</label>
+            <div class="col-sm-10">
+              {% if field.name == 'collect_from' %}
+
+                {% for choice in form.collect_from.field.choices %}
+                  <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name={{ field.name }}
+                        value={{ choice.0 }}
+                        {% ifequal form.collect_from.value choice.0 %}
+                          checked="checked"
+                        {% endifequal %}
+                      />
+                      {{ choice.1 }}
+                    </label>
+              
+                {% endfor %}
+
+              {% elif field.name == 'deduplication' %}
+
+                {% for choice in form.deduplication.field.choices %}
+                  <label class="radio-inline">
+                      <input
+                        type="radio"
+                        name={{ field.name }}
+                        value={{ choice.0 }}
+                        {% ifequal form.deduplication.value choice.0 %}
+                          checked="checked"
+                        {% endifequal %}
+                      />
+                      {{ choice.1 }}
+                    </label>
+              
+                {% endfor %}
+
+      
+              {% else %}
+                  {{ field }}
+              {% endif %}
+              
+            </div>
+          </div>
+          <hr />
+        {% endfor %}
+        
+        <div class="form-group">
+          <label for="channel" class="col-sm-2 control-label" title="channel">채널</label>
+            <div class="col-sm-10">
+              <h4 title="Broadcast News">방송뉴스</h4>
+              <label class="checkbox-inline">
+                <input type="checkbox" name='mediaName_bc' value="뉴시스" checked>
+                <img src="{% static 'img/channel/news_newsis.jpg' %}" alt="뉴시스">
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name='mediaName_bc' value="SBS 뉴스" checked>
+                <img src="{% static 'img/channel/news_sbs.jpg' %}" alt="SBS">
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name='mediaName_bc' value="MBN" checked>
+                <img src="{% static 'img/channel/news_mbn.jpg' %}" alt="MBN">
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name='mediaName_bc' value="한국경제TV" checked>
+                <img src="{% static 'img/channel/news_hankyung.jpg' %}" alt="한국경제TV">
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name='mediaName_bc' value="MBC 뉴스" checked>
+                <img src="{% static 'img/channel/news_mbc.jpg' %}" alt="MBC 뉴스">
+              </label>
+              <label class="checkbox-inline">
+                <input type="checkbox" name='mediaName_bc' value="others" checked>
+                <img src="{% static 'img/channel/others.jpg' %}" alt="Others">
+              </label>
+              <hr />
+              <h4 title="Newspaper">신문뉴스</h4>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_pn' value="연합뉴스" checked>
+                  <img src="{% static 'img/channel/news_yonhapnews.jpg' %}" alt="연합뉴스">
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_pn' value="아시아경제" checked>
+                  <img src="{% static 'img/channel/news_asiae.jpg' %}" alt="아시아경제">
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_pn' value="매일경제" checked>
+                  <img src="{% static 'img/channel/news_mk.jpg' %}" alt="매일경제">
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_pn' value="머니투데이" checked>
+                  <img src="{% static 'img/channel/news_mtoday.jpg' %}" alt="머니투데이">
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_pn' value="레이디경향" checked>
+                  <img src="{% static 'img/channel/news_ladykhan.jpg' %}" alt="레이디경향">
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_pn' value="others" checked>
+                  <img src="{% static 'img/channel/others.jpg' %}" alt="Others">
+              </label>
+              
+              <h4 title="Blogs">블로그</h4>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_bl' value="daum" checked>
+                  <img src="{% static 'img/channel/daum.jpg' %}" alt="Daum Blog">
+              </label>
+              <label class="checkbox-inline">
+                  <input type="checkbox" name='mediaName_bl' value="naver" checked>
+                  <img src="{% static 'img/channel/naver.jpg' %}" alt="Naver Blog">
+              </label>
+              <hr />
+              <h4 title="Blogs">SNS</h4>
+              <label class="checkbox-inline">
+                <input type="checkbox" name='mediaName_sc' value="twitter" checked>
+                <img src="{% static 'img/channel/twitter.jpg' %}" alt="Twitter">
+              </label>
+                    
+          </div>
+      </div>
+
+      <div class="form-group">
+                  <div class="col-sm-10 col-sm-offset-2">
+                    <button
+                      type="submit"
+                      class="btn btn-block btn-flat bg-olive"
+                    >
+                      수집하기
+                    </button>
+                  </div>
+                </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+  <script src="{% static 'libs/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+  <script src="{% static 'libs/iCheck/icheck.min.js' %}"></script>
+{% endblock js %}

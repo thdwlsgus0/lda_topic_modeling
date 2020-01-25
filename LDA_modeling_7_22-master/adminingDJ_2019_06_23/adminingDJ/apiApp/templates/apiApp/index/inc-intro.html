@@ -1,0 +1,55 @@
+<div class="card border-light mb-3">
+  <div class="card-header">
+    <h3 id="introduction">Introduction</h3>
+  </div>
+  <div class="card-body ">
+    <p class="card-text">
+      API documentation for Agriculture project.
+    </p>
+    <h5 class="card-subtitle mb-2 text-muted">Allowed HTTPs requests:</h5>
+    <dl class="row">
+      <dt class="col-sm-3">GET</dt>
+      <dd class="col-sm-9">Get a resource or list of resources.</dd>
+      <dt class="col-sm-3">POST</dt>
+      <dd class="col-sm-9">Update a resource.</dd>
+    </dl>
+    <h5 class="card-subtitle mb-2 text-muted">Usual Server Responses:</h5>
+    <dl class="row">
+      <dt class="col-sm-2">200</dt>
+      <dd class="col-sm-3">OK</dd>
+      <dd class="col-sm-7">The request was successful</dd>
+
+      <dt class="col-sm-2">400</dt>
+      <dd class="col-sm-3">Bad Request</dd>
+      <dd class="col-sm-7">
+        The request could not be understood or was missing required parameters.
+      </dd>
+
+      <dt class="col-sm-2">401</dt>
+      <dd class="col-sm-3">Unauthorized</dd>
+      <dd class="col-sm-7">
+        Authentication failed or user doesn't have permissions for requested
+        operation.
+      </dd>
+
+      <dt class="col-sm-2">404</dt>
+      <dd class="col-sm-3">Not Found</dd>
+      <dd class="col-sm-7">
+        resource was not found.
+      </dd>
+
+      <dt class="col-sm-2">405</dt>
+      <dd class="col-sm-3">Method Not Allowed</dd>
+      <dd class="col-sm-7">
+        Requested method is not supported for resource.
+      </dd>
+
+      <dt class="col-sm-2">500</dt>
+      <dd class="col-sm-3">Internal Server Error</dd>
+      <dd class="col-sm-7">
+        Unexpected condition was encountered.
+      </dd>
+    </dl>
+  </div>
+</div>
+<hr />

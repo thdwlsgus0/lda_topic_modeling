@@ -1,0 +1,48 @@
+{% extends "layoutFull/layout.html" %}
+{% load staticfiles %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'libs/bootstrap-daterangepicker/daterangepicker.css' %}" />
+<link rel="stylesheet" href="{% static 'libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'libs/iCheck/line/green.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+<section class="content-header">
+    <h1>트렌드 분석</h1>
+    <ol class="breadcrumb">
+        <li class="active"><i class="fa fa-line-chart"></i>트렌드 분석</li>
+    </ol>
+</section>
+<section class="content">
+    <!-- Default box -->
+    <div class="box">
+        <div class="box-body">
+            <form method="post" id="formAgriFoodAnalyse" action="{% url 'vis_af_notidf' %}" class="form-horizontal">
+                {% csrf_token %}
+                {% include 'agrifoodnottfidf/inc-opts-vertical_nottfidf.html' %}
+            </form>
+
+            <div id="graphArea" style="display: none">
+                <div class="box-body">
+                    <div class="alert alert-danger" role="alert"></div>
+                </div>
+                <div class="box-body">
+                    <div class="charts"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+
+<script src="{% static 'libs/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+<script src="{% static 'libs/iCheck/icheck.min.js' %}"></script>
+<script src="{% static 'js/af_analyse.js' %}"></script>
+{% endblock js %}

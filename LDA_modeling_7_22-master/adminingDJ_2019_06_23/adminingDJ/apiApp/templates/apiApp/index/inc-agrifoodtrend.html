@@ -1,0 +1,89 @@
+<div class="card border-light mb-3">
+  <div class="card-header"><h3 id="agri-food-trend">Agri Food Trend</h3></div>
+  <div class="card-body">
+    <p class="card-text">
+      <span class="btn btn-outline-success">GET</span>
+      /api/agrifoodtrend(?foodname,drStart,drEnd,period,media,servemenu)
+    </p>
+    <h5 class="card-subtitle mb-2 text-muted">Parameters:</h5>
+    <dl class="row">
+      <dt class="col-sm-3">foodname</dt>
+      <dd class="col-sm-2"><em>String</em></dd>
+      <dd class="col-sm-7">Category name</dd>
+      <dt class="col-sm-3">drStart</dt>
+      <dd class="col-sm-2"><em>String</em></dd>
+      <dd class="col-sm-7">A start date of search.</dd>
+      <dt class="col-sm-3">drEnd</dt>
+      <dd class="col-sm-2"><em>String</em></dd>
+      <dd class="col-sm-7">An end date of search.</dd>
+      <dt class="col-sm-3">period</dt>
+      <dd class="col-sm-2"><em>String</em></dd>
+      <dd class="col-sm-7">
+        Period of a data. <br />
+        (yearly, monthly, weekly, daily)
+      </dd>
+      <dt class="col-sm-3">media</dt>
+      <dd class="col-sm-2"><em>String</em></dd>
+      <dd class="col-sm-7">
+        Media types <br />(1: All, 2: Broadcast News, 3: Newspaper, 4: Social
+        Media, 5: Blogs, 6: Entertainment)
+      </dd>
+      <dt class="col-sm-3">servemenu</dt>
+      <dd class="col-sm-2"><em>String</em></dd>
+      <dd class="col-sm-7">
+        Serve menu types <br />
+        (2: Whole sales, 3: Retail sales, 4: Purchase sales, 5: Total rates)
+      </dd>
+    </dl>
+    <h5 class="card-subtitle mb-2 text-muted">Response:</h5>
+    <div class="alert alert-success mb-3" role="alert">
+      <h4 class="alert-heading">200</h4>
+      <h5 class="">Headers</h5>
+      <p>Content-Type: <em>application/json</em></p>
+      <h5 class="">Body</h5>
+      <pre>
+       <code>
+           [ { 
+               "year": 2016, 
+               "week": 10, 
+               "news_freq__sum": 9,
+               "video_freq__sum": 3,
+               "blog_freq__sum": 26,
+               "panel_purchase_amount_ave__avg": 3413.587944333334,
+               "panel_purchase_amount_sum__avg": 53503.333333333336,
+               "retail_price__avg": 877, 
+               "wholesale_price__avg": 971.1965326666667 } ]
+       </code>
+      </pre>
+      <hr />
+      <p class="mb-0">
+        <a
+          class="btn btn-outline-success"
+          href="http://127.0.0.1:8000/api/agrifoodtrend/?foodname=%EC%96%91%ED%8C%8C&drStart=2016-01-01&drEnd=2016-03-01&period=weekly&media=2,5,6&servemenu=1,2"
+          target="_blank"
+          >Try it</a
+        >
+      </p>
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading">400</h4>
+      <h5 class="">Headers</h5>
+      <p>Content-Type: <em>application/json</em></p>
+      <h5 class="">Body</h5>
+      <pre>
+          <code>
+            {"error": "A parameter is missing."}
+          </code>
+      </pre>
+      <hr />
+      <p class="mb-0">
+        <a
+          class="btn btn-outline-danger"
+          href="http://127.0.0.1:8000/api/agrifoodtrend/"
+          target="_blank"
+          >Try it</a
+        >
+      </p>
+    </div>
+  </div>
+</div>

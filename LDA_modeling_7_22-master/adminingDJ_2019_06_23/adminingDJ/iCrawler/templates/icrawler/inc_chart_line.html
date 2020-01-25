@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-md-5 col-sm-12">
+
+        <div style="height: 500px; overflow: auto">
+            <table class="table table-striped" id="chartDataTable">
+
+                {% for row in chartData  %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>
+                        <label>
+                            <input type='checkbox' label='{{row.0}}' value='{{row.1}}' class="dataSelect"
+                                {% if forloop.counter <= 10 %}checked{% endif %} />
+                            {{row.0}}
+                        </label>
+                    </td>
+
+                    <td>{{row.1}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-7 col-sm-12">
+        <div style="height: 500px">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var $chartDataTable = $('#chartDataTable');
+
+        $('.dataSelect').on('change', function () {
+            const la = $(this).attr('label');
+            const va = $(this).val();
+
+            if ($(this).is(':checked')) {
+                addData(myChart, la, va);
+            } else {
+                removeData(myChart, la, va);
+            }
+        });
+
+        var labels = [];
+        var data = [];
+
+        var myData = '{{ data|safe }}';
+        myData = JSON.parse(myData);
+
+        myData.forEach(function (el) {
+            const label = el[0];
+            const value = el[1];
+
+
+
+            labels.push(label);
+            data.push(value);
+        });
+
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            responsive: true,
+            maintainAspectRatio: false,
+            data: {
+                labels: labels.slice(0, 10),
+                datasets: [{
+                    backgroundColor: [
+                        "#2ecc71",
+                        "#3498db",
+                        "#95a5a6",
+                        "#9b59b6",
+                        "#f1c40f",
+                        "#e74c3c",
+                        "#34495e",
+                        '#B22222',
+                        '#FFD700',
+                        '#98FB98',
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor(),
+                        getRandomColor()
+                    ],
+                    data: data.slice(0, 10)
+                }]
+            }
+        });
+    }, false);
+
+
+
+
+    function addData(chart, label, data) {
+        chart.data.labels.push(label);
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.push(data);
+        });
+        chart.update();
+    }
+
+    function removeData(chart, label, data) {
+        var index = chart.data.labels.indexOf(label);
+
+        if (index > -1) {
+            chart.data.labels.splice(index, 1);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.splice(index, 1);
+            });
+        }
+
+
+        chart.update();
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>

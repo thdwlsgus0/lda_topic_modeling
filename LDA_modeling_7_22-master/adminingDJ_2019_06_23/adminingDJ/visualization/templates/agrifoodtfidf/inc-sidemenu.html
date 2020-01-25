@@ -1,0 +1,124 @@
+{% load staticfiles %}
+<div class="user-panel">
+  <div class="pull-left image">
+    <img src="{% static 'img/agri/icon_gr.png' %}" class="img-circle" alt="농촌진흥청" style="background: #fff;">
+  </div>
+  <div class="pull-left info" style="position: initial;">
+    <p style="font-size: 14px">Agriculture Big Data <br/>Analysis System</p>
+    <a href="#"><i class="fa fa-circle text-success"></i> 온라인</a>
+  </div>
+</div>
+
+
+
+<ul class="sidebar-menu tree" data-widget="tree">
+  <li class="header">MAIN NAVIGATION</li>
+  
+
+  <li class="treeview">
+    <a href="{% url 'vis_af_dev' %}">
+      <i class="fa fa-table"></i> 
+      <span>시설채소 유통 정보</span>
+      <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+    </a>
+    <ul class="treeview-menu {% if request.resolver_match.url_name == 'vis_af_trend' %}active{% endif %}">
+      <li class="{% if request.resolver_match.url_name == 'vis_af_trend' %}active{% endif %}"> <a href="{% url 'vis_af_trend' %}"><i class="fa fa-circle-o"></i> <span>가격 종합 정보</span></a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 도매가격 동향</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 소매가격 동향</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 수입 물량 동향</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 구매가격 동향</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 판매지역 동향</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 소비자패널가격 동향</a> </li>
+    </ul>
+  </li>
+
+  <li class="treeview">
+    <a href="{% url 'vis_af_dev' %}">
+      <i class="fa fa-table"></i> 
+      <span>시설채소 비정형 <br/> 데이터 정보</span>
+      <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+    </a>
+    <ul class="treeview-menu">
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> News</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 블로그</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 비디오</a> </li>
+    </ul>
+  </li>
+
+  <li class="treeview {% if request.resolver_match.url_name == 'vis_af_topic' %}active{% endif %}">
+    <a href="{% url 'vis_af_dev' %}">
+      <i class="fa fa-table"></i> 
+      <span>시설채소 빅데이터 <br/> 정보 분석</span>
+      <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="treeview"> 
+        <a href="{% url 'vis_af_dev' %}">
+          <i class="fa fa-circle-o"></i>
+          <span>정형 데이터 분석</span>
+          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+          <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 생산량과 기후 연관 분석</a> </li>
+          <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 생산량과 가격 연관 분석</a> </li>
+          <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 가격과 기후 연관 분석</a> </li>
+        </ul>
+      </li>
+      <li class="treeview {% if request.resolver_match.url_name == 'vis_af_topic' %}active{% endif %}"> 
+        <a href="{% url 'vis_af_dev' %}">
+          <i class="fa fa-circle-o"></i>
+          <span>비정형 데이터 분석</span>
+          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+        </a>
+        <ul class="treeview-menu">
+          <li {% if request.resolver_match.url_name == 'vis_af_topic' %}class="active"{% endif %}> <a href="{% url 'vis_af_topic' %}"><i class="fa fa-circle-o"></i> 시설 채소 워드 카운팅 </a> </li>
+          <li><a href="{% url 'vis_af_modeling' %}"><i class="fa fa-circle-o"></i>  트렌드 분석 </a> </li>
+          <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i>  트렌드 분석-idf적용</a> </li>
+          <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 의미연결망 분석</a> </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+
+  <li class="treeview {% if request.resolver_match.url_name == 'vis_af_predict' %}active{% endif %}">
+    <a href="{% url 'vis_af_dev' %}">
+      <i class="fa fa-table"></i> 
+      <span>시설채소 빅데이터 <br/> 예측 시스템</span>
+      <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+    </a>
+    <ul class="treeview-menu">
+      <li {% if request.resolver_match.url_name == 'vis_af_predict' %}class="active"{% endif %}> <a href="{% url 'vis_af_predict' %}"><i class="fa fa-circle-o"></i> LSTM을 이용한 수요예측</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> armex를 이용한 수요예측</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 회귀분석을 이용한 수요예측</a> </li>
+    </ul>
+  </li>
+
+  <li class="treeview">
+    <a href="{% url 'vis_af_dev' %}">
+      <i class="fa fa-table"></i> 
+      <span>생산동향 관리</span>
+      <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+    </a>
+    <ul class="treeview-menu">
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 생산지역 현황</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 소비지역 현황</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 재배의향 면적 조사 집계</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 연도별 재배면적 생산량 동향</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 병해 상태 현황</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 해충 상태 현황</a> </li>
+    </ul>
+  </li>
+  
+  <li class="treeview">
+    <a href="{% url 'vis_af_dev' %}">
+      <i class="fa fa-table"></i> 
+      <span>기상정보 분석</span>
+      <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+    </a>
+    <ul class="treeview-menu">
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 품목별 주산지 기상정보</a> </li>
+      <li> <a href="{% url 'vis_af_dev' %}"><i class="fa fa-circle-o"></i> 품목별 주산지 기상정보(지도)</a> </li>
+    </ul>
+  </li>
+</ul>
+    

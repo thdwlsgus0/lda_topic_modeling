@@ -1,0 +1,108 @@
+{% extends "layoutFull/layout.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<section class="content-header">
+    <h1>데이터전처리</h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-database"></i> 데이터수집하기</li>
+        <li class="active"><i class="fa fa-circle-o"></i> 데이터전처리</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-success">
+        <div class="box-body">
+            <div class="">
+                <a href="{% url 'ic_xls' %}" class="btn btn-link download" title="Download xls"><i
+                        class="fa fa-file-excel-o" aria-hidden="true"></i> 다운로드</a>
+                <a href="{% url 'ic_csv' %}" class="btn btn-link download" title="Download csv"><i
+                        class="fa fa-file-text-o" aria-hidden="true"></i> 다운로드</a>
+            </div>
+            <table class="table">
+                <tr>
+                    <th> <input type="checkbox" id="selectAllList" /> </th>
+                    <th>키워드</th>
+                    <th>채널</th>
+                    <th>기간</th>
+                    <th>수집날짜</th>
+                    <th>행개수</th>
+                    <th>용량</th>
+                    <th></th>
+                </tr>
+
+                {% for document in documents %}
+                <tr>
+                    <td>
+                        {% if document.status == 'finished' %}
+                        <input type="checkbox" id="{{ forloop.counter }}-{{document.0}}" name='ids'
+                            value="uid={{document.id}}" />
+                        {% endif %}
+                    </td>
+                    <td>{{ document.search_keyword }}</td>
+                    <td>
+                        {% if document.channel_broadcast %} <p><label>방송뉴스:</label> {{ document.channel_broadcast }}</p>
+                        {% endif %}
+                        {% if document.channel_published %} <p><label>신문뉴스:</label> {{ document.channel_published }}</p>
+                        {% endif %}
+                        {% if document.channel_blog %} <p><label>블로그:</label> {{ document.channel_blog }}</p>
+                        {% endif %}
+                        {% if document.channel_sns %} <p><label>SNS:</label> {{ document.channel_sns }}</p>
+                        {% endif %}
+
+                    </td>
+                    <td>{{ document.start_date|date:'Y-m-d' }} / {{ document.end_date|date:'Y-m-d' }}</td>
+                    <td>{{ document.created_date|date:'Y-m-d' }}</td>
+
+                    {% if document.status == 'finished' %}
+                    <td>{{ document.stats }}</td>
+                    <td>{{ document.size }} </td>
+                    <td> <a href="{% url 'ic_collected_det' document.id %}" class="btn btn-success">Detail</a> </td>
+                    {% else %}
+                    <td colspan=3 class="bg-warning">
+                        <p>수집하는 중</p>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    $(document).ready(function () {
+
+        $('#selectAllList').on('change', function () {
+            const ckd = $(this).is(':checked');
+            $("input[name='ids']").prop('checked', ckd);
+        });
+
+        $('.download').on('click', function (e) {
+            e.preventDefault();
+
+            var theUrl = $(this).attr('href');
+
+            var ids = [];
+            $.each($("input[name='ids']:checked"), function () {
+                ids.push($(this).val());
+            });
+
+            if (ids.length > 0) {
+                var idStr = ids.join('&');
+                theUrl += '?' + idStr;
+                window.location.href = theUrl;
+
+            }
+
+        });
+
+
+    });
+</script>
+
+{% endblock js %}

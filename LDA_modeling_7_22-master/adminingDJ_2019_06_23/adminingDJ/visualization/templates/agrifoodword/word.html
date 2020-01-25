@@ -1,0 +1,261 @@
+{% extends "layoutFull/layout.html" %} 
+{% load staticfiles %}
+{% block css %}
+  <link rel="stylesheet" href="{% static 'libs/bootstrap-daterangepicker/daterangepicker.css' %}" />
+  <link rel="stylesheet" href="{% static 'libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'libs/iCheck/line/green.css' %}" />
+  
+{% endblock %}
+{% block sidebar %} 
+    {% include 'agrifoodtrend/inc-sidemenu.html' %} 
+{% endblock %}
+
+{% block content %} 
+<section class="content-header">
+          <h1>Trend</h1>
+          <ol class="breadcrumb">
+            <li class="active"><i class="fa fa-search"></i> Agri-Food Trend</li>
+          </ol>
+        </section>
+        <section class="content">
+          <!-- Default box -->
+          <div class="box">
+            <div class="box-header with-border">
+              <div class="box-tools pull-right">
+                <button
+                  type="button"
+                  class="btn btn-box-tool"
+                  data-widget="collapse"
+                  data-toggle="tooltip"
+                  title="Collapse"
+                >
+                  <i class="fa fa-minus"></i>
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-box-tool"
+                  data-widget="remove"
+                  data-toggle="tooltip"
+                  title="Remove"
+                >
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <form method="post" id="formAgriFoodTrend" action="{% url 'vis_af_word' %}"> 
+            {% csrf_token %}
+                <div class="box-body">
+              <div class="row">
+                <div class="col-sm-4">
+                  <fieldset>
+                    <legend>Category</legend>
+
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="form-group form-group-lg">
+                          <select class="form-control" id="cats">
+                            <option id="cat1" value="1">과채류</option>
+                            <option id="cat2" value="2" selected>조미채소</option>
+                            <option id="cat3" value="3">엽채류</option>
+                            <option id="cat4" value="4">근채류</option>
+                            <option id="cat5" value="5">양채류</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-6"
+                        ><div class="form-group form-group-lg">
+                          <select class="form-control" id="subcats" name="foodname">
+                            <option parent="cat1" value="딸기" style="display: none;">딸기</option>
+                            <option parent="cat1" value="완숙(일반) 토마토" style="display: none;"
+                              >완숙(일반) 토마토</option
+                            >
+                            <option parent="cat1" value="방울토마토" style="display: none;">방울토마토</option>
+                            <option parent="cat1" value="참외" style="display: none;">참외</option>
+                            <option
+                              parent="cat2"
+                              value="고추"
+                              >고추</option
+                            >
+                            <option
+                              parent="cat2"
+                              value="건고추"
+                              >건고추</option
+                            >
+                            <option
+                              parent="cat2"
+                              value="양파" selected >양파</option
+                            >
+                            <option
+                              parent="cat2"
+                              value="마늘"
+                              >마늘</option
+                            >
+                            <option
+                              parent="cat2"
+                              value="깐마늘"
+                              >깐마늘</option
+                            >
+                            <option
+                              parent="cat3"
+                              value="배추"
+                              style="display: none;"
+                              >배추</option
+                            >
+                            <option
+                              parent="cat3"
+                              value="절임배추"
+                              style="display: none;"
+                              >절임배추</option
+                            >
+                            <option
+                              parent="cat4"
+                              value="무"
+                              style="display: none;"
+                              >무</option
+                            >
+                            <option
+                              parent="cat5"
+                              value="파프리카"
+                              style="display: none;"
+                              >파프리카</option
+                            >
+                          </select>
+                        </div></div
+                      >
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-sm-4">
+                  <fieldset>
+                    <legend>Term</legend>
+                  </fieldset>
+
+                  <div class="input-group input-daterange input-group-lg">
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="2017-01-01"
+                      id="drStart"
+                      name="drStart"
+                    />
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar"></i>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="2018-01-01"
+                      id="drEnd"
+                      name="drEnd"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <fieldset>
+                    <legend>Period</legend>
+                    <div class="form-group form-group-lg">
+                      <select class="form-control" id="timeFreq" name="period">
+                        <option value="daily">Daily</option>
+                        <option value="weekly" selected>Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                        
+                      </select>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-sm-4">
+                  <fieldset>
+                    <legend>Media</legend>
+                      <div class="serve-menu-area">
+                      <ul class="list-inline">
+                        <li>
+                          <input type="checkbox" class="btn-icheck media" name="servemenu" value="1" checked>
+                          <label>All</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" class="btn-icheck media" name="servemenu" value="2" >
+                          <label>Broadcast News</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" class="btn-icheck media" name="servemenu" value="3" >
+                          <label>Newspaper</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" class="btn-icheck media" name="servemenu" value="4" >
+                          <label>Social Media</label>
+                        </li>
+
+                        <li>
+                          <input type="checkbox" class="btn-icheck media" name="servemenu" value="5" >
+                          <label>Blogs</label>
+                        </li>
+                      </ul>
+                      
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="col-sm-4">
+                  <fieldset>
+                    <legend>Serve menu</legend>
+                    <div class="serve-menu-area">
+                      <ul class="list-inline">
+                        <li>
+                          <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="2" checked>
+                          <label>Whole sales</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="3" checked>
+                          <label>Retail sales</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="4" checked>
+                          <label>Purchase rates</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" class="btn-icheck serve-menu" name="servemenu" value="5" checked>
+                          <label>Total rates</label>
+                        </li>
+                      </ul>
+                      
+                    </div>
+
+                  </fieldset>
+                </div>
+
+                <div class="col-sm-4">
+                  <fieldset>
+                    <legend>Visualization</legend>
+                    <button type="submit" class="btn btn-success btn-flat btn-block btn-lg">Generate</button>
+                  </fieldset>
+                </div>
+              </div>
+              <hr />
+            </div>
+            </form>
+            
+            <div id="graphArea" style="display: none">
+              <div class="box-body">
+                <div class="alert alert-danger" role="alert"></div>
+              </div>
+              <div class="box-body">
+                <div class="chart"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+{% endblock content %}
+
+{% block js %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+
+  <script src="{% static 'libs/bootstrap-daterangepicker/daterangepicker.js' %}"></script>
+  <script src="{% static 'libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+  <script src="{% static 'libs/iCheck/icheck.min.js' %}"></script>
+  <script src="{% static 'js/mychartjs.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,1046 @@
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test-Main"></canvas>
+  </div>
+  </div>
+  <div id="chart-legend-Main" class="chart-legend"></div>
+  <canvas id="axis-Test-Main" class="yAxes" style="background: white"></canvas>
+</div>
+
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test-numOfFreq"></canvas>
+  </div>
+  </div>
+  <div id="chart-legend-numOfFreq" class="chart-legend"></div>
+  <canvas id="axis-Test-numOfFreq" style="background: white"></canvas>
+</div>
+
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test-retailSale"></canvas>
+  </div>
+  </div>
+  <div id="chart-legend-retailSale" class="chart-legend"></div>
+  <canvas id="axis-Test-retailSale" style="background: white"></canvas>
+</div>
+
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test-wholeSale"></canvas>
+  </div>
+  </div>
+  <div id="chart-legend-wholeSale" class="chart-legend"></div>
+  <canvas id="axis-Test-wholeSale" style="background: white"></canvas>
+</div>
+
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test-panelAvg"></canvas>
+  </div>
+  </div>
+  <div id="chart-legend-panelAvg" class="chart-legend"></div>
+  <canvas id="axis-Test-panelAvg" style="background: white"></canvas>
+</div>
+
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test-panelSum"></canvas>
+  </div>
+  </div>
+  <div id="chart-legend-panelSum" class="chart-legend"></div>
+  <canvas id="axis-Test-panelSum" style="background: white"></canvas>
+</div>
+
+<p id="chartData" data="{{data_list}}"></p>
+<p id="serveMenuData" data="{{serveMenu}}"></p>
+<p id="mediaMenuData" data="{{media}}"></p>
+<script>
+    $(document).ready(function() {
+
+        var dataLength = 0;
+        var data_from_dj = [];
+        var media = [];
+        var serveMenu = [];
+        try {
+            data_from_dj = JSON.parse($('#chartData').attr('data'));
+            media = JSON.parse($('#mediaMenuData').attr('data'));
+            serveMenu = JSON.parse($('#serveMenuData').attr('data'));
+
+            dataLength = data_from_dj.length;
+        } catch (err)  {
+            console.log('catch 1', err);
+        } 
+        
+        if (dataLength === 0) {
+            $('.charts').hide();
+            return false;
+        }
+
+        if (media.length === 0 && serveMenu.length === 0) {
+            $('.charts').hide();
+            return false;
+        }
+        $('.charts').show();
+        
+        var chartLabels = [];
+        var chartDataFreqOfMedia = [];
+        var chartDataRetailSale = [];
+        var chartDataWholeSale = [];
+        var chartDataPanelAvg = [];
+        var chartDataPanelSum = [];
+
+        for (x = dataLength - 1; x >= 0; x--) {
+            try {
+                const dt = data_from_dj[x];
+                var label = dt.year;
+                if (dt.week != undefined) {
+                    label = getDateOfWeek(dt.week, dt.year);
+                } else if (dt.month != undefined) {
+                    label += '-' + dt.month;
+                    if (dt.day != undefined) {
+                        label += '-' + dt.day;
+                    }
+                }
+
+                var freqOfMedia = 0;
+                if (media.includes('2') && dt.broadcastNews !== null && dt.broadcastNews !== undefined) {
+                    freqOfMedia += parseInt(dt.broadcastNews);
+                }
+                if (media.includes('3') && dt.publishedNews !== null && dt.publishedNews !== undefined) {
+                    freqOfMedia += parseInt(dt.publishedNews);
+                }
+                if (media.includes('4') && dt.socialMedia !== null && dt.socialMedia !== undefined) {
+                    freqOfMedia += parseInt(dt.socialMedia);
+                }
+                if (media.includes('5') && dt.blogs !== null && dt.blogs !== undefined) {
+                    freqOfMedia += parseInt(dt.blogs);
+                }
+                if (media.includes('6') && dt.entertainment !== null && dt.entertainment !== undefined) {
+                    freqOfMedia += parseInt(dt.entertainment);
+                }
+                var retailSale = parseFloat(dt.retail_price__avg);
+                var wholeSale = parseFloat(dt.wholesale_price__avg);
+                var panelAvg = parseFloat(dt.panel_purchase_amount_ave__avg);
+                var panelSum = parseFloat(dt.panel_purchase_amount_sum__avg);
+
+                chartLabels.push(label);
+                if (media.length>0) {
+                    chartDataFreqOfMedia.push(freqOfMedia);
+                }
+                
+                if(serveMenu.includes('2')) {
+                    if (wholeSale === 0 && (x !== dataLength-1 && x!==0)) {
+                        wholeSale = null;
+                    }
+                    chartDataWholeSale.push(wholeSale);
+                }
+                if(serveMenu.includes('3')) {
+                    if (retailSale === 0 && (x !== dataLength-1 && x!==0) ) {
+                        retailSale = null;
+                    }
+                    chartDataRetailSale.push(retailSale);
+                }
+                if(serveMenu.includes('4') ) {
+                    if (panelAvg === 0 && (x !== dataLength-1 && x!==0)) {
+                        panelAvg = null;
+                    }
+                    chartDataPanelAvg.push(panelAvg);
+                }
+                if(serveMenu.includes('5') ) {
+                    if (panelSum === 0 && (x !== dataLength-1 && x!==0)) {
+                        panelSum = null;
+                    }
+                    chartDataPanelSum.push(panelSum);
+                }
+
+            } catch(err) {
+                console.log('Catch 2', x, err);
+                continue;
+            }
+        }
+        dataLength = chartLabels.length;
+
+        $(function () {
+
+            var canvasMain = $('#chart-Test-Main');
+            if (chartMain) {
+                try {
+                    chartMain.destroy();
+                }
+                catch( err)  {
+                    console.log('catch 3', err);
+                }
+            }
+            var mainDatasets = [];
+            var mainYAxes = [];
+
+            if (chartDataFreqOfMedia.length) {
+                mainDatasets.push({
+                    yAxisID: 'numOfFreq',
+                    type: 'line',
+                    label: '뉴스 빈도수',
+                    borderColor: window.chartColors.blue,
+                    backgroundColor: window.chartColors.blue,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataFreqOfMedia.slice(0, 30),
+                    spanGaps: true
+                });
+
+                mainYAxes.push({
+                        id: 'numOfFreq',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '뉴스 빈도수'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.blue
+                        }
+                    });
+            }
+            if (chartDataRetailSale.length) {
+                mainDatasets.push({
+                    yAxisID: 'retailSale',
+                    type: 'line',
+                    label: '소매가격',
+                    borderColor: window.chartColors.red,
+                    backgroundColor: window.chartColors.red,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataRetailSale.slice(0, 30),
+                    spanGaps: true
+                });
+
+                mainYAxes.push({
+                        id: 'retailSale',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '소매가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.red
+                        }
+                    });
+            }
+
+            if(chartDataWholeSale.length) {
+                mainDatasets.push({
+                    yAxisID: 'wholeSale',
+                    type: 'line',
+                    label: '도매가격',
+                    borderColor: window.chartColors.green,
+                    backgroundColor: window.chartColors.green,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataWholeSale.slice(0, 30),
+                    spanGaps: true
+                });
+
+                mainYAxes.push({
+                        id: 'wholeSale',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '도매가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.green
+                        }
+                    });
+            }
+
+            if(chartDataPanelAvg.length) {
+                mainDatasets.push({
+                    yAxisID: 'panelAvg',
+                    type: 'line',
+                    label: '평균 소비자패널가격',
+                    borderColor: window.chartColors.yellow,
+                    backgroundColor: window.chartColors.yellow,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataPanelAvg.slice(0, 30),
+                    spanGaps: true
+                });
+
+                mainYAxes.push({
+                        id: 'panelAvg',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '평균 소비자패널가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.yellow
+                        }
+                    });
+            }
+
+            if(chartDataPanelSum.length) {
+                mainDatasets.push( {
+                    yAxisID: 'panelSum',
+                    type: 'line',
+                    label: '총 소비자패널가격',
+                    borderColor: window.chartColors.purple,
+                    backgroundColor: window.chartColors.purple,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataPanelSum.slice(0, 30),
+                    spanGaps: true
+                });
+
+                mainYAxes.push({
+                        id: 'panelSum',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '총 소비자패널가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.purple
+                        }
+                    });
+            }
+
+            var rectangleMainSet = false;
+            
+            try {
+                var chartMain = new Chart(canvasMain, {
+            type: 'line',
+            data: {
+                labels: chartLabels.slice(0, 30),
+                datasets: mainDatasets,
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: mainYAxes
+                },
+                animation: {
+                    onComplete: function() {
+                        if(!rectangleMainSet) {
+                            var scale = window.devicePixelRatio;                       
+
+                            var sourceCanvas = chartMain.chart.canvas;
+                            
+                            const wh = getYAxisWidth(chartMain);
+                            var copyWidth = wh[0];
+                            var copyHeight = wh[1];
+
+                            var targetCtx = document.getElementById("axis-Test-Main").getContext("2d");
+
+                            targetCtx.scale(scale, scale);
+                            targetCtx.canvas.width = copyWidth * scale;
+                            targetCtx.canvas.height = copyHeight * scale;
+
+                            targetCtx.canvas.style.width = `${copyWidth}px`;
+                            targetCtx.canvas.style.height = `${copyHeight}px`;
+                            targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+                            
+                            var sourceCtx = sourceCanvas.getContext('2d');
+                            sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                            rectangleMainSet = true;
+                        }
+                    }
+                }
+            }
+        });
+
+        var mainLegendContainer = document.getElementById('chart-legend-Main');
+        if (mainLegendContainer !== undefined) {
+            mainLegendContainer.innerHTML = chartMain.generateLegend();
+            var legendItems = mainLegendContainer.getElementsByTagName('li');
+            if (legendItems.length > 1) {
+                for (var i = 0; i < legendItems.length; i += 1) {
+                    legendItems[i].addEventListener("click", legendClickCallback, false);
+                }   
+            }
+            
+        }
+        
+            }
+            catch (err) {
+                console.log('catch 4', err);
+            }
+            
+            
+
+        
+
+        function getYAxisWidth(chart) {
+            
+            var copyWidth = 0;
+            var copyHeight = 0;
+
+            try {
+                if ( chart.scales['numOfFreq'] !== undefined) {
+                 copyWidth += chart.scales['numOfFreq'].width;
+                 copyHeight = chart.scales['numOfFreq'].height + chart.scales['numOfFreq'].top + 10;
+            }
+
+            if ( chart.scales['wholeSale'] !== undefined) {
+                 copyWidth += chart.scales['wholeSale'].width;
+                 copyHeight = chart.scales['wholeSale'].height + chart.scales['wholeSale'].top + 10;
+            }
+            
+            if ( chart.scales['retailSale'] !== undefined) {
+                 copyWidth += chart.scales['retailSale'].width;
+                 copyHeight = chart.scales['retailSale'].height + chart.scales['retailSale'].top + 10;
+            }
+
+            if ( chart.scales['panelAvg'] !== undefined) {
+                 copyWidth += chart.scales['panelAvg'].width;
+                 copyHeight = chart.scales['panelAvg'].height + chart.scales['panelAvg'].top + 10;
+            }
+
+            if ( chart.scales['panelSum'] !== undefined) {
+                 copyWidth += chart.scales['panelSum'].width;
+                 copyHeight = chart.scales['panelSum'].height + chart.scales['panelSum'].top + 10;
+            }
+
+            //copyHeight += chart.scales['x-axis-0'].height;
+            copyWidth = (copyWidth > 0) ? copyWidth - 10 : 0;
+            } catch(err) {
+                console.log('catch 5', err)
+            }
+            
+
+            
+            return [copyWidth, copyHeight];
+        }
+
+        var canvasNumOfFreq = $('#chart-Test-numOfFreq');
+        if (chartDataFreqOfMedia.length) {
+            if (chartNumOfFreq) {
+            chartNumOfFreq.destroy();
+            }
+        var chartNumOfFreq = new Chart(canvasNumOfFreq, {
+            type: 'line',
+            data: {
+                labels: chartLabels.slice(0, 30),
+                datasets: [{
+                    yAxisID: 'numOfFreq',
+                    type: 'line',
+                    label: '뉴스 빈도수',
+                    borderColor: window.chartColors.blue,
+                    backgroundColor: window.chartColors.blue,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataFreqOfMedia.slice(0, 30),
+                    spanGaps: true
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12
+                },
+                legend: {
+                    display: false,
+                    position: 'bottom'
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        id: 'numOfFreq',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '뉴스 빈도수'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.blue
+                        }
+                    }]
+                },
+                animation: {
+                    onComplete: function() {
+                        
+                        var scale = window.devicePixelRatio;    
+                        var sourceCanvas = chartNumOfFreq.chart.canvas;
+                        
+                        var copyWidth = chartNumOfFreq.scales['numOfFreq'].width - 10;
+                        var copyHeight = chartNumOfFreq.scales['numOfFreq'].height + chartNumOfFreq.scales['numOfFreq'].top + 10;
+
+                        var targetCtx = document.getElementById("axis-Test-numOfFreq").getContext("2d");
+
+                        targetCtx.scale(scale, scale);
+                        targetCtx.canvas.width = copyWidth * scale;
+                        targetCtx.canvas.height = copyHeight * scale;
+
+                        targetCtx.canvas.style.width = `${copyWidth}px`;
+                        targetCtx.canvas.style.height = `${copyHeight}px`;
+                        targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+
+                        var sourceCtx = sourceCanvas.getContext('2d');
+
+                        sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                        
+                    }
+                }
+            }
+        });
+
+        var numOfFreqLegendContainer = document.getElementById('chart-legend-numOfFreq');
+        numOfFreqLegendContainer.innerHTML = chartNumOfFreq.generateLegend();
+        var legendItems = numOfFreqLegendContainer.getElementsByTagName('li');
+        for (var i = 0; i < legendItems.length; i += 1) {
+            //legendItems[i].addEventListener("click", legendClickCallback, false);
+        }
+
+        } else {
+            canvasNumOfFreq.closest('.chartWrapper').hide();
+        }
+        
+        
+        
+        var canvasRetailSale = $('#chart-Test-retailSale');
+        if (chartDataRetailSale.length) {
+            if (chartRetailSale) {
+            chartRetailSale.destroy();
+            }
+        var chartRetailSale = new Chart(canvasRetailSale, {
+            type: 'line',
+            data: {
+                labels: chartLabels.slice(0, 30),
+                datasets: [{
+                    yAxisID: 'retailSale',
+                    type: 'line',
+                    label: '소매가격',
+                    borderColor: window.chartColors.red,
+                    backgroundColor: window.chartColors.red,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataRetailSale.slice(0, 30),
+                    spanGaps: true
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12,
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            const tooltip = data.datasets[tooltipItem.datasetIndex];
+                            const value = tooltip.data[tooltipItem.index];
+                            return value === 0 ? null : tooltip.label + ': ' + value;
+                        }
+                    }
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        id: 'retailSale',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '소매가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.red
+                        }
+                    }]
+                },
+                 animation: {
+                    onComplete: function() {
+                        
+                        var scale = window.devicePixelRatio;    
+                        var sourceCanvas = chartRetailSale.chart.canvas;
+                        
+                        var copyWidth = chartRetailSale.scales['retailSale'].width - 10;
+                        var copyHeight = chartRetailSale.scales['retailSale'].height + chartRetailSale.scales['retailSale'].top + 10;
+
+                        var targetCtx = document.getElementById("axis-Test-retailSale").getContext("2d");
+
+                        targetCtx.scale(scale, scale);
+                        targetCtx.canvas.width = copyWidth * scale;
+                        targetCtx.canvas.height = copyHeight * scale;
+
+                        targetCtx.canvas.style.width = `${copyWidth}px`;
+                        targetCtx.canvas.style.height = `${copyHeight}px`;
+                        targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+
+                        var sourceCtx = sourceCanvas.getContext('2d');
+
+                        sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                       
+                        
+                    }
+                }
+            }
+        });
+
+        var retailSaleLegendContainer = document.getElementById('chart-legend-retailSale');
+        retailSaleLegendContainer.innerHTML = chartRetailSale.generateLegend();
+        var legendItems = retailSaleLegendContainer.getElementsByTagName('li');
+        for (var i = 0; i < legendItems.length; i += 1) {
+            //legendItems[i].addEventListener("click", legendClickCallback, false);
+        }
+
+        } else {
+            canvasRetailSale.closest('.chartWrapper').hide();
+        }
+        
+       var canvasWholeSale = $('#chart-Test-wholeSale');
+        if (chartDataWholeSale.length) {
+            if (chartWholeSale) {
+            chartWholeSale.destroy();
+            }
+        var chartWholeSale = new Chart(canvasWholeSale, {
+            type: 'line',
+            data: {
+                labels: chartLabels.slice(0, 30),
+                datasets: [{
+                    yAxisID: 'wholeSale',
+                    type: 'line',
+                    label: '도매가격',
+                    borderColor: window.chartColors.green,
+                    backgroundColor: window.chartColors.green,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataWholeSale.slice(0, 30),
+                    spanGaps: true
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        id: 'wholeSale',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '도매가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.green
+                        }
+                    }]
+                },
+                animation: {
+                    onComplete: function() {
+                        
+                        var scale = window.devicePixelRatio;    
+                        var sourceCanvas = chartWholeSale.chart.canvas;
+                        
+                        var copyWidth = chartWholeSale.scales['wholeSale'].width - 10;
+                        var copyHeight = chartWholeSale.scales['wholeSale'].height + chartWholeSale.scales['wholeSale'].top + 10;
+
+                        var targetCtx = document.getElementById("axis-Test-wholeSale").getContext("2d");
+
+                        targetCtx.scale(scale, scale);
+                        targetCtx.canvas.width = copyWidth * scale;
+                        targetCtx.canvas.height = copyHeight * scale;
+
+                        targetCtx.canvas.style.width = `${copyWidth}px`;
+                        targetCtx.canvas.style.height = `${copyHeight}px`;
+                        targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+
+                        var sourceCtx = sourceCanvas.getContext('2d');
+
+                        sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                       
+                        
+                    }
+                }
+            }
+        });
+
+        var wholeSaleLegendContainer = document.getElementById('chart-legend-wholeSale');
+        wholeSaleLegendContainer.innerHTML = chartWholeSale.generateLegend();
+        var legendItems = wholeSaleLegendContainer.getElementsByTagName('li');
+        for (var i = 0; i < legendItems.length; i += 1) {
+            //legendItems[i].addEventListener("click", legendClickCallback, false);
+        }
+        } else {
+            canvasWholeSale.closest('.chartWrapper').hide();
+        }
+
+         var canvasPanelAvg = $('#chart-Test-panelAvg');
+        if (chartDataPanelAvg.length) {
+            if (chartPanelAvg) {
+            chartPanelAvg.destroy();
+            }
+        var chartPanelAvg = new Chart(canvasPanelAvg, {
+            type: 'line',
+            data: {
+                labels: chartLabels.slice(0, 30),
+                datasets: [{
+                    yAxisID: 'panelAvg',
+                    type: 'line',
+                    label: '평균 소비자패널가격',
+                    borderColor: window.chartColors.yellow,
+                    backgroundColor: window.chartColors.yellow,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataPanelAvg.slice(0, 30),
+                    spanGaps: true
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        id: 'panelAvg',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '평균 소비자패널가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.yellow
+                        }
+                    }]
+                },
+                animation: {
+                    onComplete: function() {
+                        
+                        var scale = window.devicePixelRatio;    
+                        var sourceCanvas = chartPanelAvg.chart.canvas;
+                        
+                        var copyWidth = chartPanelAvg.scales['panelAvg'].width - 10;
+                        var copyHeight = chartPanelAvg.scales['panelAvg'].height + chartPanelAvg.scales['panelAvg'].top + 10;
+
+                        var targetCtx = document.getElementById("axis-Test-panelAvg").getContext("2d");
+
+                        targetCtx.scale(scale, scale);
+                        targetCtx.canvas.width = copyWidth * scale;
+                        targetCtx.canvas.height = copyHeight * scale;
+
+                        targetCtx.canvas.style.width = `${copyWidth}px`;
+                        targetCtx.canvas.style.height = `${copyHeight}px`;
+                        targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+
+                        var sourceCtx = sourceCanvas.getContext('2d');
+
+                        sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                       
+                        
+                    }
+                }
+            }
+        });
+        var panelAvgLegendContainer = document.getElementById('chart-legend-panelAvg');
+        panelAvgLegendContainer.innerHTML = chartPanelAvg.generateLegend();
+        var legendItems = panelAvgLegendContainer.getElementsByTagName('li');
+        for (var i = 0; i < legendItems.length; i += 1) {
+            //legendItems[i].addEventListener("click", legendClickCallback, false);
+        }
+        } else {
+            canvasPanelAvg.closest('.chartWrapper').hide();
+        }
+
+
+        var canvasPanelSum = $('#chart-Test-panelSum');
+        if (chartDataPanelSum.length) {
+            if (chartPanelSum) {
+                chartPanelSum.destroy();
+            }
+        var chartPanelSum = new Chart(canvasPanelSum, {
+            type: 'line',
+            data: {
+                labels: chartLabels.slice(0, 30),
+                datasets: [{
+                    yAxisID: 'panelSum',
+                    type: 'line',
+                    label: '총 소비자패널가격',
+                    borderColor: window.chartColors.purple,
+                    backgroundColor: window.chartColors.purple,
+                    borderWidth: 2,
+                    fill: false,
+                    data: chartDataPanelSum.slice(0, 30),
+                    spanGaps: true
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                tooltips: {
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [{
+                        id: 'panelSum',
+                        scaleLabel: {
+                            display: true,
+                            labelString: '총 소비자패널가격'
+                        },
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true,
+                            fontColor: window.chartColors.purple
+                        }
+                    }]
+                },
+                animation: {
+                    onComplete: function() {
+                        
+                        var scale = window.devicePixelRatio;    
+                        var sourceCanvas = chartPanelSum.chart.canvas;
+                        
+                        var copyWidth = chartPanelSum.scales['panelSum'].width - 10;
+                        var copyHeight = chartPanelSum.scales['panelSum'].height + chartPanelSum.scales['panelSum'].top + 10;
+
+                        var targetCtx = document.getElementById("axis-Test-panelSum").getContext("2d");
+
+                        targetCtx.scale(scale, scale);
+                        targetCtx.canvas.width = copyWidth * scale;
+                        targetCtx.canvas.height = copyHeight * scale;
+
+                        targetCtx.canvas.style.width = `${copyWidth}px`;
+                        targetCtx.canvas.style.height = `${copyHeight}px`;
+                        targetCtx.drawImage(sourceCanvas, 0, 0, copyWidth * scale, copyHeight * scale, 0, 0, copyWidth * scale, copyHeight * scale);
+
+                        var sourceCtx = sourceCanvas.getContext('2d');
+
+                        sourceCtx.clearRect(0, 0, copyWidth * scale, copyHeight * scale);
+                       
+                        
+                    }
+                }
+            }
+        });
+        var panelSumLegendContainer = document.getElementById('chart-legend-panelSum');
+        panelSumLegendContainer.innerHTML = chartPanelSum.generateLegend();
+
+        var legendItems = panelSumLegendContainer.getElementsByTagName('li');
+        for (var i = 0; i < legendItems.length; i += 1) {
+            //legendItems[i].addEventListener("click", legendClickCallback, false);
+        }
+        } else {
+            canvasPanelSum.closest('.chartWrapper').hide();
+        }
+
+        for(var x = 30; x < dataLength; x++) {
+            const label = chartLabels[x];
+            
+            chartMain.data.labels.push(label);
+            
+            
+             mainDatasets.forEach(function(entry,ndx) {
+                 
+                 if (entry.yAxisID === 'numOfFreq' && chartDataFreqOfMedia.length) {
+                     const val = chartDataFreqOfMedia[x];
+                     chartMain.data.datasets[ndx].data.push(val);
+
+
+                     var newwidth = canvasNumOfFreq.closest('.chartAreaWrapper2').width() + 60;
+                     chartNumOfFreq.data.labels.push(label);
+                     chartNumOfFreq.data.datasets[0].data.push(val);
+                     chartNumOfFreq.canvas.parentNode.style.width = newwidth + 'px';
+                 }
+
+                 if (entry.yAxisID === 'retailSale' && chartDataRetailSale.length) {
+                     const val = chartDataRetailSale[x];
+                     chartMain.data.datasets[ndx].data.push(val);
+
+                     var newwidth = canvasRetailSale.closest('.chartAreaWrapper2').width() + 60;
+                     chartRetailSale.data.labels.push(label);
+                     chartRetailSale.data.datasets[0].data.push(val);
+                     chartRetailSale.canvas.parentNode.style.width = newwidth + 'px';
+                 }
+
+                 if (entry.yAxisID === 'wholeSale' && chartDataWholeSale.length) {
+                     const val = chartDataWholeSale[x];
+                     chartMain.data.datasets[ndx].data.push(val);
+
+                     var newwidth = canvasWholeSale.closest('.chartAreaWrapper2').width() + 60;
+                     chartWholeSale.data.labels.push(label);
+                     chartWholeSale.data.datasets[0].data.push(val);
+                     chartWholeSale.canvas.parentNode.style.width = newwidth + 'px';
+                 }
+
+                 if (entry.yAxisID === 'panelAvg' && chartDataPanelAvg.length) {
+                     const val = chartDataPanelAvg[x];
+                     chartMain.data.datasets[ndx].data.push(val);
+
+                     var newwidth = canvasPanelAvg.closest('.chartAreaWrapper2').width() + 60;
+                     chartPanelAvg.data.labels.push(label);
+                     chartPanelAvg.data.datasets[0].data.push(val);
+                     chartPanelAvg.canvas.parentNode.style.width = newwidth + 'px';
+                 }
+
+                 if (entry.yAxisID === 'panelSum' && chartDataPanelSum.length) {
+                     const val = chartDataPanelSum[x];
+                     chartMain.data.datasets[ndx].data.push(val);
+
+                     var newwidth = canvasPanelSum.closest('.chartAreaWrapper2').width() + 60;
+                     chartPanelSum.data.labels.push(label);
+                     chartPanelSum.data.datasets[0].data.push(val);
+                     chartPanelSum.canvas.parentNode.style.width = newwidth + 'px';
+                 }
+
+                
+            });
+
+            var newwidth = canvasMain.closest('.chartAreaWrapper2').width() + 60;
+            chartMain.canvas.parentNode.style.width = newwidth + 'px';
+
+            if (x % 30 == 0) {
+                if (chartMain) {
+                    chartMain.update();
+                }
+                if(chartNumOfFreq) {
+                    chartNumOfFreq.update();
+                }
+
+                if(chartRetailSale) {
+                    chartRetailSale.update();
+                }
+                
+                if(chartWholeSale) {
+                    chartWholeSale.update();
+                }
+
+                if (chartPanelAvg) {
+                    chartPanelAvg.update();
+                }
+                
+                if (chartPanelSum) {
+                    chartPanelSum.update();
+                }
+                
+            }
+            
+        }
+
+        
+        });
+        
+        function getDateOfWeek(w, y) {
+            try {
+                const d = (1 + (w - 1) * 7); // 1st of January + 7 days for each week
+            const aDate = new Date(y, 0, d);
+            
+            var mm = aDate.getMonth() + 1; // getMonth() is zero-based
+            var dd = aDate.getDate();
+            
+            return [aDate.getFullYear(),
+            (mm>9 ? '' : '0') + mm,
+            (dd>9 ? '' : '0') + dd
+            ].join('-');
+            } catch(err) {
+                console.log('Catch 7', err);
+                return '';
+            }
+            
+        }
+    });
+
+    function legendClickCallback(event) {
+        
+        event = event || window.event;
+
+        var target = event.target || event.srcElement;
+        while (target.nodeName !== 'LI') {
+            target = target.parentElement;
+        }
+        var parent = target.parentElement;
+        var chartId = parseInt(parent.classList[0].split("-")[0], 10);
+        var chart = Chart.instances[chartId];
+        var index = Array.prototype.slice.call(parent.children).indexOf(target);
+        var meta = chart.getDatasetMeta(index);
+
+        if (meta.hidden === null || meta.hidden === false) {
+            meta.hidden = true;
+            target.classList.add('hideit');
+        } else {
+            target.classList.remove('hideit');
+            meta.hidden = null;
+        }
+
+        chart.update();
+}
+</script>

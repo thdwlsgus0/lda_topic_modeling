@@ -1,0 +1,140 @@
+
+
+
+<div class="chartWrapper">
+  <div class="chartAreaWrapper">
+  <div class="chartAreaWrapper2">
+      <canvas id="chart-Test" height="400" width="1200"></canvas>
+  </div>
+  </div>
+  <canvas id="axis-Test" height="400" width="0"></canvas>
+</div>
+
+<p id="chartData" data="{{data_list}}"></p>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    
+
+    const data_from_dj = JSON.parse($('#chartData').attr('data'));
+    var dataLength = data_from_dj.length;
+    var chartDataRaw = [[], []];
+
+    function generateDataFromDJ() {
+      var chartLabels = [];
+      var chartData = [];
+       for (x = dataLength - 1; x >= 0; x--) {
+
+         try {
+           const dt = data_from_dj[x];
+           var label = dt.year;
+          if (dt.week != undefined) {
+            label = dt.week + '/' + label;
+          } else if (dt.month != undefined) {
+            label += '-' + dt.month;
+            if (dt.day != undefined) {
+              label += '-' + dt.day;
+            }
+          }
+
+          const sm = parseInt(dt.news_freq__sum) +  parseInt(dt.news_freq__sum) + parseInt(dt.news_freq__sum);
+
+          chartLabels.push(label);
+          chartData.push(sm);
+
+         } catch(err) {
+           continue;
+         }
+       }
+
+       if (chartLabels.length !== chartData.length) {
+         console.log('Different length', chartLabels.length, chartData.length);
+       } else {
+         chartDataRaw[0] = chartLabels;
+         chartDataRaw[1] = chartData;
+         dataLength = chartLabels.length
+       }
+    }
+    generateDataFromDJ();
+
+    function addData(numData, chart) {
+
+        for (var x = 30; x < dataLength; x++) {
+        
+          label = chartDataRaw[0][x];
+          sm = chartDataRaw[1][x];
+
+         
+
+          chart.data.datasets[0].data.push(sm);
+          chart.data.labels.push(label);
+
+           
+          var newwidth = $('.chartAreaWrapper2').width() + 60;
+          chart.canvas.parentNode.style.width = newwidth + 'px';
+        }
+        
+    
+    }
+
+    var chartData = {
+        labels: chartDataRaw[0].slice(0, 30),
+        datasets: [{
+            type: 'line',
+            label: 'Number of Frequency',
+            borderColor: window.chartColors.blue,
+            borderWidth: 2,
+            fill: false,
+            data: chartDataRaw[1].slice(0, 30)
+        }]
+    };
+
+
+
+    $(function () {
+        
+
+        var canvasTest = $('#chart-Test');
+        if (chartTest) {
+          chartTest.destroy();
+        }
+        var chartTest = new Chart(canvasTest, {
+            type: 'line',
+            data: chartData,
+           
+            options: {
+               maintainAspectRatio: false,
+            responsive: true,
+                tooltips: {
+                    titleFontSize: 0,
+                    titleMarginBottom: 0,
+                    bodyFontSize: 12
+                },
+                legend: {
+                    display: false
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            display: true,
+                            autoSkip: false
+                        }
+                    }],
+                    yAxes: [
+                        {
+                        ticks: {
+                            fontSize: 12,
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+        addData(0, chartTest);
+        
+    });
+
+    
+});
+</script>
